@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class leaderboard extends Model
+class LeaderBoard extends Model
 {
     use HasFactory;
     protected $guarded = [];

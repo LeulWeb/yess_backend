@@ -12,14 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('leaderboards', function (Blueprint $table) {
-            $table->id('promotion_id');
-            // $table->unsignedBigInteger('user_id');
+            $table->id();
             $table->text('promotion_type');
             $table->string('story');
-            $table->string('achievnents');
-            $table->string('vedio_link');
-            // $table->timestamps();
-            // $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
+            $table->string('achievements');
+            $table->string('video_link');
             $table->timestamps();
         });
     }

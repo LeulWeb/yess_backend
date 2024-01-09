@@ -18,7 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedBigInteger('funding_amount');
             $table->enum('currency',CurrencyEnum::getValues())->default(CurrencyEnum::ETB);
-            $table->tinyText('eligibility_criteria')->nullable();
+            $table->text('eligibility_criteria')->nullable();
             $table->date('deadline')->nullable();
             $table->text('application_process')->nullable();
             $table->unsignedInteger('program_duration')->nullable();

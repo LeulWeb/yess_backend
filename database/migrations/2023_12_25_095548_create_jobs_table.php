@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\JobSchedule;
+use App\Enums\JobSector;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,22 +15,30 @@ return new class extends Migration
     {
         Schema::create('jobs', function (Blueprint $table)
         {
-            $table->id('job_id');
+            $table->id();
             $table->string('title');
             $table->text('description');
-            $table->string('join_type');
-            $table->string('employment_type');
-            $table->string('industry');
-            $table->string('salary_range');
-            $table->date('app_deadline');
-            $table->text('app_process');
+            $table->enum('schedule', JobSchedule::getValues())->default(JobSchedule::FULLTIME);
+            $table->boolean('is_remote')->default(false);
+            $table->enum('sector', JobSector::getValues())->default(JobSector::OTHER);
+            $table->string('location');
             $table->string('experience');
-            $table->string('company_website');
-            $table->string('link');
-            $table->text('resource')->nullable();
-            // $table->timestamps();
+            $table->date('deadline');
+            $table->text('responsibilities');
+            $table->string('requirements');
+            $table->string('note');
+            $table->string('salary_compensation');
+            $table->text('opportunities')->nullable();
+            $table->unsignedSmallInteger('vacancies')->nullable();
+            $table->mediumText('contact_address');
+            $table->string('contact_phone');
+            $table->string('contact_email');
+            $table->string('logo');
+
+            $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
