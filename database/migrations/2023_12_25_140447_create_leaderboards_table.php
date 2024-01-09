@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('leaderboards', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('position');
             $table->text('promotion_type');
             $table->string('story');
             $table->string('achievements');

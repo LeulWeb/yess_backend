@@ -12,5 +12,8 @@
     {{-- scholarship listing table --}}
     <x-scholarship.scholarship-table :$scholarshipListings />
 
+    @php
+        $test= "something"
+    @endphp
 
 </div>

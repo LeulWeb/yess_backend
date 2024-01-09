@@ -15,8 +15,6 @@ class ScholarshipList extends Component
     public $keyword;
 
 
-
-
     public function render()
     {
         return view('livewire.scholarship-list', [
