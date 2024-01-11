@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\JobController;
 use App\Http\Controllers\Api\ScholarshipController;
@@ -27,6 +28,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request)
 
 
 
+Route::post('/register', [AuthController::class,'register'])->name('register');
+Route::post('/login', [AuthController::class,'login'])->name('login');
+// Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 
 
 Route::apiResource('/scholarship',ScholarshipController::class);

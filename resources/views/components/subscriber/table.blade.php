@@ -8,7 +8,7 @@
     </thead>
     <tbody>
         @forelse ($subscriberList as $item)
-            <tr>
+            <tr>    
                 <td>{{$item->name}}</td>
                 <td>
                     {{$item->email}}
