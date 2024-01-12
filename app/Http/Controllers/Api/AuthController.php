@@ -14,12 +14,16 @@ class AuthController extends Controller
     public function register(Request $request)
     {
 
-
-        $user =  User::create($request->validate([
+        $validated = $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
-            'password' => 'required|password|confirmed'
-        ]));
+            'password' => 'required|string|confirmed'
+        ]);
+
+        $validated['password'] = bcrypt($validated['password']);
+
+        $user =  User::create($validated);
+
 
         $token = $user->createToken('authToken')->plainTextToken;
 
@@ -47,5 +51,14 @@ class AuthController extends Controller
         }
 
         return $user->createToken($request->device_name)->plainTextToken;
+    }
+
+
+    public function logout(Request $request){
+        // we can get the user and simple delete the token
+        $user = $request->user();
+
+        $user->tokens()->delete();
+        return response()->json(['message'=>'You are successfully logged out'], 200);
     }
 }

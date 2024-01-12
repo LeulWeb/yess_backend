@@ -33,6 +33,10 @@ Route::post('/login', [AuthController::class,'login'])->name('login');
 // Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 
 
+Route::group(['middleware'=>['auth:sanctum']], function(){
+    Route::post('/logout', [AuthController::class,'logout'])->name('logout');
+});
+
 Route::apiResource('/scholarship',ScholarshipController::class);
 Route::apiResource('faq',FaqController::class);
 Route::apiResource('jobs', JobController::class);
