@@ -3,12 +3,13 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use App\Models\Education;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
@@ -40,15 +41,20 @@ class User extends Authenticatable
     {
         return $this->hasOne(Education::class);
     }
+
+
+    public function youth(): HasOne
+    {
+        return $this->hasOne(Youth::class);
+    }
+
+
     public function volunteerApplications(): HasMany
     {
         return $this->hasMany(VolunteerApplication::class);
     }
 
-    public function promotions(): HasMany
-    {
-        return $this->hasMany(leaderboard::class);
-    }
+
 
     public function trainingEnrollments(): HasMany
     {

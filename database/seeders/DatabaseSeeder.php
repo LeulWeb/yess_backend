@@ -3,6 +3,10 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\Education;
+use App\Models\Youth;
+use App\Models\LeaderBoard;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -17,12 +21,7 @@ class DatabaseSeeder extends Seeder
          \App\Models\Scholarship::factory(5)->create();
         \App\Models\Faq::factory(5)->create();
         \App\Models\Job::factory(5)->create();
-        // \App\Models\subscriber::factory(5)->create();
-
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Youth::factory(10)->create();
+        Education::factory(10)->create();
     }
 }

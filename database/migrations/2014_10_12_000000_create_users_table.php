@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('locations')->nullable();
             $table->text('interest')->nullable();
             $table->string('skill')->nullable();
+            $table->text('story')->nullable();
             $table->enum('status', ['active','inactive'])->default('active');
             $table->rememberToken();
             $table->timestamps();
