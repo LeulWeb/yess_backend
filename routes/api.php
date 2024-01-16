@@ -4,6 +4,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\JobController;
 use App\Http\Controllers\Api\ScholarshipController;
+use App\Http\Controllers\Api\YouthController;
 use App\Models\Faq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -40,3 +41,4 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
 Route::apiResource('/scholarship',ScholarshipController::class);
 Route::apiResource('faq',FaqController::class);
 Route::apiResource('jobs', JobController::class);
+Route::apiResource('youths', YouthController::class);
