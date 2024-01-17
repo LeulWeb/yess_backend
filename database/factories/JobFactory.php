@@ -24,7 +24,7 @@ class JobFactory extends Factory
 
         return [
             'title' => fake()->sentence,
-            'description' => fake()->paragraph,
+            'description' => fake()->sentence,
             'schedule' => fake()->randomElement($randomSchedule),
             'is_remote' => fake()->boolean,
             'sector' => fake()->randomElement($randomSector),

@@ -4,6 +4,8 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\JobController;
 use App\Http\Controllers\Api\ScholarshipController;
+use App\Http\Controllers\Api\StartupController;
+use App\Http\Controllers\Api\VolunteerController;
 use App\Http\Controllers\Api\YouthController;
 use App\Models\Faq;
 use Illuminate\Http\Request;
@@ -38,7 +40,9 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 });
 
-Route::apiResource('/scholarship',ScholarshipController::class);
-Route::apiResource('faq',FaqController::class);
+Route::apiResource('/scholarships',ScholarshipController::class);
+Route::apiResource('faqs',FaqController::class);
 Route::apiResource('jobs', JobController::class);
 Route::apiResource('youths', YouthController::class);
+Route::apiResource('startups', StartupController::class)->only(['index','show']);
+Route::apiResource('volunteers', VolunteerController::class)->only(['index','show']);
