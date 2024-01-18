@@ -32,7 +32,6 @@ class StartupFactory extends Factory
         'website'=>fake()->url(),
         'facebook'=>fake()->url(),
         'linkedin'=>fake()->url(),
-        'instagram'=>fake()->url(),
         'telegram'=>fake()->url()
         ];
     }

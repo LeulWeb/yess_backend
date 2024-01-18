@@ -3,8 +3,6 @@
 
     {{-- Header Controller --}}
 
-
-
     <div class="flex justify-between items-center py-5 mb-8">
         <div>
             <h2 class="text-4xl font-extrabold dark:text-white">Startup Companies</h2>
@@ -12,11 +10,11 @@
 
         {{-- button for creating startup list --}}
         <div>
-            <a  wire:navigate href="{{route('startups.create')}}" type="button"
+            <a wire:navigate href="{{ route('startups.create') }}" type="button"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 <div class="flex space-x-2 items-center">
                     <iconify-icon icon="uil:plus" color="white"></iconify-icon>
-                   <p> New Startup  </p>
+                    <p> New Startup </p>
                 </div>
 
             </a>
@@ -202,9 +200,6 @@
                                     </div>
                                 </div>
                             </div>
-
-
-
                         </td>
                     </tr>
                 @empty

@@ -13,6 +13,13 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
+
+    {{-- simple mde --}}
+    <!-- Include SimpleMDE from CDN -->
+    <script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+
+
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
@@ -23,7 +30,7 @@
         <x-header></x-header>
         <x-sidebar></x-sidebar>
 
-        <div class="p-4 dark:bg-[#282a36] h-screen sm:ml-64">
+        <div class="p-4 dark:bg-[#282a36] min-h-screen sm:ml-64">
             <div class="p-4  rounded-lg  mt-14">
 
 
@@ -43,7 +50,7 @@
                                 </svg>
                                 <span class="sr-only">Check icon</span>
                             </div>
-                            <div class="ms-3 text-sm font-normal">{{session('success')}}</div>
+                            <div class="ms-3 text-sm font-normal">{{ session('success') }}</div>
                             <button type="button"
                                 class="ms-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex items-center justify-center h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700"
                                 data-dismiss-target="#toast-success" aria-label="Close">
@@ -65,9 +72,9 @@
 
                 {{-- end of sesstion message --}}
 
-                    <div>
-                        {{ $slot }}
-                    </div>
+                <div >
+                    {{ $slot }}
+                </div>
 
             </div>
         </div>
@@ -75,7 +82,19 @@
 
 
 
+    {{-- Tiny mce  --}}
 
+    <script src="https://cdn.tiny.cloud/1/z5h4fqlxmv36dmv7lhxdkvxxctoqq4003ttlrmisdml8ucl4/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#myeditorinstance', // Replace this CSS selector to match the placeholder element for TinyMCE
+            plugins: 'code table lists',
+            toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
+        });
+    </script>
+
+
+    {{-- dark mode toggle --}}
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
         if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia(
@@ -128,6 +147,9 @@
 
         });
     </script>
+
+
+
 
 </body>
 
