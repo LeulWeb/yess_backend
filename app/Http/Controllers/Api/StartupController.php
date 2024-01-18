@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\StartupResource;
+use App\Models\Startup;
 use Illuminate\Http\Request;
 
 class StartupController extends Controller
@@ -12,7 +14,7 @@ class StartupController extends Controller
      */
     public function index()
     {
-        //
+        return  StartupResource::collection(Startup::latest()->get());
     }
 
     /**
@@ -26,9 +28,9 @@ class StartupController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Startup $startup)
     {
-        //
+        return new StartupResource($startup) ;
     }
 
     /**

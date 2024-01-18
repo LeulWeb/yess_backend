@@ -7,6 +7,9 @@ use App\Livewire\Dashboard;
 use App\Livewire\Faq;
 use App\Livewire\ScholarshipList;
 use App\Livewire\ScholarshipView;
+use App\Livewire\Startups\Create;
+use App\Livewire\Startups\Index;
+use App\Livewire\Startups\Show;
 use App\Livewire\Subscriber;
 use App\Livewire\Users;
 
@@ -47,6 +50,12 @@ Route::middleware(['auth','role:admin'])->group(function (){
     Route::get('scholarship-listing',ScholarshipList::class)->name('scholarship-listing');
     Route::get('scholarship-listing/{id}', ScholarshipView::class)->name('scholarship-listing.show');
     Route::get('/subscriber', Subscriber::class)->name('subscriber.index');
+
+    // route group
+    Route::get('/startups', Index::class)->name('startups.index');
+    Route::get('/startups/create', Create::class)->name('startups.create');
+    Route::get('/startups/{startup}', Show::class)->name('startups.show');
+
 
 });
 
