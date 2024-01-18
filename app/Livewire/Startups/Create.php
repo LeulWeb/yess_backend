@@ -38,7 +38,7 @@ class Create extends Component
     public $product_service;
 
 
-    // #[Validate('between:1,100000')]
+    #[Validate('numeric|between:1,100000')]
     public $employees;
 
     #[Validate('required|max:100')]
@@ -88,9 +88,8 @@ class Create extends Component
         $validated['logo']= 'startup/'.$this->logoName;
         $validated['image']= 'startup/'.$this->imageName;
 
-
         Startup::create($validated);
-        session()->flash('message', 'Startup created successfully');
+        session()->flash('success', 'Startup created successfully');
         return redirect()->route('startups.index');
     }
 
@@ -98,7 +97,8 @@ class Create extends Component
     public function render()
     {
         return view('livewire.startups.create', [
-            'JobSectors' => JobSector::getValues()
+            'JobSectors' => JobSector::getValues(),
+            
         ]);
     }
 }
