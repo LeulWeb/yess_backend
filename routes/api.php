@@ -38,7 +38,7 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 });
 
-Route::apiResource('/scholarship',ScholarshipController::class);
 Route::apiResource('faq',FaqController::class);
+Route::apiResource('/scholarship',ScholarshipController::class);
 Route::apiResource('jobs', JobController::class);
 Route::apiResource('youths', YouthController::class);
