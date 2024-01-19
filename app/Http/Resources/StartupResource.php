@@ -28,11 +28,10 @@ class StartupResource extends JsonResource
             'image'=>$this->image,
             'location'=>$this->location,
             'sector'=>$this->sector,
-            'instagram'=>$this->instagram,
             'facebook'=>$this->facebook,
             'telegram'=>$this->telegram,
             'linkedin'=>$this->linkedin,
-            
+
         ];
     }
 }

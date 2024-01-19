@@ -6,6 +6,8 @@ use BenSampo\Enum\Enum;
 
 final class JobSector extends Enum
 {
+    const OTHER = 'Other';
+
     const IT = 'Information Technology';
     const HEALTHCARE = 'Healthcare';
     const FINANCE = 'Finance';
@@ -28,5 +30,4 @@ final class JobSector extends Enum
     const AGRICULTURE = 'Agriculture';
 
     // You can also add a generic 'Other' category if needed
-    const OTHER = 'Other';
 }
