@@ -16,6 +16,8 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
 
+
+
     // filtering options
     public function scopeRole($query , $role){
         if(!empty($role)){
@@ -32,6 +34,13 @@ class User extends Authenticatable
 
 
     protected $guarded = [];
+
+
+    public function scholarshipRequests(): HasMany {
+        return $this->hasMany(ScholarshipRequest::class);
+    }
+
+
     public function location(): HasMany
     {
         return $this->hasMany(Location::class);
@@ -49,17 +58,7 @@ class User extends Authenticatable
     }
 
 
-    public function volunteerApplications(): HasMany
-    {
-        return $this->hasMany(VolunteerApplication::class);
-    }
-
-
-
-    public function trainingEnrollments(): HasMany
-    {
-        return $this->hasMany(TrainingEnrollment::class);
-    }
+   
 
     public function fundingRequests(): HasMany
     {

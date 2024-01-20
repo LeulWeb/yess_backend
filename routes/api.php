@@ -4,9 +4,12 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\JobController;
 use App\Http\Controllers\Api\ScholarshipController;
+use App\Http\Controllers\Api\ScholarshipRequestController;
 use App\Http\Controllers\Api\StartupController;
+use App\Http\Controllers\Api\TrainingController;
 use App\Http\Controllers\Api\VolunteerController;
 use App\Http\Controllers\Api\YouthController;
+use App\Http\Controllers\TrainingApi;
 use App\Models\Faq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +41,9 @@ Route::post('/login', [AuthController::class,'login'])->name('login');
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
+
+    Route::apiResource('/scholarship-request', ScholarshipRequestController::class)->only('store');
+ 
 });
 
 Route::apiResource('/scholarships',ScholarshipController::class);
@@ -46,3 +52,4 @@ Route::apiResource('jobs', JobController::class);
 Route::apiResource('youths', YouthController::class);
 Route::apiResource('startups', StartupController::class)->only(['index','show']);
 Route::apiResource('volunteers', VolunteerController::class)->only(['index','show']);
+Route::apiResource('trainings', TrainingController::class)->only(['index','show']);

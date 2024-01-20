@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\JobSchedule;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -15,8 +16,12 @@ return new class extends Migration
         Schema::create('job_requests', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-            $table->string('title');
-            // make additional fields as requested
+            $table->string('position');
+            $table->string('linkedIn')->nullable();
+            $table->string('resume');
+            $table->enum('job_type', [JobSchedule::class])->default(JobSchedule::FULLTIME);
+            $table->string('field_of_study');
+            $table->boolean('is_visible')->default(true);  
             $table->timestamps();
         });
     }
