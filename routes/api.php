@@ -14,6 +14,7 @@ use App\Http\Controllers\Api\VolunteerController;
 use App\Http\Controllers\Api\JobRequestController;
 use App\Http\Controllers\Api\ScholarshipController;
 use App\Http\Controllers\Api\ScholarshipRequestController;
+use App\Http\Controllers\Api\UpdateProfileController;
 use App\Http\Controllers\Api\VolunteerApplicationController;
 
 
@@ -47,6 +48,10 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::apiResource('/scholarship-request', ScholarshipRequestController::class)->only('store');
     Route::apiResource('/job-requests', JobRequestController::class)->only('store');
     Route::apiResource('/volunteer-applications', VolunteerApplicationController::class)->only(['index','store','show']);
+    Route::put('/update-profile',[UpdateProfileController::class, 'update']);
+    Route::put('/update-password', [UpdateProfileController::class,'updatePassword']);
+    Route::get('/update-profile',[UpdateProfileController::class, 'showProfile']);
+    Route::put('/update-password', [UpdateProfileController::class,'updatePassword']);
 
   
 
