@@ -30,6 +30,7 @@ class ScholarshipRequestFactory extends Factory
             'challenges'=>$this->faker->paragraph(3),
             'solution'=>$this->faker->paragraph(3),
             'help_needed'=>$this->faker->paragraph(3),
+            'document'=>fake()->url(),
         ];
     }
 }

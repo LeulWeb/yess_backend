@@ -32,7 +32,7 @@ class JobFactory extends Factory
             'experience' => fake()->randomDigitNotNull,
             'deadline' => fake()->date,
             'responsibilities' => fake()->paragraph,
-            'requirements' => fake()->paragraph,
+            'requirements' => fake()->sentence,
             'note' => fake()->paragraph,
             'salary_compensation' => fake()->randomDigitNotNull,
             'opportunities' => fake()->paragraph,

@@ -1,10 +1,11 @@
 <?php
 
-use App\Enums\JobSchedule;
 use App\Models\User;
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
+use App\Enums\JobSchedule;
+use App\Enums\EducationLevel;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
 
 return new class extends Migration
 {
@@ -19,8 +20,9 @@ return new class extends Migration
             $table->string('position');
             $table->string('linkedIn')->nullable();
             $table->string('resume');
-            $table->enum('job_type', [JobSchedule::class])->default(JobSchedule::FULLTIME);
-            $table->string('field_of_study');
+            $table->enum('job_type', [JobSchedule::getValues()])->default(JobSchedule::FULLTIME);
+            $table->string('fieldOfStudy')->nullable();
+            $table->enum('educationLevel', [EducationLevel::getValues()])->default(EducationLevel::OTHER);
             $table->boolean('is_visible')->default(true);  
             $table->timestamps();
         });

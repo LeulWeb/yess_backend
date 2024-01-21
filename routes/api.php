@@ -1,18 +1,20 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
+use App\Models\Faq;
+use Illuminate\Http\Request;
+use App\Http\Controllers\TrainingApi;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\JobController;
-use App\Http\Controllers\Api\ScholarshipController;
-use App\Http\Controllers\Api\ScholarshipRequestController;
+use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\YouthController;
 use App\Http\Controllers\Api\StartupController;
 use App\Http\Controllers\Api\TrainingController;
 use App\Http\Controllers\Api\VolunteerController;
-use App\Http\Controllers\Api\YouthController;
-use App\Http\Controllers\TrainingApi;
-use App\Models\Faq;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\JobRequestController;
+use App\Http\Controllers\Api\ScholarshipController;
+use App\Http\Controllers\Api\ScholarshipRequestController;
+use App\Http\Controllers\Api\VolunteerApplicationController;
 
 
 /*
@@ -43,7 +45,11 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 
     Route::apiResource('/scholarship-request', ScholarshipRequestController::class)->only('store');
- 
+    Route::apiResource('/job-requests', JobRequestController::class)->only('store');
+    Route::apiResource('/volunteer-applications', VolunteerApplicationController::class)->only(['index','store','show']);
+
+  
+
 });
 
 Route::apiResource('/scholarships',ScholarshipController::class);

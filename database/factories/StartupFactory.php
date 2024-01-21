@@ -23,7 +23,7 @@ class StartupFactory extends Factory
         'logo'=>fake()->imageUrl,
         'image'=>fake()->imageUrl,
         'sector'=>fake()->randomElement(JobSector::getValues()),
-        'product_service'=>fake()->paragraph,
+        'product_service'=>fake()->sentence,
         'employees'=>fake()->numberBetween(0,120),
         'founder'=>fake()->name,
         'contact_email'=>fake()->email(),

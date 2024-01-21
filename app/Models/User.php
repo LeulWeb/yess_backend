@@ -40,6 +40,10 @@ class User extends Authenticatable
         return $this->hasMany(ScholarshipRequest::class);
     }
 
+    public function volunteerApplication(): HasMany {
+        return $this->hasMany(VolunteerApplication::class);
+    }
+
 
     public function location(): HasMany
     {
