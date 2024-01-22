@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\JobController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\EducationController;
 use App\Http\Controllers\Api\YouthController;
 use App\Http\Controllers\Api\StartupController;
 use App\Http\Controllers\Api\TrainingController;
@@ -52,7 +53,10 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::put('/update-password', [UpdateProfileController::class,'updatePassword']);
     Route::get('/update-profile',[UpdateProfileController::class, 'showProfile']);
     Route::put('/update-password', [UpdateProfileController::class,'updatePassword']);
-
+    Route::get('/education', [EducationController::class, 'showEducation']);
+    Route::put('/education', [EducationController::class, 'updateEducation']);
+    Route::post('/education', [EducationController::class, 'storeEducation']);
+    Route::delete('/education', [EducationController::class, 'deleteEducation']);
   
 
 });

@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // $this->call(UserSeeder::class);
+        $this->call(UserSeeder::class);
         \App\Models\User::factory(5)->create();
          \App\Models\Scholarship::factory(5)->create();
         \App\Models\Faq::factory(5)->create();
@@ -35,6 +35,6 @@ class DatabaseSeeder extends Seeder
         Training::factory(10)->create();
         ScholarshipRequest::factory(10)->create();
         JobRequest::factory(10)->create();
-        VolunteerApplication::factory(10)->create();
+        // VolunteerApplication::factory(10)->create();
     }
 }
