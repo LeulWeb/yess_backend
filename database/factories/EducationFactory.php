@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\EducationLevel;
 use App\Models\User;
 use App\Models\Education;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -23,7 +24,7 @@ class EducationFactory extends Factory
 
         return [
             'user_id'=> $userWithoutEducation->random()->id,
-            'education_level' => fake()->randomElement(['high_school', 'college', 'university']),
+            'education_level' => fake()->randomElement(EducationLevel::getValues()),
             'field_of_study' => fake()->jobTitle(),
             'grade' => fake()->randomElement(['A', 'B', 'C', 'D', 'E', 'F']),
             'graduation_date' => fake()->date(),
