@@ -35,6 +35,6 @@ class DatabaseSeeder extends Seeder
         Training::factory(10)->create();
         ScholarshipRequest::factory(10)->create();
         JobRequest::factory(10)->create();
-        VolunteerApplication::factory(10)->create();
+        // VolunteerApplication::factory(10)->create();
     }
 }
