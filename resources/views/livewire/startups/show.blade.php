@@ -1,12 +1,5 @@
 <div>
 
-
-
-
-
-
-
-
     {{-- controller header --}}
 
     <div class="flex items-center justify-between py-5">
@@ -120,6 +113,7 @@
 
                                     </div>
                                     <input id="dropzone-file" wire:model.live='logo' type="file" class="hidden" />
+                                    <div wire:loading wire:target="logo">Uploading...</div>
                                 </label>
                             </div>
 
@@ -141,7 +135,7 @@
                                 <input type="text" wire:model.live='name' id="name"
                                     aria-describedby="helper-text-explanation"
                                     class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Acme">
+                                    placeholder="name">
 
                                 @error('name')
                                     <x-form.error :$message />
@@ -346,6 +340,7 @@
                                     @endif
                                 </div>
                                 <input wire:model.live='image' id="dropzone-file-one" type="file" class="hidden mb-6" />
+                                <div wire:loading wire:target="image">Uploading...</div>
                             </label>
 
 
@@ -403,8 +398,7 @@
                         <button type="button"
                             class="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Cancel</button>
                         <button  type="submit"
-                            class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">New
-                            Startup</button>
+                            class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Save Changes</button>
 
                     </div>
 

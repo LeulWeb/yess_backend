@@ -1,5 +1,7 @@
 <?php
 
+use App\Enums\Organizations;
+use App\Enums\Status;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,15 +14,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('partners', function (Blueprint $table) {
-            $table->id('partner_id');
-            $table->string('organization');
+            $table->id();
+            $table->string('organization')->nullable();
             $table->string('email');
             $table->string('phone');
-            $table->string('area_of_collaboration');
+            $table->string('area_of_collaboration')->nullable();
             $table->string('agreement_file');
-            $table->enum('organization_type', ['Type1', 'Type2', 'Type3']);
-            $table->string('status');
-            $table->string('logo');
+            $table->enum('organization_type', Organizations::getValues())->default(Organizations::OTHER);
+            $table->enum('status', Status::getValues())->default(Status::New);
+            $table->string('logo')->nullable();
             $table->timestamps();
         });
     }

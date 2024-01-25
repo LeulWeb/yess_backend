@@ -9,9 +9,22 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class News extends Model
 {
     use HasFactory;
-    protected $guarded = [];
-    public function category(): BelongsTo
-    {
-        return $this->belongsTo(Category::class);
+    protected $fillable = [
+        'title',
+        'description',
+        'logo',
+        'thumbnail',
+        'featured',
+        'author',
+        'date',
+        'links',
+        'tags',
+        'is_visible',
+
+    ];
+
+    // local scope query
+    public function scopeSearch($query, $search){
+        return $query->where('title','LIKE','%'.$search.'%')->orWhere('author', 'LIKE','%'.$search.'%');
     }
 }

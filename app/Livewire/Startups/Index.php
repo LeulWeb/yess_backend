@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Livewire\Startups;
 
 use App\Models\Startup;

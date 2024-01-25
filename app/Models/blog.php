@@ -6,12 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class blog extends Model
+class Blog extends Model
 {
     use HasFactory;
     protected $guarded = [];
-    public function category(): BelongsTo
+    // public function category(): BelongsTo
+    // {
+    //     return $this->belongsTo(Category::class);
+    // }
+    public function scopeSearch($query, $search)
     {
-        return $this->belongsTo(Category::class);
-    }
+        return $query->where('title','LIKE','%'.$search.'%')->orWhere('author', 'LIKE','%'.$search.'%');
+
+
+}
 }
