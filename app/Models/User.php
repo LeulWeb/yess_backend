@@ -56,13 +56,18 @@ class User extends Authenticatable
     }
 
 
+    public function donationRequest(): HasMany
+    {
+        return $this->hasMany(DonationRequest::class);
+    }
+
     public function youth(): HasOne
     {
         return $this->hasOne(Youth::class);
     }
 
 
-   
+
 
     public function fundingRequests(): HasMany
     {

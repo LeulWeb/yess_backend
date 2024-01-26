@@ -26,9 +26,6 @@ class EducationFactory extends Factory
             'user_id'=> $userWithoutEducation->random()->id,
             'education_level' => fake()->randomElement(EducationLevel::getValues()),
             'field_of_study' => fake()->jobTitle(),
-            'grade' => fake()->randomElement(['A', 'B', 'C', 'D', 'E', 'F']),
-            'graduation_date' => fake()->date(),
-            'document' => fake()->imageUrl(),
             'award' => fake()->paragraph(),
             'achievement' => fake()->paragraph(),
         ];
