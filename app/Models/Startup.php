@@ -9,11 +9,6 @@ class Startup extends Model
 {
     use HasFactory;
 
-
-
-
-
-
     protected $fillable = [
         'name',
         'description',
@@ -32,7 +27,6 @@ class Startup extends Model
         'instagram',
         'telegram'
     ];
-
 
     // local scope query
     public function scopeSearch($query, $search){

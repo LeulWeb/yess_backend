@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\FaqController;
 use App\Http\Controllers\Api\JobController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\DonateMeController;
 use App\Http\Controllers\Api\EducationController;
 use App\Http\Controllers\Api\YouthController;
 use App\Http\Controllers\Api\StartupController;
@@ -19,17 +20,6 @@ use App\Http\Controllers\Api\UpdateProfileController;
 use App\Http\Controllers\Api\VolunteerApplicationController;
 
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-// Route::apiResource('/faq', FaqController::class);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request)
  {
@@ -57,7 +47,8 @@ Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::put('/education', [EducationController::class, 'updateEducation']);
     Route::post('/education', [EducationController::class, 'storeEducation']);
     Route::delete('/education', [EducationController::class, 'deleteEducation']);
-  
+    Route::post('/donate-me', [DonateMeController::class,'donateMe' ] );
+
 
 });
 

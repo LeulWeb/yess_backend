@@ -13,10 +13,10 @@ class Faq extends Model
 
 
 
-    protected $fillable = [
-        'question',
-        'answer',
-            ];
+    protected $fillable = ['question','answer', ];
+    public function scopeSearch($query, $search){
+        return $query->where('question','LIKE','%'.$search.'%');
+    }
 
 
 }

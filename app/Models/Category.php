@@ -20,8 +20,8 @@ class Category extends Model
         return $this->hasMany(News::class);
     }
 
-    public function blogs(): HasMany
-    {
-        return $this->hasMany(Blog::class);
-    }
+    // public function blogs(): HasMany
+    // {
+    //     return $this->hasMany(Blog::class);
+    // }
 }

@@ -131,7 +131,7 @@
          </li>
          {{-- News --}}
          <li>
-            <a href="#" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
+            <a href="news" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                <iconify-icon icon="icons8:news" width="26" height="26"></iconify-icon>
                <span class="flex-1 ms-3 whitespace-nowrap">News</span>
 
@@ -139,7 +139,7 @@
          </li>
          {{-- Blog --}}
          <li>
-            <a href="#" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
+            <a href="/blogs" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                <iconify-icon icon="ri:quill-pen-line" width="26" height="26"></iconify-icon>
                <span class="flex-1 ms-3 whitespace-nowrap">Blog</span>
                <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
@@ -148,7 +148,7 @@
 
          {{-- Sponser --}}
          <li>
-            <a href="#" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
+            <a href="/sponsers" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                <iconify-icon icon="iconoir:hand-cash" width="26" height="26"></iconify-icon>
                <span class="flex-1 ms-3 whitespace-nowrap">Sponser</span>
                <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
@@ -157,14 +157,15 @@
 
          {{-- partner --}}
          <li>
-            <a href="#" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
+            <a href="/partners" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                <iconify-icon icon="fa-regular:handshake" width="26" height="26"></iconify-icon>
                <span class="flex-1 ms-3 whitespace-nowrap">Partners</span>
                <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
             </a>
          </li>
+           {{--  subscribers  --}}
          <li>
-            <a href="#" class="flex items-center p-2 mx-3  rounded-lg dark:text-white   dark:hover:bg-gray-700 group">
+            <a href="/subscribers" class="flex items-center p-2 mx-3  rounded-lg dark:text-white   dark:hover:bg-gray-700 group">
                <iconify-icon icon="mdi:envelope-outline" width="26" height="26"></iconify-icon>
                <span class="flex-1 ms-3 whitespace-nowrap">Subscribers</span>
                <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
@@ -172,9 +173,17 @@
          </li>
          {{-- FAQ --}}
          <li  @class(['bg-white text-blue-500' => request()->routeIs('faq   ')])  >
-            <a href="/faq" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
+            <a href="/faqs" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                <iconify-icon icon="ri:question-line" width="26" height="26"></iconify-icon>
                <span class="flex-1 ms-3 whitespace-nowrap">FAQ</span>
+
+            </a>
+         </li>
+         {{-- startups --}}
+         <li  @class(['bg-white text-blue-500' => request()->routeIs('faq   ')])  >
+            <a href="/startups" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
+               <iconify-icon icon="ri:question-line" width="26" height="26"></iconify-icon>
+               <span class="flex-1 ms-3 whitespace-nowrap">Startups</span>
 
             </a>
          </li>

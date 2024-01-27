@@ -9,7 +9,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Education extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+    protected $fillable = ['education_level', 'field_of_study', 'award', 'achievement'];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

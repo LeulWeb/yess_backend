@@ -11,15 +11,13 @@ class TrainingController extends Controller
 {
     public function index()
     {
-      $trainings = Training::latest()->with('trainer')->get();
-      return TrainingResource::collection($trainings);
+        $trainings = Training::latest()->with('trainer')->get();
+        return TrainingResource::collection($trainings);
     }
 
     public function show(Training $training)
     {
-        $training= $training->load('trainer');
-      return new TrainingResource($training);
+        $training = $training->load('trainer');
+        return new TrainingResource($training);
     }
-
-
 }

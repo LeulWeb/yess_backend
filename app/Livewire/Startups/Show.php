@@ -28,7 +28,6 @@ class Show extends Component
     #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
 
     public $image;
-
     #[Validate('required')]
     public $sector;
 
@@ -42,10 +41,6 @@ class Show extends Component
 
     #[Validate('required|max:100')]
     public $founder;
-
-
-
-
     // !
     // skip the update email error
     // #[Validate('required|email|unique:startups,contact_email')]
@@ -87,10 +82,8 @@ class Show extends Component
 
     public function mount(Startup $startup)
     {
-        $this->startup = $startup;
-        $this->name = $startup->name;
         $this->description = $startup->description;
-
+        $this->name = $startup->name;
         $this->sector = $startup->sector;
         $this->product_service = $startup->product_service;
         $this->employees = $startup->employees;
@@ -102,8 +95,13 @@ class Show extends Component
         $this->facebook = $startup->facebook;
         $this->linkedin = $startup->linkedin;
         $this->telegram = $startup->telegram;
-        $this->imageName = $startup->image;
-        $this->logoName = $startup->logo;
+
+        // Initialize $imageName and $logoName properties
+        $this->imageName = '';
+        $this->logoName = '';
+
+        $this->imageName = $this->imageName ?: $startup->image;
+        $this->logoName = $this->logoName ?: $startup->logo;
     }
 
 
@@ -116,31 +114,56 @@ class Show extends Component
 
 
 
-    public function update(){
-        $this->validate();
+    public function update()
+    {
+        $this->validate([
+            // Add validation rules for your fields here
+            'name' => 'required|string|max:255',
+            'description' => 'required|string',
+            'sector' => 'required|string',
+            'product_service' => 'required|string',
+            'employees' => 'required|integer',
+            'founder' => 'required|string|max:255',
+            'contact_email' => 'required|email',
+            'contact_phone' => 'required|string',
+            'location' => 'required|string',
+            'website' => 'nullable|url',
+            'facebook' => 'nullable|url',
+            'linkedin' => 'nullable|url',
+            'telegram' => 'nullable|string',
+            // Add more validation rules as needed
+        ]);
 
-        if(!empty($this->image)){
-            $this->imageName = time().'.'.$this->image->extension();
-            $this->image->storeAs('startup', $this->imageName, 'public');
+        $this->startup->update([
+            'name' => $this->name,
+            'description' => $this->description,
+            'sector' => $this->sector,
+            'product_service' => $this->product_service,
+            'employees' => $this->employees,
+            'founder' => $this->founder,
+            'contact_email' => $this->contact_email,
+            'contact_phone' => $this->contact_phone,
+            'location' => $this->location,
+            'website' => $this->website,
+            'facebook' => $this->facebook,
+            'linkedin' => $this->linkedin,
+            'telegram' => $this->telegram,
+            // Update other fields accordingly
+        ]);
+
+        if ($this->image) {
+            // Handle image upload and update
+            $this->startup->update(['image' => $this->image->store('path/to/image/folder', 'public')]);
         }
 
-        if(!empty($this->logo)){
-            $this->logoName = time().'.'.$this->logo->extension();
-            $this->logo->storeAs('startup', $this->logoName, 'public');
+        if ($this->logo) {
+            // Handle logo upload and update
+            $this->startup->update(['logo' => $this->logo->store('path/to/logo/folder', 'public')]);
         }
 
-        $validated['logo']= 'startup/'.$this->logoName;
-        $validated['image']= 'startup/'.$this->imageName;
-
-
-
-        // check the input fields and finish the update func
-
-        session()->flash('success', 'Startup '. $this->startup->name  .' updated successfully');
-        $this->editMode = false;
-
+        session()->flash('success', 'Startup updated successfully');
+        return redirect()->route('startups.index');
     }
-
 
     public function render()
     {

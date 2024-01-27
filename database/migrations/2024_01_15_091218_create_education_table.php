@@ -14,12 +14,9 @@ return new class extends Migration
     {
         Schema::create('education', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete()->unique();
             $table->enum('education_level', EducationLevel::getValues())->default(EducationLevel::BACHELOR_DEGREE);
             $table->string('field_of_study')->nullable();
-            $table->string('grade')->nullable();
-            $table->date('graduation_date')->nullable();
-            $table->string('document')->nullable();
             $table->text('award')->nullable();
             $table->text('achievement')->nullable();
             $table->timestamps();

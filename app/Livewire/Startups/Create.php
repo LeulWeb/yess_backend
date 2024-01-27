@@ -15,8 +15,9 @@ class Create extends Component
     use WithFileUploads;
 
 
-    public String $imageName;
-    public String $logoName;
+    public String $imageName = '';
+    // public String $logoName;
+    public string $logoName = '';
 
     #[Validate('required|max:50')]
     public $name;
@@ -98,7 +99,7 @@ class Create extends Component
     {
         return view('livewire.startups.create', [
             'JobSectors' => JobSector::getValues(),
-            
+
         ]);
     }
 }
