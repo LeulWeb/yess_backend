@@ -9,9 +9,11 @@ use App\Http\Resources\TrainingResource;
 
 class TrainingController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $trainings = Training::latest()->with('trainer')->get();
+        $query = $request->query('query');
+
+        $trainings = Training::search($query)->latest()->with('trainer')->get();
         return TrainingResource::collection($trainings);
     }
 

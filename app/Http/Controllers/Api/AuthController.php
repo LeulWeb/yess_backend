@@ -34,6 +34,8 @@ class AuthController extends Controller
     }
 
 
+
+
     public function login(Request $request)
     {
         $request->validate([
@@ -41,10 +43,10 @@ class AuthController extends Controller
             'password' => 'required',
         ]);
 
-        $request['device_name']= 'android';
+        $request['device_name'] = 'android';
         $user = User::where('email', $request->email)->first();
 
-        if (! $user || ! Hash::check($request->password, $user->password)) {
+        if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
                 'email' => ['The provided credentials are incorrect.'],
             ]);
@@ -54,11 +56,30 @@ class AuthController extends Controller
     }
 
 
-    public function logout(Request $request){
+
+    public function validateToken(Request $request)
+    {
+        $request->validate([
+            'token' => 'required',
+        ]);
+
+        $token = \Laravel\Sanctum\PersonalAccessToken::findToken($request->token);
+
+        if ($token) {
+            return response()->json(['valid' => true]);
+        } else {
+            return response()->json(['valid' => false]);
+        }
+    }
+
+
+
+    public function logout(Request $request)
+    {
         // we can get the user and simple delete the token
         $user = $request->user();
 
         $user->tokens()->delete();
-        return response()->json(['message'=>'You are successfully logged out'], 200);
+        return response()->json(['message' => 'You are successfully logged out'], 200);
     }
 }
