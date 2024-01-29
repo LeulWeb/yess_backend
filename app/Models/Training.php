@@ -18,6 +18,11 @@ class Training extends Model
     ];
 
 
+
+    public function scopeSearch($query, $search) {
+        return $query->where('title', 'LIKE', "%$search%");
+    } 
+
     public function trainer()  {
         return $this->belongsTo(Trainer::class);
     }

@@ -10,9 +10,13 @@ use Illuminate\Http\Request;
 class VolunteerController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        return VolunteerResource::collection(Volunteer::latest()->get());
+
+        $query = $request->query('query');
+        $community= $request->query('filter');
+
+        return VolunteerResource::collection(Volunteer::search($query)->filter($community)->latest()->get());
     }
 
 

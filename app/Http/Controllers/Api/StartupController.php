@@ -12,9 +12,11 @@ class StartupController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return  StartupResource::collection(Startup::latest()->get());
+        $query = $request->input('query');
+
+        return  StartupResource::collection(Startup::search($query)->latest()->get());
     }
 
     /**
@@ -30,7 +32,7 @@ class StartupController extends Controller
      */
     public function show(Startup $startup)
     {
-        return new StartupResource($startup) ;
+        return new StartupResource($startup);
     }
 
     /**
