@@ -29,6 +29,7 @@ class VolunteerApplicationController extends Controller
             'message' => 'nullable|string|max:300',
         ]);
 
+
         $validated['user_id'] = auth('sanctum')->id();
 
         VolunteerApplication::create($validated);
