@@ -20,7 +20,7 @@ class ScholarshipRequestController extends Controller
             'description' => 'required|string|min:7|max:16777215',
             'deadline' => 'date',
             'challenges' => 'required|string|min:7|max:16777215',
-            'solution' => 'required|string|min:7|max:16777215',
+            
             'help_needed' => 'required|string|min:7|max:16777215',
             'document' => 'required|mimes:doc,docx,pdf,txt|max:20480'
         ]);

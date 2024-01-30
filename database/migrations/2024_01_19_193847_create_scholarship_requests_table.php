@@ -21,7 +21,6 @@ return new class extends Migration
             $table->date('deadline')->nullable();
             $table->enum('status', ['new','ongoing','completed'])->default(Status::New);
             $table->text('challenges');
-            $table->text('solution');
             $table->text('help_needed');
         
             $table->timestamps();
