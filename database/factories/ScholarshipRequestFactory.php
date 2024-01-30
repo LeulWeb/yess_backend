@@ -26,7 +26,7 @@ class ScholarshipRequestFactory extends Factory
             'title'=>$this->faker->sentence(3),
             'description'=>$this->faker->paragraph(3),
             'deadline'=>$this->faker->dateTimeBetween('+1 week', '+2 weeks')->format('Y-m-d'),
-            'status'=>fake()->randomElement(Status::getValues()),
+            'status'=>fake()->randomElement(['new','ongoing','completed']),
             'challenges'=>$this->faker->paragraph(3),
             'solution'=>$this->faker->paragraph(3),
             'help_needed'=>$this->faker->paragraph(3),

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Http\Controllers\Controller;
-use App\Models\ScholarshipRequest;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+use App\Models\ScholarshipRequest;
+use App\Http\Controllers\Controller;
 
 class ScholarshipRequestController extends Controller
 {
@@ -13,7 +14,8 @@ class ScholarshipRequestController extends Controller
     public function store(Request $request)
     {
         $validated = $request->validate([
-            'user_id' => 'integer',
+            // 'user_id' => 'integer',
+            'status'=>['required', Rule::in(['new','ongoing','completed'])],
             'title' => 'required|string|max:250|min:7',
             'description' => 'required|string|min:7|max:16777215',
             'deadline' => 'date',
