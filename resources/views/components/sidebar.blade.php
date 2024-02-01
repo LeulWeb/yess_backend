@@ -32,7 +32,7 @@
             </button>
             <ul id="dropdown-example-scholarship" class="hidden py-2 space-y-2">
                   <li>
-                     <a href="{{route('scholarship-listing')}}" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Listings</a>
+                     <a href="/scholarship-listing" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Listings</a>
                   </li>
                   <li>
                      <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Assistance</a>
@@ -53,7 +53,7 @@
             </button>
             <ul id="dropdown-example-job" class="hidden py-2 space-y-2">
                   <li>
-                     <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Listings</a>
+                     <a href="/jobs" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Listings</a>
                   </li>
                   <li>
                      <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Assistance</a>
@@ -76,7 +76,7 @@
                      <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">enrolled </a>
                   </li>
                   <li>
-                     <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Trainers</a>
+                     <a href="/trainers" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Trainers</a>
                   </li>
 
             </ul>
@@ -93,7 +93,7 @@
             </button>
             <ul id="dropdown-example-voluntter" class="hidden py-2 space-y-2   ">
                   <li>
-                     <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700    ">Listing</a>
+                     <a href="/volunteers" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700    ">Listing</a>
                   </li>
                   <li>
                      <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700    ">Applications</a>
@@ -123,7 +123,7 @@
          </li>
          {{-- Events --}}
          <li>
-            <a href="#" class="flex items-center p-2 mx-3  rounded-lg dark:text-white dark:hover:bg-gray-700 group">
+            <a href="/events" class="flex items-center p-2 mx-3  rounded-lg dark:text-white dark:hover:bg-gray-700 group">
                <iconify-icon icon="material-symbols:event-outline" width="26" height="26"></iconify-icon>
                <span class="flex-1 ms-3 whitespace-nowrap   ">Events</span>
 
@@ -131,7 +131,7 @@
          </li>
          {{-- News --}}
          <li>
-            <a href="news" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
+            <a href="/news" class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                <iconify-icon icon="icons8:news" width="26" height="26"></iconify-icon>
                <span class="flex-1 ms-3 whitespace-nowrap">News</span>
 

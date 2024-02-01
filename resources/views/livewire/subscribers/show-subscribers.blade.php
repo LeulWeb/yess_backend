@@ -134,23 +134,15 @@
 
                     </div>
 
-                    </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="grid md:grid-cols-2 gap-y-5 gap-x-3 mt-5">
+                    <div class="grid md:grid-cols-2 gap-y-5 gap-x-3 mt-7">
                         <button type="button"
                             class="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Cancel</button>
                         <button  type="submit"
-                            class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">New
-                            Subcriber</button>
+                            class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Save Changes</button>
 
                     </div>
 
                 </form>
-
             </div>
 
         </div>
@@ -165,23 +157,17 @@
 
                 {{-- contact info --}}
                 <div>
-                    <div>
-                        <p class ="text-xl">Subscriber's Name</p>
-                        <div class="mb-2">
-                            <a class="flex space-x-1 items-center" href="{{ $subscriber->name }}">
+                    <div grid grid-cols-2 gap-5>
 
-                                <p>{{ $subscriber->name }}</p>
-                            </a>
-                        </div>
+                        <p class ="text-xl">Subscriber's Name</p>
+                        <p>{{ $subscriber->name }}</p>
+
                     </div>
                     <div>
                         <p class="text-xl"> Subscriber's Email</p>
-                        <div>
-                            <a class="flex space-x-1 items-center" href="mailto:{{ $subscriber->email }}">
-                                <iconify-icon icon="ic:outline-email"></iconify-icon>
                                 <p>{{ $subscriber->email }}</p>
-                            </a>
-                        </div>
+
+
                     </div>
                 </div>
             </div>

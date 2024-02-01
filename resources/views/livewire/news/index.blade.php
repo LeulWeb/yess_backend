@@ -1,11 +1,9 @@
 <div>
-
-
     {{-- Header Controller --}}
 
     <div class="flex justify-between items-center py-5 mb-8">
         <div>
-            <h2 class="text-4xl font-extrabold dark:text-white">new </h2>
+            <h2 class="text-4xl font-extrabold dark:text-white">News </h2>
         </div>
 
         {{-- button for creating new list --}}
@@ -20,9 +18,6 @@
             </a>
         </div>
     </div>
-
-
-
     {{-- Table for news --}}
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
@@ -121,14 +116,15 @@
                     <th scope="col" class="px-6 py-3">
                         Logo
                     </th>
+
                     <th scope="col" class="px-6 py-3">
-                        Name
+                        News Title
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Founder
+                        Author
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Phone
+                        Link
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Action
@@ -158,9 +154,6 @@
                             <button type="button" data-modal-target="{{ $item->id }}"
                                 data-modal-toggle="{{ $item->id }}"
                                 class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</button>
-
-
-
 
                             <div id="{{ $item->id }}" tabindex="-1"
                                 class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -206,19 +199,11 @@
                     <h6>No data found</h6>
                 @endforelse
 
-
-
-
-
             </tbody>
-
-
-
-
 
         </table>
         <div class="p-3">
-            {{ $newList->links() }}
+            {{$newList->links() }}
         </div>
     </div>
 

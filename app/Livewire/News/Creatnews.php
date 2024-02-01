@@ -9,7 +9,6 @@ use Livewire\Attributes\Validate;
 
 class Creatnews extends Component
 
-
     {
         use WithFileUploads;
         public String $imageName = '';
@@ -54,12 +53,14 @@ class Creatnews extends Component
             $validated = $this->validate();
 
 
-            if(!empty($this->thumbnail)){
+            if(!empty($this->thumbnail))
+            {
                 $this->imageName = time().'.'.$this->thumbnail->extension();
                 $this->thumbnail->storeAs('new', $this->imageName, 'public');
             }
 
-            if(!empty($this->logo)){
+            if(!empty($this->logo))
+            {
                 $this->logoName = time().'.'.$this->logo->extension();
                 $this->logo->storeAs('new', $this->logoName, 'public');
             }
@@ -72,10 +73,9 @@ class Creatnews extends Component
             return redirect()->route('news.index');
         }
 
-
         public function render()
-    {
+        {
         return view('livewire.news.creatnews');
-    }
+        }
     }
 

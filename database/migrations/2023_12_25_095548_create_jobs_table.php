@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->enum('schedule', JobSchedule::getValues())->default(JobSchedule::FULLTIME);
-            $table->boolean('is_remote')->default(false);
+            // $table->boolean('is_remote')->default(false);
             $table->enum('sector', JobSector::getValues())->default(JobSector::OTHER);
             $table->string('location');
             $table->string('experience');

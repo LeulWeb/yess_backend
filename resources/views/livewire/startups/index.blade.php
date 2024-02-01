@@ -1,6 +1,5 @@
 <div>
 
-
     {{-- Header Controller --}}
 
     <div class="flex justify-between items-center py-5 mb-8">

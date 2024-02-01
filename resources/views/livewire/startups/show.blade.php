@@ -1,10 +1,9 @@
-<div>
+<div class=" dark:text-white">
 
     {{-- controller header --}}
 
     <div class="flex items-center justify-between py-5">
         <div class=" flex items-center ">
-
 
             <a wire:navigate href="{{ route('startups.index') }}">
                 <iconify-icon data-tooltip-target="tooltip-default" icon="ion:arrow-back" style="color: blue;"
@@ -82,9 +81,9 @@
 
         </div>
     </div>
-
-
-
+    <div>
+        <h2 class="text-4xl font-extrabold dark:text-white m-5">Startup Companies</h2>
+    </div>
 
     @if ($editMode)
         <div>
@@ -321,7 +320,7 @@
                                     <img src="{{ $image->temporaryUrl() }}" class="bg-cover bg-center" alt="">
 
                                     @elseif ($startup->image)
-                                    <img src="{{ asset($startup->image) }}" class="bg-cover bg-center" alt="">
+                                    <img src="{{ asset($startup->image) }}" class="bg-cover bg-center p-8 w-full h-full" alt="">
 
 
 
@@ -339,7 +338,7 @@
                                         </p>
                                     @endif
                                 </div>
-                                <input wire:model.live='image' id="dropzone-file-one" type="file" class="hidden mb-6" />
+                                <input wire:model.live='image' id="dropzone-file-one" type="file" class="hidden mb-6 p-8  w-full " />
                                 <div wire:loading wire:target="image">Uploading...</div>
                             </label>
 
@@ -472,20 +471,20 @@
 
             <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
             <div class="grid grid-cols-2  gap-x-3">
-                <img src="{{ asset($startup->image) }}" alt="">
-                <div class="format flex flex-col justify-center space-y-4">
-                    <h4>About Company</h4>
+
+                <img src="{{ asset($startup->image) }}" alt="" class ="flex flex-col items-center w-full h-full  p-6">
+                <div class="format flex flex-col justify-center space-y-4 dark:text-white">
+                    <h4 class = " dark:text-white">About Company</h4>
                     {{ $startup->description }}
 
-                    <h4>Product Or Service</h4>
+                    <h4 class = " dark:text-white">Product Or Service</h4>
                     {{ $startup->product_service }}
 
-
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 ">
+                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-white ">
 
                         <tbody>
                             <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <td class="px-6 py-4 font-semibold text-black dark:text-whtie">
+                                <td class="px-6 py-4 font-semibold dark:text-whtie">
                                     Industry/Sector
                                 </td>
 
@@ -494,7 +493,7 @@
                                 </td>
                             </tr>
                             <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <td class="px-6 py-4 font-semibold text-black dark:text-whtie">
+                                <td class="px-6 py-4 font-semibold dark:text-whtie">
                                     Employee Number
                                 </td>
 
@@ -504,7 +503,7 @@
                             </tr>
 
                             <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <td class="px-6 py-4 font-semibold text-black dark:text-whtie">
+                                <td class="px-6 py-4 font-semibold dark:text-whtie">
                                     Location
                                 </td>
 

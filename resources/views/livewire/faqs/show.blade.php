@@ -1,10 +1,9 @@
-<div>
+<div class=" text white dark:text-white">
 
     {{-- controller header --}}
 
-    <div class="flex items-center justify-between py-5">
+    <div class="flex items-center justify-between py-5 dark:text-white">
         <div class=" flex items-center ">
-
 
             <a wire:navigate href="{{ route('faqs.index') }}">
                 <iconify-icon data-tooltip-target="tooltip-default" icon="ion:arrow-back" style="color: blue;"
@@ -90,9 +89,9 @@
                 <form wire:submit.prevent='update()' class="w-10/12 mx-auto" method="post" enctype="multipart/form-data">
 
                        {{-- First column --}}
-                            <div>
+                            <div >
                                 {{-- question--}}
-                                <label for="question" class="block  py-1 text-2xl mb-2  font-medium text-gray-900 dark:text-white">
+                                <label for="question" class="block mb-2  font-medium text-gray-900 dark:text-white text-xl">
                                     Question</label>
                                 <input type="text" wire:model.live='question' id="question"
                                     aria-describedby="helper-text-explanation"
@@ -104,7 +103,7 @@
                                 @enderror
 
                             </div>
-                    <label class="block mb-2  font-medium text-gray-900 dark:text-white text-2xl">Answer</label>
+                    <label class="block mb-2  font-medium text-gray-900 dark:text-white text-xl">Answer</label>
                     <textarea wire:model.live.debounce.1000ms='answer' rows="4"
                         class="block  p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 mb-6 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="Write your thoughts here..."></textarea>
@@ -136,7 +135,7 @@
         {{--faq info --}}
 
             <div class="w-full  p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-5">
-                <h1 class ="text-black str  text-2xl mb-2">Questions</h1>
+                <h1 class ="  text-xl mb-2">Questions</h1>
                              {{ $faq->question }}
 
         <h1 class =" mt-5 mb-2 text-2xl">Answer</h1>
