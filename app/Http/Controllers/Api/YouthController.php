@@ -9,17 +9,19 @@ use Illuminate\Http\Request;
 class YouthController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
-        return Youth::select('id','image','video_link', 'user_id', 'is_published')->with(['user:id,name,phone,email,profile_picture,story','user.education:id,user_id,education_level,field_of_study,award,achievement'])->get();
+        $searchTerm = $request->query('query');
 
+        return Youth::select('id', 'image', 'video_link', 'user_id', 'is_published')->with(['user:id,name,phone,email,profile_picture,story', 'user.education:id,user_id,education_level,field_of_study,award,achievement'])->whereHas('user', function ($query) use ($searchTerm) {
+            $query->where('name', 'like', '%' . $searchTerm . '%');
+        })->get();
     }
 
     public function show(string $id)
     {
-        $youth = Youth::select('id','image','video_link', 'user_id', 'is_published')->findOrFail($id);
+        $youth = Youth::select('id', 'image', 'video_link', 'user_id', 'is_published')->findOrFail($id);
         $youth->load(['user:id,name,phone,email,profile_picture,story', 'user.education:id,user_id,education_level,field_of_study,award,achievement']);
         return $youth;
     }
-
 }

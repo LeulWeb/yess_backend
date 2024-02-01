@@ -12,9 +12,19 @@ class ScholarshipController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return ScholarshipResource::collection(Scholarship::latest()->get());
+
+        $query = $request->input('query');
+
+        if($query){
+            return ScholarshipResource::collection(Scholarship::search($query)->latest()->get());
+        }else{
+            return ScholarshipResource::collection(Scholarship::latest()->get());
+
+        }
+
+
     }
 
     /**
