@@ -36,7 +36,6 @@ Route::post('token-validate',[AuthController::class,'validateToken']);
 
 Route::group(['middleware'=>['auth:sanctum']], function(){
     Route::post('/logout', [AuthController::class,'logout'])->name('logout');
-
     Route::apiResource('/scholarship-request', ScholarshipRequestController::class)->only('store');
     Route::apiResource('/job-requests', JobRequestController::class)->only('store');
     Route::apiResource('/volunteer-applications', VolunteerApplicationController::class)->only(['index','store','show']);

@@ -57,6 +57,7 @@ class UpdateProfileController extends Controller
 
         $validated = $request->validate([
             'username' => ['required', 'string', 'min:3', 'max:15', Rule::unique('users')->ignore($userId)],
+            'name' => ['required', 'string', 'min:3', 'max:15'],
             'email' => ['required', 'email', Rule::unique('users')->ignore($userId)],
             'phone' => 'string|regex:/^\+(?:[0-9] ?){6,14}[0-9]$/',
             'profile_picture' => 'nullable|image|mimes:png,jpg,jpeg,gif,JPG,PNG,JPEG|max:7168',
