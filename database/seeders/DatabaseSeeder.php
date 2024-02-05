@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+//  use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 use App\Models\Education;
 use App\Models\JobRequest;
@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        $this->call(UserSeeder::class);
+      $this->call(UserSeeder::class);
         \App\Models\User::factory(5)->create();
          \App\Models\Scholarship::factory(5)->create();
         \App\Models\Faq::factory(5)->create();

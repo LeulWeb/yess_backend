@@ -1,4 +1,25 @@
 <div>
+    <div class=" flex items-center ">
+
+
+        <a wire:navigate href="{{ route('startups.index') }}">
+            <iconify-icon data-tooltip-target="tooltip-default" icon="ion:arrow-back" style="color: blue;"
+                width="32"></iconify-icon>
+        </a>
+        <div id="tooltip-default" role="tooltip"
+            class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            Go Back
+            <div class="tooltip-arrow" data-popper-arrow></div>
+        </div>
+
+
+
+    </div>
+
+    <article class="format lg:format-lg dark:format-invert mt-4  ml-6 mb-7">
+        <h2>Create Startups </h2>
+    </article>
+
     <form wire:submit.prevent='create()' class="w-10/12 mx-auto" method="post" enctype="multipart/form-data">
         <div class="grid md:grid-cols-6 gap-5 items-center">
 

@@ -70,12 +70,12 @@ class Show extends Component
             'content' => 'required|string',
             'title' => 'required|string',
             'category' => 'required|string',
-            'tag' => 'required|integer',
+            'tag' => 'required|string',
 
             // Add more validation rules as needed
         ]);
 
-        $this->startup->update([
+        $this->blog->update([
             'author' => $this->author,
             'title' => $this->title,
             'content' => $this->content,
@@ -85,7 +85,7 @@ class Show extends Component
         ]);
         if ($this->image) {
             // Handle image upload and update
-            $this->startup->update(['image' => $this->image->store('path/to/image/folder', 'public')]);
+            $this->blog->update(['image' => $this->image->store('path/to/image/folder', 'public')]);
         }
 
         session()->flash('success', ' blog updated successfully');

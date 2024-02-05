@@ -10,6 +10,7 @@ use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
 
 class ShowPartner extends Component
+
 {
     use WithFileUploads;
     public String $logoName;
@@ -22,6 +23,8 @@ class ShowPartner extends Component
     public $organization_type;
     #[Validate('required')]
     public $status;
+    #[Validate('nullable')]
+    public $sponsorship_level;
     #[Validate('required|max:50')]
     public $area_of_collaboration;
 
@@ -51,6 +54,7 @@ class ShowPartner extends Component
         $this->agreement_file = $partner->agreement_file;
         $this->organization_type = $partner->organization_type;
         $this->status = $partner->status;
+        $this->sponsorship_level =$partner->sponsorship_level;
 
         // Initialize $imageName and $logoName properties
            $this->logoName = '';
@@ -61,7 +65,7 @@ class ShowPartner extends Component
     public function delete()
     {
         $this->partner->delete();
-        session()->flash('success', 'partner '. $this->partner->name  .' deleted successfully');
+        session()->flash('success', 'partner '. $this->partner->email  .' deleted successfully');
         return redirect()->route('partners.index');
     }
 
@@ -78,6 +82,7 @@ class ShowPartner extends Component
             'phone' => 'required|string',
             'area_of_collaboration' => 'nullable',
             'agreement_file' => 'nullable|string',
+            'sponsorship_level'=>'nullable|string',
             // Add more validation rules as needed
 
         ]);
@@ -93,7 +98,8 @@ class ShowPartner extends Component
             'email' => $this->email,
             'phone' => $this->phone,
             'area_of_collaboration' => $this->area_of_collaboration,
-            'agreement_file' => $this->agreement_file,
+            // 'agreement_file' => $this->agreement_file,
+            'sponsorship_level'=>$this->sponsorship_level,
 
             // Update other fields accordingly
         ]);
@@ -101,10 +107,10 @@ class ShowPartner extends Component
             // Handle logo upload and update
             $this->partner->update(['logo' => $this->logo->store('path/to/logo/folder', 'public')]);
         }
-        if ($this->agreement_file) {
-            // Handle agreement_file upload and update
-            $this->partner->update(['agreement_file' => $this->agreement_file->store('path/to/document/folder', 'public')]);
-        }
+        // if ($this->agreement_file) {
+        //     // Handle agreement_file upload and update
+        //     $this->partner->update(['agreement_file' => $this->agreement_file->store('path/to/document/folder', 'public')]);
+        // }
 
         session()->flash('success', 'partner updated successfully');
         return redirect()->route('partners.index');
@@ -119,3 +125,4 @@ class ShowPartner extends Component
     }
 
 }
+

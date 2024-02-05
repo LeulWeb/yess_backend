@@ -28,7 +28,6 @@ class Create extends Component
     public $logo;
 
     #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
-
     public $image;
 
     #[Validate('required')]

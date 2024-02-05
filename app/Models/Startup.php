@@ -29,7 +29,8 @@ class Startup extends Model
     ];
 
     // local scope query
-    public function scopeSearch($query, $search){
+    public function scopeSearch($query, $search)
+    {
         return $query->where('name','LIKE','%'.$search.'%')->orWhere('founder', 'LIKE','%'.$search.'%');
     }
 }
