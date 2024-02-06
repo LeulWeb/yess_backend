@@ -17,6 +17,10 @@ class Index extends Component
         session()->flash('success','sponser ' .$sponser->id. ' successfully',) ;
         return redirect()->route('$sponsers.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('sponsers.index');
+     }
 
     public function render()
     {

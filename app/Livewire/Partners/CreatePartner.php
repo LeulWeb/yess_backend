@@ -60,6 +60,10 @@ class CreatePartner extends Component
         session()->flash('success', 'partner created successfully');
         return redirect()->route('partners.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('partners.index');
+     }
 
     public function render()
     {

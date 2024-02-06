@@ -16,6 +16,10 @@ class Index extends Component
         session()->flash('success','blog ' .$blog->author. ' successfully',) ;
         return redirect()->route('blogs.index');
     }
+    public function cancel()
+        {
+        return redirect()->route('blogs.index');
+        }
 
     public function render()
     {

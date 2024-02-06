@@ -32,10 +32,10 @@
             </button>
             <ul id="dropdown-example-scholarship" class="hidden py-2 space-y-2">
                   <li>
-                     <a href="/scholarship-listing" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Listings</a>
+                     <a href="/scholarships" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Listings</a>
                   </li>
                   <li>
-                     <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Assistance</a>
+                     {{--  <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Assistance</a>  --}}
                   </li>
 
             </ul>
@@ -56,7 +56,7 @@
                      <a href="/jobs" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Listings</a>
                   </li>
                   <li>
-                     <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Assistance</a>
+                     {{--  <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Assistance</a>  --}}
                   </li>
 
             </ul>
@@ -73,7 +73,7 @@
             </button>
             <ul id="dropdown-example-train" class="hidden py-2 space-y-2">
                   <li>
-                     <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">enrolled </a>
+                     <a href="/trainings" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Trainings </a>
                   </li>
                   <li>
                      <a href="/trainers" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Trainers</a>
@@ -96,7 +96,7 @@
                      <a href="/volunteers" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700    ">Listing</a>
                   </li>
                   <li>
-                     <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700    ">Applications</a>
+                     {{--  <a href="#" class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700    ">Applications</a>  --}}
                   </li>
 
             </ul>

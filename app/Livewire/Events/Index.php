@@ -17,6 +17,10 @@ class Index extends Component
         session()->flash('success','Event ' .$event->title. ' successfully deleted',) ;
         return redirect()->route('events.index');
     }
+    public function cancel()
+        {
+        return redirect()->route('event.index');
+        }
 
     public function render()
     {

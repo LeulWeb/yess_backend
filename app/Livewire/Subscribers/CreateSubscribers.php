@@ -22,6 +22,10 @@ class CreateSubscribers extends Component
         session()->flash('success', 'subscribers created successfully');
         return redirect()->route('subscribers.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('subscribers.index');
+     }
 
     public function render()
     {

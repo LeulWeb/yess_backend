@@ -25,10 +25,9 @@ use App\Livewire\Partners\CreatePartner;
 use App\Livewire\Partners\Index as PartnersIndex;
 use App\Livewire\Partners\Show as PartnersShow;
 use App\Livewire\Partners\ShowPartner;
-use App\Livewire\Scholarship\Create as ScholarshipCreate;
-use App\Livewire\Scholarship\Edit;
-use App\Livewire\Scholarship\ScholarshipList;
-use App\Livewire\Scholarship\ScholarshipView;
+use App\Livewire\Scholarships\Create as ScholarshipsCreate;
+use App\Livewire\Scholarships\Index as ScholarshipsIndex;
+use App\Livewire\Scholarships\Show as ScholarshipsShow;
 use App\Livewire\Sponsers\Create as SponsersCreate;
 use App\Livewire\Sponsers\Index as SponsersIndex;
 use App\Livewire\Sponsers\Show as SponsersShow;
@@ -36,12 +35,17 @@ use App\Livewire\Startups\Create;
 use App\Livewire\Startups\Index;
 use App\Livewire\Startups\Show;
 
+use App\Livewire\TrainingsTable;
+
 use App\Livewire\Subscribers\CreateSubscribers;
 use App\Livewire\Subscribers\Index as SubscribersIndex;
 use App\Livewire\Subscribers\ShowSubscribers;
 use App\Livewire\Trainers\Create as TrainersCreate;
 use App\Livewire\Trainers\Index as TrainersIndex;
 use App\Livewire\Trainers\Show as TrainersShow;
+use App\Livewire\Trainings\Create as TrainingsCreate;
+use App\Livewire\Trainings\Index as TrainingsIndex;
+use App\Livewire\Trainings\Show as TrainingsShow;
 use App\Livewire\Users\Create as UsersCreate;
 use App\Livewire\Users\Index as UsersIndex;
 use App\Livewire\Users\Show as UsersShow;
@@ -83,11 +87,7 @@ Route::middleware(['auth','role:admin'])->group(function (){
     // Route::get('/users/create', CreateUsers::class)->name('users.create');
 
 
-    // Route for scholarship listing
-    Route::get('scholarship-listing',ScholarshipList::class)->name('scholarship-listing');
-    Route::get('scholarship/create', ScholarshipCreate::class)->name('scholarship.create');
-    Route::get('scholarship-listing/{id}', ScholarshipView::class)->name('scholarship-listing.show');
-    Route::get('/scholarships/{scholarshipId}/edit', Edit::class)->name('scholarship.edit');
+
 
 
     // route group for startups
@@ -105,6 +105,11 @@ Route::middleware(['auth','role:admin'])->group(function (){
      Route::get('/jobs/create', JobsCreate::class)->name('jobs.create');
      Route::get('/jobs/{job}', JobsShow::class)->name('jobs.show');
 
+    //    // route group for trainings
+       Route::get('/trainings', TrainingsIndex::class)->name('trainings.index');
+       Route::get('/trainings/create', TrainingsCreate::class)->name('trainings.create');
+       Route::get('/trainings/{training}', TrainingsShow::class)->name('trainings.show');
+
     // route group for volunteers
     Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
     Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
@@ -114,6 +119,13 @@ Route::middleware(['auth','role:admin'])->group(function (){
       Route::get('/trainers', TrainersIndex::class)->name('trainers.index');
       Route::get('/trainers/create', TrainersCreate::class)->name('trainers.create');
       Route::get('/trainers/{trainer}', TrainersShow::class)->name('trainers.show');
+
+      // route group for trainers
+      Route::get('/scholarships', ScholarshipsIndex::class)->name('scholarships.index');
+      Route::get('/scholarships/create', ScholarshipsCreate::class)->name('scholarships.create');
+      Route::get('/scholarships/{scholarship}', ScholarshipsShow::class)->name('scholarships.show');
+
+
 
 
      // route group for news
@@ -125,6 +137,7 @@ Route::middleware(['auth','role:admin'])->group(function (){
       Route::get('/events',EventsIndex::class)->name('events.index');
       Route::get('/events/create', CreateEvents::class)->name('events.create-events');
       Route::get('/events/{event}', EventsShow::class)->name('events.show');
+    //   Route::get('/events/{edit}', Edit::class)->name('events.edit');
 
 
     // routegroup for faqs
@@ -149,6 +162,7 @@ Route::middleware(['auth','role:admin'])->group(function (){
     Route::get('/blogs', BlogsIndex::class)->name('blogs.index');
     Route::get('/blogs/create', BlogsCreate::class)->name('blogs.create');
     Route::get('/blogs/{blog}', BlogsShow::class)->name('blogs.show');
+    // Route::get('/trainings', TrainingsTable::class)->name('trainings');
 
 
 

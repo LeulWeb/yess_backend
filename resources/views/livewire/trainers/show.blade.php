@@ -83,7 +83,7 @@
             </div>
         </div>
         <div>
-            <h2 class="text-4xl font-extrabold dark:text-white m-5">trainer Companies</h2>
+            <h2 class="text-4xl font-extrabold dark:text-white m-5">Trainer </h2>
         </div>
 
         @if ($editMode)
@@ -184,7 +184,7 @@
                         </div>
 
                         <div class="grid md:grid-cols-2 gap-y-5 gap-x-3 mt-5">
-                            <button type="button"
+                            <button wire:click ="cancel" type="button"
                                 class="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Cancel</button>
                             <button  type="submit"
                                 class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Save Changes</button>
@@ -199,44 +199,38 @@
         @else
             {{-- company info --}}
 
-            <div
-                class="w-full  p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-
-                <div class="flex w-10/12 mx-auto items-center place-content-between ">
-
-
-                    {{-- contact info --}}
-                    <div>
-                        <p>Name</p>
-                        <div>
-                            <a class="flex space-x-1 items-center" href={{ $trainer->name }}">
-                                <iconify-icon icon="ic:outline-email"></iconify-icon>
-                                <p>{{ $trainer->name }}</p>
-                            </a>
-                        </div>
+           
+                <div class="grid grid-cols-2  gap-6">
+                    <div class=" m-3 p-3">
+                        <img src="{{ asset($trainer->profile) }}" alt="" class ="flex flex-col items-center w-full h-full  p-6">
                     </div>
 
-                        <div>
-                            <p>Email</p>
+                    
+                    <div  class="m-5">
+                        <div class=" m-5">
+                            <p>Name</p>
                             <div>
-                                <a class="flex space-x-1 items-center" href="mailto:{{ $trainer->email }}">
+                                <a class="flex space-x-1 items-center" href={{ $trainer->name }}">
                                     <iconify-icon icon="ic:outline-email"></iconify-icon>
-                                    <p>{{ $trainer->email }}</p>
+                                    <p>{{ $trainer->name }}</p>
                                 </a>
                             </div>
                         </div>
-                </div>
-
-
-
-                <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-                <div class="grid grid-cols-2  gap-x-3">
-
-                    <img src="{{ asset($trainer->profile) }}" alt="" class ="flex flex-col items-center w-full h-full  p-6">
+    
+                            <div class =m-5>
+                                <p>Email</p>
+                                <div>
+                                    <a class="flex space-x-1 items-center" href="mailto:{{ $trainer->email }}">
+                                        <iconify-icon icon="ic:outline-email"></iconify-icon>
+                                        <p>{{ $trainer->email }}</p>
+                                    </a>
+                                </div>
+                            </div>
+                    </div>
                   
                 </div>
 
-            </div>
+        
         @endif
 
 

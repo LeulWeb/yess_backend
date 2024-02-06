@@ -367,10 +367,8 @@
                         <p{{ $user->role }}">
 
                         </p>
-                        <p{{ $user->skill }           </p>
-                        <p{{ $user->location }}
-
-                        </a>
+                        <p>{{ $user->skill }}           </p>
+                        <p>{{ $user->location }} </p>
 
 
                     </div>

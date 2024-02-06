@@ -79,6 +79,11 @@ class Create extends Component
         session()->flash('success', 'job created successfully');
         return redirect()->route('jobs.index');
     }
+    public function cancel()
+        {
+        return redirect()->route('jobs.index');
+        }
+
 
 
     public function render()

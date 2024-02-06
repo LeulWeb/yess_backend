@@ -65,6 +65,10 @@ class ShowSubscribers extends Component
         session()->flash('success', 'subscriber updated successfully');
         return redirect()->route('subscribers.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('subscribers.index');
+     }
 
     public function render()
     {

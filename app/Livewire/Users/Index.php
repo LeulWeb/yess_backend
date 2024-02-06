@@ -28,6 +28,10 @@ class Index extends Component
         session()->flash('success','user ' .$user->name. ' successfully',) ;
         return redirect()->route('users.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('users.index');
+     }
 
     public function render()
 

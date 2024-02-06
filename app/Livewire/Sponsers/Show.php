@@ -31,7 +31,7 @@ class Show extends Component
     public $email;
     #[Validate('required|regex:/^\+(?:[0-9] ?){6,14}[0-9]$/')]
     public $phone;
-    #[Validate('required|sometimes|file|mimes:doc,docx,pdf,txt|max:20480')]
+    #[Validate('required|file|mimes:doc,docx,pdf,txt|max:20480')]
     public $agreement_file;
 
     public Sponser $sponser;
@@ -73,20 +73,19 @@ class Show extends Component
     public function update()
     {
         $this->validate([
-            // Add validation rules for your fields here
             'organization' => 'nullable',
             'status' => 'required|string',
             'organization_type' => 'required|string',
             'email' => 'required|email',
             'phone' => 'required|string',
-            'area_of_collaboration' => 'nullable',
-            'agreement_file' => 'nullable|string',
-            'sponsorship_level'=>'nullable|string',
-            // Add more validation rules as needed
+             'area_of_collaboration' => 'nullable',
+             'agreement_file' => 'nullable|file|mimes:doc,docx,pdf,txt|max:20480',
+             'sponsorship_level' => 'nullable|string',
+              // Add more validation rules as needed
 
         ]);
         // if ($this->agreement_file) {
-        //     $path = $this->agreement_file->store('path/to/document/files');
+        //     $path = $this->agreement_file->store('path/to/logo/files');
         //     $this->agreement_file = $path;
         // }
 
@@ -104,16 +103,22 @@ class Show extends Component
         ]);
         if ($this->logo) {
             // Handle logo upload and update
-            $this->sponser->update(['logo' => $this->logo->store('path/to/logo/folder', 'public')]);
+            $this->logo->store('path/to/logo/folder', 'public');
+            $this->sponser->update(['logo' => $this->logo->hashName()]);
         }
-        // if ($this->agreement_file) {
-        //     // Handle agreement_file upload and update
-        //     $this->sponser->update(['agreement_file' => $this->agreement_file->store('path/to/document/folder', 'public')]);
-        // }
 
+        if ($this->agreement_file) {
+            // Handle agreement_file upload and update
+            $this->agreement_file->store('path/to/agreement/folder', 'public');
+            $this->sponser->update(['agreement_file' => $this->agreement_file->hashName()]);
+        }
         session()->flash('success', 'sponser updated successfully');
         return redirect()->route('sponsers.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('sponsers.index');
+     }
 
     public function render()
     {

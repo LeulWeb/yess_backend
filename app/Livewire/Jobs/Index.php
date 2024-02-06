@@ -15,6 +15,10 @@ class Index extends Component
         session()->flash('success','job ' .$job->title. ' successfully',) ;
         return redirect()->route('jobs.index');
     }
+    public function cancel()
+        {
+        return redirect()->route('jobs.index');
+        }
 
     public function render()
     {

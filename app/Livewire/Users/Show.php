@@ -42,7 +42,7 @@ class Show extends Component
 
     // !
     // skip the update email error
-    // #[Validate('required|email|unique:startups,email')]
+    // #[Validate('required|email|unique:users,email')]
     #[Validate('required|email')]
     public $email;
 
@@ -84,8 +84,8 @@ class Show extends Component
     public function delete()
     {
         $this->user->delete();
-        session()->flash('success', 'Startup '. $this->user->name  .' deleted successfully');
-        return redirect()->route('startups.index');
+        session()->flash('success', 'user '. $this->user->name  .' deleted successfully');
+        return redirect()->route('users.index');
     }
 
 
@@ -129,14 +129,18 @@ class Show extends Component
 
 
 
-        session()->flash('success', 'Startup updated successfully');
-        return redirect()->route('startups.index');
+        session()->flash('success', 'user updated successfully');
+        return redirect()->route('users.index');
     }
+    public function cancel()
+     {
+        return redirect()->route('users.index');
+      }
 
     public function render()
     {
-        return view('livewire.startups.show', [
-            'Status'=>Status::getValues()
+        return view('livewire.users.show', [
+
         ]);
     }
 }

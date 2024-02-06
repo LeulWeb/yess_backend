@@ -10,21 +10,30 @@ class Training extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
 
 
-    protected $casts = [
-        'youtube_links' => 'array',
+
+    // protected $casts = [
+    //     'youtube_links' => 'array',
+    // ];
+    protected $fillable = [
+        'description',
+        'title',
+        'image',
+        'youtube_links',
+        'playlist_link',
+        'visible'
+
+        // Add other fillable attributes here
     ];
 
-
-
-    public function scopeSearch($query, $search) {
+    // local scope query
+       public function scopeSearch($query, $search) {
         return $query->where('title', 'LIKE', "%$search%");
-    } 
-
-    public function trainer()  {
-        return $this->belongsTo(Trainer::class);
     }
+
+    // public function trainer()  {
+    //     return $this->belongsTo(Trainer::class);
+    // }
 
 }

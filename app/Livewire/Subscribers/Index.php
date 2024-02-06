@@ -16,6 +16,10 @@ class Index extends Component
         session()->flash('success','subscriber ' .$subscriber->name. ' successfully',) ;
         return redirect()->route('subscribers.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('subscribers.index');
+     }
 
     public function render()
     {

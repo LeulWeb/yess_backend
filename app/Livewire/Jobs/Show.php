@@ -155,6 +155,10 @@ class Show extends Component
         session()->flash('success', 'job updated successfully');
         return redirect()->route('jobs.index');
     }
+    public function cancel()
+        {
+        return redirect()->route('jobs.index');
+        }
 
     public function render()
     {

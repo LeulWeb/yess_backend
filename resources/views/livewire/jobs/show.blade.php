@@ -81,7 +81,7 @@
         </div>
     </div>
     <div>
-        <h2 class="text-4xl font-extrabold dark:text-white m-5">job Companies</h2>
+        <h2 class="text-4xl font-extrabold dark:text-white m-5">Job Listings</h2>
     </div>
 
     @if ($editMode)
@@ -134,7 +134,8 @@
                             placeholder="title">
 
                         @error('title')
-                            <x-form.error :$message />                                @enderror
+                            <x-form.error :$message /> 
+                        @enderror
 
 
                         {{-- contact_address title --}}
@@ -260,11 +261,9 @@
                     <div class="relative mb-6">
                         <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Experiances
                         </label>
-                        <input type="text" id="input-group-1"
+                        <input type="numeric" id="input-group-1"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="experiance" wire:model.live.debounce.300ms='experiance'>
-                    </div>
-                    <div>
+                            placeholder="experiance" wire:model.live.debounce.300ms='experiance'> 
 
                         @error('experiance')
                             <x-form.error :$message />
@@ -386,7 +385,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-y-5 gap-x-3 mt-5">
-                <button type="button"
+                <button wire:click ="cancel" type="button"
                     class="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">
                     Cancel
                 </button>
@@ -406,22 +405,25 @@
 
     </form>
 
-
-
-
     @else
-        {{-- company info --}}
+        {{-- Job info --}}
 
-        <div
-            class="w-full  p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+        <div class="w-full  p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-            <div class="flex w-10/12 mx-auto items-center place-content-between ">
-                <div class="flex flex-col items-center  ">
-                    <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ asset($job->logo) }}"
+            <div class="flex w-10/12 mx-auto place-content-between ">
+                <div class="grid grid-cols-3  ">
+                    <div>
+                        <img class="w-24 h-24 mb-3 rounded-full justify-start shadow-lg" src="{{ asset($job->logo) }}"
                         alt="" />
+                      
+                     </div>
+
                         <div>
-                            <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ $job->title }}</h5>
-                            <p class="fromat">{{ $job->contact_address }}</p>
+                            <h2 class = " dark:text-white text-xl">Job Title </h2>
+                            <h5 class="mb-1  font-medium text-gray-900 dark:text-white">{{ $job->title }}</h5>
+                            <h2 class = " dark:text-white text-xl">Contact Address </h2>
+                            <p> {{ $job->contact_address }} </p>
+
                         </div>
                 </div>
 
@@ -459,86 +461,36 @@
 
 
             <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
-            <div class="grid grid-cols-2  gap-x-3">
+            <div class="grid grid-cols-2 gap-8 ">
 
-
-                <div class="format  flex-col justify-center space-y-4 dark:text-white grid grid-cols-2 gap-4">
-
+               
                     <div>
-                        <h4 class = " dark:text-white">About Company</h4>
-                    {{ $job->description }}
-                     div>
-                    <div>
-                        <h4 class = " dark:text-white">Title</h4>
-                        {{ $job->title }}
-                        <h4 class = " dark:text-white">salary_compensation</h4>
-                        {{ $job->salary_compensation }}
-                        {{ $job->location }}
-                        {{ $job->experiance }}
-                        <h4 class = " dark:text-white">Responsiblities</h4>
-                        {{ $job->responsibilities }}
+                        
+                        <h2 class = " dark:text-white text-xl mt-2">About Company</h2>
+                       <p>{{ $job->description }}</p>  
+                       <h1 class = " dark:text-white text-xl mt-2">Responsiblities</h1>
+                        <p>{{ $job->location }}</p> 
+                       <h2 class = " dark:text-white text-xl mt-2">Location</h2>
+                      <p> {{ $job->responsibilities }} </p>                                      
 
-                    </div>
+                    </div> 
+                <div class=" dark:text-white  text-center"> 
+                    <h1 class = " dark:text-white text-xl mt-2"> Job Sector</h1>
+                       <p>{{ $job->sector }} </p>
+                       <h1 class = " dark:text-white text-xl mt-2">Deadline Date </h1>
+                       <p>{{ $job->deadline }}</p> 
+                       <h1 class = " dark:text-white text-xl mt-2"> Job Vacancies</h1>
+                      <p> {{ $job->vacancies }}</p>
+                       <h1 class = " dark:text-white text-xl mt-2"> Job Schedule</h1>
+                       <p>{{ $job->schedule }} </p>
+                       <h1 class = " dark:text-white text-xl mt-2"> Year of Experiance</h1>
+                       <p>{{ $job->experiance }} </p> 
 
-                    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-white ">
-
-                        <tbody>
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <td class="px-6 py-4 font-semibold dark:text-whtie">
-                                    Industry/Sector
-                                </td>
-
-                                <td class="px-6 py-4">
-                                    {{ $job->sector }}
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <td class="px-6 py-4 font-semibold dark:text-whtie">
-                                    Schedule
-                                </td>
-
-                                <td class="px-6 py-4">
-                                    {{ $job->schedule }}
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <td class="px-6 py-4 font-semibold dark:text-whtie">
-                                    Vacancies
-                                </td>
-
-                                <td class="px-6 py-4">
-                                    {{ $job->vacancies }}
-                                </td>
-                            </tr>
-
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <td class="px-6 py-4 font-semibold dark:text-whtie">
-                                    Location
-                                </td>
-
-                                <td class="px-6 py-4">
-                                    {{ $job->location }}
-                                </td>
-                            </tr>
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-                                <td class="px-6 py-4 font-semibold dark:text-whtie">
-                                    Deadline
-                                </td>
-
-                                <td class="px-6 py-4">
-                                    {{ $job->deadline }}
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
 
                 </div>
+            </div> 
+        </div>       
 
-                {{-- table data --}}
-            </div>
-
-        </div>
     @endif
 
 

@@ -77,7 +77,7 @@ public function create()
 }
 public function cancel()
 {
-  return redirect()->route('users.users');
+  return redirect()->route('users.index');
 }
 
 

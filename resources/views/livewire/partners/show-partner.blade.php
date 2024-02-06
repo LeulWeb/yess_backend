@@ -240,7 +240,7 @@
                         </div>
 
                         <div class="grid md:grid-cols-2 gap-y-5 gap-x-3 mt-5">
-                            <button type="button"
+                            <button wire:click ="cancel" type="button"
                                 class="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Cancel</button>
                             <button  type="submit"
                                 class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Save Changes</button>
@@ -315,7 +315,7 @@
                                 </tr>
                                 <tr class="border-b border-gray-200 dark:border-gray-700">
                                     <td class="px-6 py-4 font-semibold text-black dark:text-whtie">
-                                      Agreement File
+                                        <button wire:click="downloadAgreement">Download Agreement File</button>
                                     </td>
 
                                     <td class="px-6 py-4">

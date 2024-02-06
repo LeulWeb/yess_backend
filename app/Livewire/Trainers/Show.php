@@ -58,15 +58,13 @@ class Show extends Component
         return redirect()->route('trainers.index');
     }
 
-
-
     public function update()
     {
         $this->validate([
             // Add validation rules for your fields here
             'name' => 'required|string|max:255',
             'email' => 'required|email',
-            
+
 
             // Add more validation rules as needed
         ]);
@@ -89,6 +87,11 @@ class Show extends Component
         session()->flash('success', 'trainer updated successfully');
         return redirect()->route('trainers.index');
     }
+    public function cancel()
+    {
+        return redirect()->route('trainers.index');
+    }
+
 
     public function render()
     {

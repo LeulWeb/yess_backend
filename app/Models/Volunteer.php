@@ -25,7 +25,8 @@ class Volunteer extends Model
 
     ];
     // local scope query
-    public function scopeSearch($query, $search){
+    public function scopeSearch($query, $search)
+    {
         return $query->where('title','LIKE','%'.$search.'%')->orWhere('contact_email', 'LIKE','%'.$search.'%');
     }
 
@@ -36,11 +37,7 @@ class Volunteer extends Model
     }
 
 
-    public function scopeSearch($query, $search)
-    {
-        return $query->where('title', 'LIKE', "%$search%");
-    }
-
+   
 
     public function scopeFilter($query, $filters){
         if(isset($filters)){

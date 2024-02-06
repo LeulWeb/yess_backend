@@ -59,6 +59,10 @@ class Create extends Component
         session()->flash('success', 'sponser created successfully');
         return redirect()->route('sponsers.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('sponsers.index');
+     }
 
     public function render()
     {

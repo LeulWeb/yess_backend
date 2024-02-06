@@ -178,24 +178,22 @@
         </table>
 
 
-        <div class="flex flex-col justify-between p-2">
-
-
-        <select wire:model.live='perPage'  id="perpage"
+        {{--  <div class="flex flex-col justify-between p-2">
+          {{--  <select wire:model.live='perPage'  id="perpage"
             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-28 p-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option     value="5">5</option>
+            <option     value="2">5</option>
             <option   value="10">10</option>
             <option     value="15">15</option>
             <option     value="20">20</option>
-        </select>
+          </select>  --}}
 
+            <div class="">
 
-        <div class="">
-            {{
+            </div>
+        </div>  --}}
+        {{
             $userList->links()
             }}
-        </div>
-        </div>
 
 
 

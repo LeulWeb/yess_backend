@@ -57,6 +57,10 @@ class Show extends Component
         session()->flash('success', 'faq updated successfully');
         return redirect()->route('faqs.index');
     }
+    public function cancel()
+    {
+    return redirect()->route('faqs.index');
+    }
     public function render()
     {
         return view('livewire.faqs.show');
