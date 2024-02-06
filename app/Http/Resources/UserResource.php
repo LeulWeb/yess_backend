@@ -23,7 +23,7 @@ class UserResource extends JsonResource
             'interest'=> $this->interest,
             'phone'=> $this->phone,
             'skill'=> $this->skill,
-            'profile_picture'=> $this->profile_picture,
+            'profile_picture'=> 'http://192.168.100.40:8000/'.$this->profile_picture,
             'bio'=> $this->bio,
             'locations'=> $this->locations,
             'story'=>$this->story

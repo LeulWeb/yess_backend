@@ -13,9 +13,9 @@ class Training extends Model
 
 
 
-    // protected $casts = [
-    //     'youtube_links' => 'array',
-    // ];
+    protected $casts = [
+        'youtube_links' => 'array',
+    ];
     protected $fillable = [
         'description',
         'title',

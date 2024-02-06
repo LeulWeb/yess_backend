@@ -19,10 +19,12 @@ return new class extends Migration
             $table->string('password');
             $table->text('bio')->nullable();
             $table->string('profile_picture')->nullable();
-            $table->text('locations')->nullable();
             $table->text('interest')->nullable();
             $table->string('skill')->nullable();
             $table->text('story')->nullable();
+            $table->string('country')->nullable();
+            $table->string('region')->nullable();
+            $table->string('city')->nullable();
             $table->enum('status', ['active','inactive'])->default('active');
             $table->rememberToken();
             $table->timestamps();

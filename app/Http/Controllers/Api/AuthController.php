@@ -35,7 +35,6 @@ class AuthController extends Controller
 
 
 
-
     public function login(Request $request)
     {
         $request->validate([
@@ -45,6 +44,13 @@ class AuthController extends Controller
 
         $request['device_name'] = 'android';
         $user = User::where('email', $request->email)->first();
+
+
+        if($user->status == 'inactive'){
+            throw ValidationException::withMessages([
+                'banned' => ['You are temporarily banned from our community. Contact admin for help'],
+            ]);
+        }
 
         if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([

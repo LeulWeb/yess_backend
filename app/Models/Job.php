@@ -32,7 +32,6 @@ class Job extends Model
         if (isset($filters)) {
             return $query->where('schedule', $filters);
         }
-
         return $query;
     }
 

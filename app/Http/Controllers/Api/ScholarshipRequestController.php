@@ -13,6 +13,8 @@ class ScholarshipRequestController extends Controller
 
     public function store(Request $request)
     {
+    
+
         $validated = $request->validate([
             // 'user_id' => 'integer',
             'status'=>['required', Rule::in(['new','ongoing','completed'])],
