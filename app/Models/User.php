@@ -26,6 +26,13 @@ class User extends Authenticatable
             return $query;
     }
 
+    public function scopeStatus($query, $status){
+        if(!empty($status)){
+            return $query->where('status', $status);
+        }
+            return $query;
+    }
+
     public function scopeSearch($query, $search){
         if(!empty($search)){
             return $query->where('name', 'like', '%'.$search.'%');

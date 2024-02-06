@@ -2,14 +2,20 @@
 
 namespace App\Livewire\Users;
 
-use App\Enums\Status;
 use App\Models\User;
+use App\Enums\Status;
+use App\Models\Startup;
 use Livewire\Component;
-use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
+use Livewire\Attributes\Validate;
+
+#[Title('User')]
 
 class Show extends Component
 {
+
+
     use WithFileUploads;
 
     public String $imageName;
@@ -54,8 +60,20 @@ class Show extends Component
     public bool $editMode = false;
 
 
-    public function toggleEdit(){
-        $this->editMode = !$this->editMode;
+    public function toggleRole()
+    {
+
+
+        if ($this->user->role == 'user') {
+            $this->user->role = 'member';
+        } else {
+            $this->user->role = 'user';
+        }
+
+
+        $this->user->save();
+        session()->flash('success', 'User ' . $this->user->name  . ' is now ' . $this->user->role);
+        return redirect()->route('users.index');
     }
 
 
@@ -68,23 +86,27 @@ class Show extends Component
         $this->role = $user->role;
         $this->email = $user->email;
         $this->phone = $user->phone;
-        $this->location= $user->location;
+        $this->location = $user->location;
         $this->skill = $user->skill;
+    }
 
+    public function toggleBan(){
+        if ($this->user->status == 'active') {
+            $this->user->status = 'inactive';
+        } else {
+            $this->user->status = 'active';
+        }
 
-        // Initialize $imageName and $logoName properties
-        $this->imageName = '';
-
-
-        $this->imageName = $this->imageName ?: $user->profile_picture;
-
+        $this->user->save();
+        session()->flash('success', 'User '. $this->user->name.'is now '. $this->user->status);
+        return redirect()->route('users.index');
     }
 
 
     public function delete()
     {
         $this->user->delete();
-        session()->flash('success', 'Startup '. $this->user->name  .' deleted successfully');
+        session()->flash('success', 'User ' . $this->user->name  . ' deleted successfully');
         return redirect()->route('startups.index');
     }
 
@@ -103,7 +125,7 @@ class Show extends Component
 
             'email' => 'required|email',
             'phone' => 'required|string',
-            'skill'=>'nullable|string'
+            'skill' => 'nullable|string'
 
             // Add more validation rules as needed
         ]);
@@ -135,8 +157,8 @@ class Show extends Component
 
     public function render()
     {
-        return view('livewire.startups.show', [
-            'Status'=>Status::getValues()
+        return view('livewire.users.show', [
+            'user' => $this->user,
         ]);
     }
 }

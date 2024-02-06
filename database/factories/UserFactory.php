@@ -36,7 +36,9 @@ class UserFactory extends Factory
             'skill'=>fake()->sentence(),
             'bio'=>fake()->sentence(),
             'interest'=>fake()->paragraph(),
-            'locations'=>fake()->address(),
+            'country'=>fake()->country(),
+            'city'=>fake()->city(),
+            'region'=>fake()->word(),
             'remember_token' => Str::random(10),
         ];
     }
