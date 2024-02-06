@@ -144,7 +144,7 @@ class Show extends Component
 
         if ($this->cover) {
             // Handle image upload and update
-            $this->scholarship->update(['cover' => $this->cover->store('path/to/image/folder', 'public')]);
+            $this->scholarship->update(['cover' => $this->cover->store('scholarship_covers', 'public')]);
         }
 
 
