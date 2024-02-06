@@ -20,6 +20,10 @@ class Create extends Component
         session()->flash('success', 'faq created successfully');
         return redirect()->route('faqs.index');
     }
+    public function cancel()
+        {
+        return redirect()->route('faqs.index');
+        }
 
     public function render()
     {

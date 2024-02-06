@@ -42,6 +42,10 @@ class Create extends Component
         session()->flash('success', 'blog created successfully');
         return redirect()->route('blogs.index');
     }
+    public function cancel()
+        {
+        return redirect()->route('blogs.index');
+        }
     public function render()
     {
         return view('livewire.blogs.create');

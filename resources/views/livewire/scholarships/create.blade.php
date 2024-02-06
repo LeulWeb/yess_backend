@@ -2,7 +2,7 @@
     <div class=" flex items-center ">
 
 
-        <a wire:navigate href="{{ route('scholarship-listing') }}">
+        <a wire:navigate href="{{ route('scholarships.index') }}">
             <iconify-icon data-tooltip-target="tooltip-default" icon="ion:arrow-back" style="color: blue;"
                 width="32"></iconify-icon>
         </a>
@@ -12,13 +12,29 @@
             <div class="tooltip-arrow" data-popper-arrow></div>
         </div>
 
+
+
     </div>
 
     <article class="format lg:format-lg dark:format-invert mt-4  ml-6 mb-7">
-        <h2>Create Sholarships </h2>
+        <h2>Create scholarships </h2>
     </article>
+
     <form wire:submit.prevent='create()' class="w-10/12 mx-auto" method="post" enctype="multipart/form-data">
-    <div>
+        <div class="grid grid-cols-2 gap-5 ">
+
+
+            {{-- Second column --}}
+
+
+               
+
+                <div>
+                    @error('institution')
+                        <x-form.error :$message />
+                    @enderror
+                </div>
+
 
             {{-- First column --}}
             <div class="col-span-5 grid grid-cols-2 gap-3">
@@ -26,27 +42,27 @@
                 {{-- 1st --}}
                 <div>
                     {{-- Comapnyt Name --}}
-                    <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Comapny
-                        Title</label>
+                    <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ttitle
+                        </label>
                     <input type="text" wire:model.live='title' id="title"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Acme">
+                        placeholder="Title">
 
                     @error('title')
                         <x-form.error :$message />
                     @enderror
 
 
-                    {{-- currency title --}}
-                    <label for="currency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">Company
-                        Currency</label>
-                    <input type="number" wire:model.live='currency' id="currency"
+                    {{-- country name --}}
+                    <label for="country" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">
+                        Country</label>
+                    <input type="text" wire:model.live='country' id="country"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="1000">
+                        placeholder="Jhone Doe">
 
-                    @error('currency')
+                    @error('country')
                         <x-form.error :$message />
                     @enderror
 
@@ -55,13 +71,14 @@
                 {{-- second --}}
 
                 <div>
-                    <label for="eligibility_criteria" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">Eligibility </label>
-                    <input type="text" wire:model.live='eligibility_criteria' id="eligibility_criteria"
+                    <label for="Eligibility_criteria" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">Eligibility  Criteria
+                        </label>
+                    <input type="text" wire:model.live='Eligibility_criteria' id="Eligibility_criteria"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="eligibility_criteria....">
+                        placeholder="Egibility...">
 
-                    @error('eligibility_criteria')
+                    @error('Eligibility_criteria')
                         <x-form.error :$message />
                     @enderror
 
@@ -70,51 +87,129 @@
 
 
                         <div>
-                           {{-- curency title --}}
-                    <label for="curency" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">Company
-                        curency</label>
-                    <input type="number" wire:model.live='curency' id="curency"
-                        aria-describedby="helper-text-explanation"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="1000">
+                            <label for="currency"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><span
+                                    class="hidden md:inline">Currency</span> </label>
 
-                    @error('curency')
-                        <x-form.error :$message />
-                    @enderror
+                            <select wire:model.live='currency' id="currency"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                @foreach ($CurrencyEnum as $item)
+                                    <option>{{ $item }}</option>
+                                @endforeach
+                            </select>
+
+
+                            @error('currency')
+                                <x-form.error :$message />
+                            @enderror
 
 
                         </div>
 
 
 
+                        
                         <div>
-                            <label  for="deadline"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">deadline <span
-                                    class="hidden md:inline"></span></label>
-                            <input wire:model.live='deadline' type="date" id="deadline" aria-describedby="helper-text-explanation"
+                            <label  for="program_duration"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Program  <span
+                                    class="hidden md:inline">Duration</span></label>
+                            <input wire:model.live='program_duration' type="number" id="program_duration" aria-describedby="helper-text-explanation"
                                 class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="date">
+                                placeholder="30">
 
-                            @error('deadline')
+                            @error('program_duration')
                                 <x-form.error :$message />
                             @enderror
                         </div>
+
+
                     </div>
 
                 </div>
 
 
             </div>
-        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-        <textarea wire:model.live.debounce.1000ms='description' rows="4"
-            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 mb-6 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Write your thoughts here..."></textarea>
-        @error('description')
-            <x-form.error :$message />
-        @enderror
+
+        </div>
+
+
+
+        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Informations</label>
+        <div class="grid grid-cols-4 gap-5">
+
+            <div>
+                {{-- link --}}
+                <div class="relative mb-6 flex flex-col">
+
+                    <input type="text" id="input-group-1"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="link" wire:model.live.debounce.300ms='link'>
+
+                </div>
+                <div>
+                    @error('link')
+                        <x-form.error :$message />
+                    @enderror
+                </div>
+
+            </div>
+
+
+            {{-- program --}}
+            <div>
+                <div class="relative mb-6">
+
+                    <input type="text" id="input-group-1"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="program" wire:model.live.debounce.300ms='program'>
+
+                </div>
+                <div>
+                    @error('program')
+                        <x-form.error :$message />
+                    @enderror
+                </div>
+            </div>
+
+
+            {{-- aplication process --}}
+            <div>
+                <div class="relative mb-6">
+
+                    <input type="text" id="input-group-1"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="application_process" wire:model.live.debounce.300ms='application_process'>
+                </div>
+                <div>
+
+                    @error('application_process')
+                        <x-form.error :$message />
+                    @enderror
+                </div>
+            </div>
+
+            {{-- deadline --}}
+            <div>
+                <div class="relative mb-6">
+
+                    <input type="date" id="input-group-1"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="deadline " wire:model.live.debounce.300ms='deadline'>
+
+                </div>
+                <div>
+                    @error('deadline')
+                        <x-form.error :$message />
+                    @enderror
+                </div>
+            </div>
+
+        </div>
+
+
 
         <div class="grid grid-cols-2 gap-5">
-            {{-- cover upload --}}
+            {{-- image upload --}}
 
             <div class="flex flex-col items-center justify-center w-full">
 
@@ -148,111 +243,74 @@
                 </div>
 
             </div>
+
+
+
             {{-- informations --}}
+
             <div>
-                <label for="product" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Application process</label>
-                <input wire:model.live='application_process' type="text" id="product"
+                <label for="product" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Funding Sources</label>
+                <input wire:model.live='funding_source' type="text" id="product"
                     aria-describedby="helper-text-explanation"
                     class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="application_process.....">
-                @error('application_process')
-                    <x-form.error :$message />
-                @enderror
-                <label for="program_duration"
-                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">program_duration</label>
-                <input wire:model.live='program_duration' type="text" id="program_duration"
-                    aria-describedby="helper-text-explanation"
-                    class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="program_duration">
-
-                <div>
-                    @error('program_duration')
-                        <x-form.error :$message />
-                    @enderror
-                </div>
-                {{--  funding_source --}}
-                <label for="funding_source" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">funding_source
-                    </label>
-                <input wire:model.live='funding_source' type="text" id="funding_source"
-                    aria-describedby="helper-text-explanation"
-                    class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Funding source...">
-
+                    placeholder="Funding Source">
                 @error('funding_source')
                     <x-form.error :$message />
                 @enderror
 
+                
+                <label for="institution"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Institution</label>
+                <input wire:model.live='institution' type="text" id="institution"
+                    aria-describedby="helper-text-explanation"
+                    class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Institutions">
+
+                <div>
+                    @error('institution')
+                        <x-form.error :$message />
+                    @enderror
+                </div>
+                {{--  funding_amount --}}
+                <label for="funding_amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">funding_amount
+                    Number</label>
+                <input wire:model.live='funding_amount' type="number" id="funding_amount"
+                    aria-describedby="helper-text-explanation"
+                    class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="1000000">
+
+                @error('funding_amount')
+                    <x-form.error :$message />
+                @enderror
+
+                
+                
+
 
             </div>
         </div>
-        {{--  others div  --}}
-        <div class="grid grid-cols-2 gap-4">
-            {{--  institution  --}}
-            <div>
-                <label for="institution" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">institution
-                </label>
-               <input wire:model.live='institution' type="text" id="institution"
-                aria-describedby="helper-text-explanation"
-                class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="institution">
-                @error('institution')
-                <x-form.error :$message />
-                @enderror
-            </div>
-            {{--  program  --}}
-            <div>
-                <label for="program" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">program
-                </label>
-              <input wire:model.live='program' type="text" id="program"
-                aria-describedby="helper-text-explanation"
-                class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="program">
-                @error('program')
-                <x-form.error :$message />
-               @enderror
-            </div>
-        </div>
-        <div class="grid grid-cols-2 gap-4">
-            {{--  link  --}}
-            <div>
-                <label for="link" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">link
-                </label>
-               <input wire:model.live='link' type="text" id="link"
-                aria-describedby="helper-text-explanation"
-                class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="link">
-                @error('link')
-                <x-form.error :$message />
-                @enderror
-            </div>
-            {{--  country  --}}
-            <div>
-                <label for="country" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">country
-                </label>
-                <input wire:model.live='country' type="text" id="country"
-                aria-describedby="helper-text-explanation"
-                class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="country">
-                @error('country')
-                <x-form.error :$message />
-               @enderror
-            </div>
-        </div>
+        <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+        <textarea wire:model.live.debounce.1000ms='description' rows="4"
+          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 mb-6 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            placeholder="Write your thoughts here...">
+        </textarea>
+        @error('description')
+        <x-form.error :$message />
+        @enderror
 
         <div class="grid md:grid-cols-2 gap-y-5 gap-x-3 mt-5">
-            <button type="button"
+            <button wire:click ="cancel" type="button"
                 class="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Cancel</button>
             <button  type="submit"
                 class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">New
-                Scholarship
-            </button>
+                scholarship</button>
+
         </div>
-    </div>
-
-
-   </form>
 
 
 
+
+    </form>
 
 </div>
+

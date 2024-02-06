@@ -80,6 +80,10 @@ class Show extends Component
         $this->imageName = $this->imageName ?: $volunteer->image;
 
     }
+    public function cancel()
+    {
+       return redirect()->route('volunteers.index');
+     }
 
 
     public function delete()

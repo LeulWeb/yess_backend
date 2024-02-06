@@ -21,7 +21,7 @@ class CreateEvents extends Component
         public $date;
         #[Validate('nullable|max:1024')]
         public $coord;
-        #[Validate('nullable|max:1024')]
+        #[Validate('required|max:1024')]
         public $location;
 
 
@@ -32,6 +32,10 @@ class CreateEvents extends Component
             EventProgram::create($validated);
             session()->flash('success', 'Events created successfully');
             return redirect()->route('events.index');
+        }
+        public function cancel()
+        {
+        return redirect()->route('events.index');
         }
 
         public function render()

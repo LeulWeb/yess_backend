@@ -72,6 +72,10 @@ class Creatnews extends Component
             session()->flash('success', 'new created successfully');
             return redirect()->route('news.index');
         }
+        public function cancel()
+        {
+        return redirect()->route('news.index');
+        }
 
         public function render()
         {

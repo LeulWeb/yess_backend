@@ -91,6 +91,10 @@ class Show extends Component
         session()->flash('success', ' blog updated successfully');
         return redirect()->route('blogs.index');
     }
+    public function cancel()
+        {
+        return redirect()->route('blogs.index');
+        }
 
 
     public function render()

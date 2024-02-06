@@ -33,7 +33,7 @@ class JobFactory extends Factory
             'deadline' => fake()->date,
             'responsibilities' => fake()->paragraph,
             'requirements' => fake()->sentence,
-            'note' => fake()->paragraph,
+            'note' => fake()->sentence(),
             'salary_compensation' => fake()->randomDigitNotNull,
             'opportunities' => fake()->paragraph,
             'vacancies' => fake()->randomDigitNotNull,

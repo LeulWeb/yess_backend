@@ -40,12 +40,16 @@ class Create extends Component
         session()->flash('success', 'trainer created successfully');
         return redirect()->route('trainers.index');
     }
+    public function cancel()
+    {
+        return redirect()->route('trainers.index');
+    }
 
 
     public function render()
     {
         return view('livewire.trainers.create', [
-            
+
         ]);
     }
 }

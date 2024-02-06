@@ -92,6 +92,10 @@ class Create extends Component
         session()->flash('success', 'Startup created successfully');
         return redirect()->route('startups.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('startups.index');
+     }
 
 
     public function render()

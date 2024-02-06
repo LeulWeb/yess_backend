@@ -105,6 +105,10 @@ class Show extends Component
         session()->flash('success', 'event updated successfully');
         return redirect()->route('events.index');
     }
+    public function cancel()
+        {
+        return redirect()->route('event.index');
+        }
 
     public function render()
     {

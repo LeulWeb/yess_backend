@@ -15,6 +15,10 @@ class Index extends Component
         session()->flash('success','Startup ' .$startup->name. ' successfully',) ;
         return redirect()->route('startups.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('startups.index');
+     }
 
     public function render()
     {

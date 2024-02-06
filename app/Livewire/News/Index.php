@@ -15,6 +15,11 @@ class Index extends Component
         session()->flash('success','news ' .$new->author. ' successfully',) ;
         return redirect()->route('news.index');
     }
+    public function cancel()
+        {
+        return redirect()->route('news.index');
+        }
+
 
     public function render()
     {

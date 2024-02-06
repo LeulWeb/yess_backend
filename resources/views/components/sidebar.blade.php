@@ -43,7 +43,7 @@
                 </button>
                 <ul id="dropdown-example-scholarship" class="hidden py-2 space-y-2">
                     <li>
-                        <a href="/scholarship-listing"
+                        <a href="/scholarships"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Listings</a>
                     </li>
                     <li>

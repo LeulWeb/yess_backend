@@ -71,6 +71,10 @@ class Create extends Component
         session()->flash('success', 'volunteer created successfully');
         return redirect()->route('volunteers.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('volunteers.index');
+     }
 
 
     public function render()

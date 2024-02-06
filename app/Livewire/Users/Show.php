@@ -48,7 +48,7 @@ class Show extends Component
 
     // !
     // skip the update email error
-    // #[Validate('required|email|unique:startups,email')]
+    // #[Validate('required|email|unique:users,email')]
     #[Validate('required|email')]
     public $email;
 
@@ -151,9 +151,13 @@ class Show extends Component
 
 
 
-        session()->flash('success', 'Startup updated successfully');
-        return redirect()->route('startups.index');
+        session()->flash('success', 'user updated successfully');
+        return redirect()->route('users.index');
     }
+    public function cancel()
+     {
+        return redirect()->route('users.index');
+      }
 
     public function render()
     {

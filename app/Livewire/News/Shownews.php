@@ -118,10 +118,10 @@ class Shownews extends Component
         session()->flash('success', 'new updated successfully');
         return redirect()->route('news.index');
     }
-
-
-
-
+    public function cancel()
+        {
+        return redirect()->route('news.index');
+        }
 
 
     public function render()

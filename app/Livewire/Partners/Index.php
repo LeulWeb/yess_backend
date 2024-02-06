@@ -15,6 +15,10 @@ class Index extends Component
         session()->flash('success','Startup ' .$partner->id. ' successfully',) ;
         return redirect()->route('partners.index');
     }
+    public function cancel()
+    {
+       return redirect()->route('partners.index');
+     }
 
     public function render()
     {
@@ -23,5 +27,5 @@ class Index extends Component
         ]);
     }
 
-   
+
 }
