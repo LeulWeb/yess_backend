@@ -20,4 +20,7 @@ class VolunteerApplication extends Model
     public function volunteer(){
         return $this->belongsTo(Volunteer::class);
     }
+    public function scopeSearch($query, $keyword){
+        return $query->where("phoneNumber","LIKE","%". $keyword ."%");
+    }
 }

@@ -15,4 +15,7 @@ class JobRequest extends Model
     public function user(): BelongsTo{
         return $this->belongsTo(User::class);
     }
+    public function scopeSearch($query, $keyword){
+        return $query->where("job_type","LIKE","%". $keyword ."%")->orWhere('position', 'LIKE','%'.$keyword.'%')->orWhere('educationLevel', 'LIKE','%'.$keyword.'%');
+    }
 }

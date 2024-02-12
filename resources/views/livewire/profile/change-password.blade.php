@@ -1,4 +1,4 @@
-<x-app-layout>
+
 
 
     <div class="py-12">
@@ -9,7 +9,10 @@
                 <div class="max-w-xl">
                     @include('profile.partials.update-password-form')
                 </div>
-            
+
         </div>
     </div>
-</x-app-layout>
+
+
+
+

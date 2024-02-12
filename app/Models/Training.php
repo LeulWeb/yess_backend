@@ -13,9 +13,9 @@ class Training extends Model
 
 
 
-    protected $casts = [
-        'youtube_links' => 'array',
-    ];
+    // protected $casts = [
+    //     'youtube_links' => 'array',
+    // ];
     protected $fillable = [
         'description',
         'title',
@@ -32,8 +32,8 @@ class Training extends Model
         return $query->where('title', 'LIKE', "%$search%");
     }
 
-    // public function trainer()  {
-    //     return $this->belongsTo(Trainer::class);
-    // }
+    public function trainer()  {
+        return $this->belongsTo(Trainer::class);
+    }
 
 }

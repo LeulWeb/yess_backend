@@ -15,8 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\User::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(\App\Models\Volunteer::class)->constrained()->cascadeOnDelete();
-            $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
-            // $table->string('status');
+            $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
             $table->text('message')->nullable();
             $table->string('phoneNumber');
             $table->timestamps();
