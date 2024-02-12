@@ -18,9 +18,9 @@ class JobController extends Controller
         $query = $request->query('query');
         $filterBySector = $request->query('sector');
         $job_type = $request->query('type');
-        $experience = $request->query('experience');
+        $experience = $request->query('years');
 
-        return JobResource::collection(Job::search($query)->filterBySector($filterBySector)->filterByJobType($job_type)->filterByExperience($experience)->latest()->get());
+        return JobResource::collection(Job::filterByExperience($experience)->search($query)->filterBySector($filterBySector)->filterByJobType($job_type)->latest()->get());
     }
 
     /**

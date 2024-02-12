@@ -168,7 +168,7 @@
                 <a href="/events"
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white dark:hover:bg-gray-700 group">
                     <iconify-icon icon="material-symbols:event-outline" width="26" height="26"></iconify-icon>
-                    <span class="flex-1 ms-3 whitespace-nowrap   ">Events</span>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Events</span>
 
                 </a>
             </li>

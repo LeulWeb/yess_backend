@@ -44,7 +44,7 @@ class Create extends Component
     #[Validate('required|max:100')]
     public $title;
     #[Validate('required|string')]
-      public $program;
+    public $program;
     #[Validate('nullable')]
     public $institution;
     #[Validate('nullable')]
@@ -59,13 +59,13 @@ class Create extends Component
         $validated = $this->validate();
 
 
-        if(!empty($this->cover)){
-            $this->imageName = time().'.'.$this->cover->extension();
-            $this->cover->storeAs('schoarship', $this->imageName, 'public');
+        if (!empty($this->cover)) {
+            $this->imageName = time() . '.' . $this->cover->extension();
+            $this->cover->storeAs('scholarship_covers', $this->imageName, 'public');
         }
 
 
-        $validated['cover']= 'scholarship/'.$this->imageName;
+        $validated['cover'] = 'scholarship_covers/' . $this->imageName;
 
         Scholarship::create($validated);
         session()->flash('success', 'scholarship created successfully');
@@ -73,8 +73,8 @@ class Create extends Component
     }
     public function cancel()
     {
-       return redirect()->route('scholarships.index');
-     }
+        return redirect()->route('scholarships.index');
+    }
 
 
     public function render()
