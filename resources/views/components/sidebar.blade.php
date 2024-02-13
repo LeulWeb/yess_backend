@@ -7,6 +7,7 @@
             Service</span>
     </div>
 
+
     <div class="h-full  pb-4 overflow-y-auto bg-blue-500 text-white  dark:bg-gray-800">
         <ul class="space-y-2 font-medium ">
             <li @class([
@@ -18,6 +19,7 @@
                     <span class="ms-3">Dashboard</span>
                 </a>
             </li>
+
             <li @class([
                 'bg-white dark:bg-black text-blue-500' => request()->routeIs('users.index'),
             ])>
@@ -28,8 +30,9 @@
 
                 </a>
             </li>
+
             {{-- scholarship  --}}
-            <li class="mx-3">
+            <li class="mx-3" >
                 <button type="button"
                     class="flex items-center w-full p-2    text-base  transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700"
                     aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-scholarship">
@@ -47,8 +50,8 @@
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Listings</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Assistance</a>
+                        <a href="/scholarshiprequest"
+                            class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Applications</a>
                     </li>
 
                 </ul>
@@ -74,8 +77,7 @@
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Listings</a>
                     </li>
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Assistance</a>
+                        <a href="/jobrequest"class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Applications</a>
                     </li>
 
                 </ul>
@@ -96,8 +98,8 @@
                 </button>
                 <ul id="dropdown-example-train" class="hidden py-2 space-y-2">
                     <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">enrolled
+                        <a href="/trainings"
+                            class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Trainings
                         </a>
                     </li>
                     <li>
@@ -128,7 +130,7 @@
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700    ">Listing</a>
                     </li>
                     <li>
-                        <a href="#"
+                        <a href="/volunteerApplication"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700    ">Applications</a>
                     </li>
 
@@ -149,7 +151,7 @@
                     </svg>
                 </button>
                 <ul id="dropdown-example-donation" class="hidden py-2 space-y-2">
-                    <li>
+                    {{--  <li>
                         <a href="#"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700   ">Fund
                             Raising</a>
@@ -157,7 +159,7 @@
                     <li>
                         <a href="#"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700 ">Assistance</a>
-                    </li>
+                    </li>  --}}
 
                 </ul>
             </li>

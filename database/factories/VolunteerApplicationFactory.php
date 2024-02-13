@@ -28,7 +28,7 @@ class VolunteerApplicationFactory extends Factory
         return [
             'user_id' => $this->faker->randomElement($usersId),
             'volunteer_id' => $this->faker->randomElement($volunteerId),
-            // 'status' => $this->faker->randomElement(['pending', 'accepted', 'rejected']),
+             'status' => $this->faker->randomElement(['pending', 'accepted', 'rejected']),
             'message' => $this->faker->text(),
         'phoneNumber'=>$this->faker->phoneNumber(),
         ];

@@ -21,25 +21,7 @@ class TrainingFactory extends Factory
 
         $is_playlist = $this->faker->boolean();
 
-        $youtubeUrls = [
-            'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
-            'https://www.youtube.com/watch?v=3JZ_D3ELwOQ',
-            "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",
-            "https://www.youtube.com/watch?v=5qap5aO4i9A",
-            "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-            "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",
-            "https://www.youtube.com/watch?v=5qap5aO4i9A",
-            "https://www.youtube.com/watch?v=3tmd-ClpJxA",
-            "https://www.youtube.com/watch?v=9bZkp7q19f0",
-            "https://www.youtube.com/watch?v=6v2L2UGZJAM",
-            "https://www.youtube.com/watch?v=3JZ_D3ELwOQ",
-            "https://www.youtube.com/watch?v=5qap5aO4i9A",
-            "https://www.youtube.com/watch?v=3tmd-ClpJxA",
-            "https://www.youtube.com/watch?v=9bZkp7q19f0",
-            "https://www.youtube.com/watch?v=6v2L2UGZJAM",
-
-        ];
+        $youtubeUrls = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';        
 
         return [
             'title' => fake()->sentence(3),

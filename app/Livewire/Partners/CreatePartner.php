@@ -51,10 +51,10 @@ class CreatePartner extends Component
 
         if(!empty($this->agreement_file)){
             $this->imageName = time().'.'.$this->agreement_file->extension();
-            $this->agreement_file->storeAs('partner', $this->imageName, 'public');
+            $this->agreement_file->storeAs('path/to/agreement/folder', $this->imageName, 'public');
         }
 
-        $validated['agreement_file']= 'partner/'.$this->imageName;
+        $validated['agreement_file']= 'path/to/agreement/folder/'.$this->imageName;
 
         Partner::create($validated);
         session()->flash('success', 'partner created successfully');

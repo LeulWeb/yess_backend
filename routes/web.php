@@ -1,5 +1,7 @@
 <?php
 
+
+
 use App\Models\User;
 use App\Livewire\Dashboard;
 use Illuminate\Http\Request;
@@ -14,6 +16,8 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Auth;
 use App\Livewire\Events\CreateEvents;
 use App\Livewire\Faq\Show as FaqShow;
+
+
 use Illuminate\Support\Facades\Route;
 use App\Livewire\Partners\ShowPartner;
 use App\Livewire\Faq\Index as FaqIndex;
@@ -24,6 +28,7 @@ use App\Livewire\Faq\Create as FaqCreate;
 use App\Livewire\Jobs\Index as JobsIndex;
 use App\Livewire\News\Index as NewsIndex;
 use App\Livewire\Users\Show as UsersShow;
+
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Blogs\Index as BlogsIndex;
 use App\Livewire\Events\Show as EventsShow;
@@ -33,10 +38,10 @@ use App\Livewire\Blogs\Create as BlogsCreate;
 use App\Livewire\Events\Index as EventsIndex;
 use App\Livewire\Subscribers\ShowSubscribers;
 use App\Livewire\Users\Create as UsersCreate;
+
 use App\Livewire\Partners\Show as PartnersShow;
 
 use App\Livewire\Sponsers\Show as SponsersShow;
-
 use App\Livewire\Subscribers\CreateSubscribers;
 use App\Livewire\Trainers\Show as TrainersShow;
 use App\Livewire\Partners\Index as PartnersIndex;
