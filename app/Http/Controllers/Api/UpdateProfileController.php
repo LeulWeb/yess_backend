@@ -52,19 +52,21 @@ class UpdateProfileController extends Controller
         $userId = auth('sanctum')->id();
 
 
-        $request->merge(['username' => $request->input('username', User::find($userId)->username)]);
         $request->merge(['email' => $request->input('email', User::find($userId)->email)]);
 
         $validated = $request->validate([
-            'username' => ['required', 'string', 'min:3', 'max:15', Rule::unique('users')->ignore($userId)],
+
             'name' => ['required', 'string', 'min:3', 'max:15'],
             'email' => ['required', 'email', Rule::unique('users')->ignore($userId)],
-            'phone' => 'string|regex:/^\+(?:[0-9] ?){6,14}[0-9]$/',
+            'phone' => 'nullable|string|regex:/^\+(?:[0-9] ?){6,14}[0-9]$/',
             'profile_picture' => 'nullable|image|mimes:png,jpg,jpeg,gif,JPG,PNG,JPEG|max:7168',
             'interest' => 'string|nullable',
             'skill' => 'string|nullable',
             'story' => 'string|nullable',
             'bio' => 'string|max:100|nullable',
+            'country' => 'string|nullable|max:100',
+            'region' => 'string|nullable|max:100',
+            'city' => 'string|nullable|max:100',
         ]);
 
 

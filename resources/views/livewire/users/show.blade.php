@@ -315,7 +315,6 @@
                     <div>
                         <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{{ $user->name }}
                         </h5>
-                        <p class="fromat">{{ $user->username }}</p>
                         <p class="fromat">{{ $user->bio }}</p>
 
                     </div>

@@ -1,60 +1,63 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Livewire\Blogs\Create as BlogsCreate;
-use App\Livewire\Blogs\Index as BlogsIndex;
-use App\Livewire\Blogs\Show as BlogsShow;
+use App\Models\User;
 use App\Livewire\Dashboard;
-use App\Livewire\Events\CreateEvents;
-use App\Livewire\Events\Index as EventsIndex;
-use App\Livewire\Events\Show as EventsShow;
-// use App\Livewire\Events\ShowEvents;
-use App\Livewire\Faq\Create as FaqCreate;
-use App\Livewire\Faq\Index as FaqIndex;
-use App\Livewire\Faq\Show as FaqShow;
-use App\Livewire\Jobs\Create as JobsCreate;
-use App\Livewire\Jobs\Index as JobsIndex;
-use App\Livewire\Jobs\Show as JobsShow;
-use App\Livewire\News\Creatnews;
-use App\Livewire\News\Index as NewsIndex;
+use Illuminate\Http\Request;
 use App\Livewire\News\Shownews;
-use App\Livewire\Partners\Create as PartnersCreate;
-use App\Livewire\Partners\CreatePartner;
-use App\Livewire\Partners\Index as PartnersIndex;
-use App\Livewire\Partners\Show as PartnersShow;
-use App\Livewire\Partners\ShowPartner;
-use App\Livewire\Scholarships\Create as ScholarshipsCreate;
-use App\Livewire\Scholarships\Index as ScholarshipsIndex;
-use App\Livewire\Scholarships\Show as ScholarshipsShow;
-use App\Livewire\Sponsers\Create as SponsersCreate;
-use App\Livewire\Sponsers\Index as SponsersIndex;
-use App\Livewire\Sponsers\Show as SponsersShow;
-use App\Livewire\Startups\Create;
-use App\Livewire\Startups\Index;
 use App\Livewire\Startups\Show;
-
+use App\Livewire\News\Creatnews;
+use App\Livewire\Startups\Index;
 use App\Livewire\TrainingsTable;
+use App\Livewire\Startups\Create;
+use Illuminate\Auth\Events\Verified;
+// use App\Livewire\Events\ShowEvents;
+use Illuminate\Support\Facades\Auth;
+use App\Livewire\Events\CreateEvents;
+use App\Livewire\Faq\Show as FaqShow;
+use Illuminate\Support\Facades\Route;
+use App\Livewire\Partners\ShowPartner;
+use App\Livewire\Faq\Index as FaqIndex;
+use App\Livewire\Jobs\Show as JobsShow;
+use App\Livewire\Partners\CreatePartner;
+use App\Livewire\Blogs\Show as BlogsShow;
+use App\Livewire\Faq\Create as FaqCreate;
+use App\Livewire\Jobs\Index as JobsIndex;
+use App\Livewire\News\Index as NewsIndex;
+use App\Livewire\Users\Show as UsersShow;
+use App\Http\Controllers\ProfileController;
+use App\Livewire\Blogs\Index as BlogsIndex;
+use App\Livewire\Events\Show as EventsShow;
+use App\Livewire\Jobs\Create as JobsCreate;
+use App\Livewire\Users\Index as UsersIndex;
+use App\Livewire\Blogs\Create as BlogsCreate;
+use App\Livewire\Events\Index as EventsIndex;
+use App\Livewire\Subscribers\ShowSubscribers;
+use App\Livewire\Users\Create as UsersCreate;
+use App\Livewire\Partners\Show as PartnersShow;
+
+use App\Livewire\Sponsers\Show as SponsersShow;
 
 use App\Livewire\Subscribers\CreateSubscribers;
-use App\Livewire\Subscribers\Index as SubscribersIndex;
-use App\Livewire\Subscribers\ShowSubscribers;
-use App\Livewire\Trainers\Create as TrainersCreate;
-use App\Livewire\Trainers\Index as TrainersIndex;
 use App\Livewire\Trainers\Show as TrainersShow;
-use App\Livewire\Trainings\Create as TrainingsCreate;
-use App\Livewire\Trainings\Index as TrainingsIndex;
+use App\Livewire\Partners\Index as PartnersIndex;
+use App\Livewire\Sponsers\Index as SponsersIndex;
+use App\Livewire\Trainers\Index as TrainersIndex;
 use App\Livewire\Trainings\Show as TrainingsShow;
-use App\Livewire\Users\Create as UsersCreate;
-use App\Livewire\Users\Index as UsersIndex;
-use App\Livewire\Users\Show as UsersShow;
 use App\Livewire\Visitors\Index as VisitorsIndex;
-use App\Livewire\Volunteers\Create as VolunteersCreate;
-use App\Livewire\Volunteers\Index as VolunteersIndex;
+use App\Livewire\Partners\Create as PartnersCreate;
+use App\Livewire\Sponsers\Create as SponsersCreate;
+use App\Livewire\Trainers\Create as TrainersCreate;
+use App\Livewire\Trainings\Index as TrainingsIndex;
 use App\Livewire\volunteers\Show as VolunteersShow;
-
-
+use App\Livewire\Trainings\Create as TrainingsCreate;
+use App\Livewire\Volunteers\Index as VolunteersIndex;
+use App\Livewire\Scholarships\Show as ScholarshipsShow;
+use App\Livewire\Subscribers\Index as SubscribersIndex;
+use App\Livewire\Volunteers\Create as VolunteersCreate;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use App\Livewire\Scholarships\Index as ScholarshipsIndex;
+use App\Livewire\Scholarships\Create as ScholarshipsCreate;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +73,34 @@ use App\Livewire\volunteers\Show as VolunteersShow;
 Route::get('/', function () {
     return redirect('/login');
 });
+
+
+
+// Auth::routes(['verify'=>true])
+
+Route::get('welcome', function () {
+    return view('email_verified');
+})->name('welcome');
+
+Route::get('/verify-email/{id}/{hash}', function ($id, $hash, Request $request) {
+    $user = App\Models\User::findOrFail($id);
+
+    if (!hash_equals((string) $hash, sha1($user->getEmailForVerification()))) {
+        abort(403);
+    }
+
+    if ($user->hasVerifiedEmail()) {
+        return redirect('/welcome'); // Already verified, redirect to desired location
+    }
+
+    // Manually update the email_verified_at column
+    $user->markEmailAsVerified();
+
+    event(new Verified($user));
+
+    return redirect('/welcome'); // Redirect to your desired location after email verification
+})->name('verification.verify');
+
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
 
@@ -105,9 +136,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/jobs/{job}', JobsShow::class)->name('jobs.show');
 
     //    // route group for trainings
-       Route::get('/trainings', TrainingsIndex::class)->name('trainings.index');
-       Route::get('/trainings/create', TrainingsCreate::class)->name('trainings.create');
-       Route::get('/trainings/{training}', TrainingsShow::class)->name('trainings.show');
+    Route::get('/trainings', TrainingsIndex::class)->name('trainings.index');
+    Route::get('/trainings/create', TrainingsCreate::class)->name('trainings.create');
+    Route::get('/trainings/{training}', TrainingsShow::class)->name('trainings.show');
 
     // route group for volunteers
     Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
@@ -119,10 +150,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/trainers/create', TrainersCreate::class)->name('trainers.create');
     Route::get('/trainers/{trainer}', TrainersShow::class)->name('trainers.show');
 
-      // route group for trainers
-      Route::get('/scholarships', ScholarshipsIndex::class)->name('scholarships.index');
-      Route::get('/scholarships/create', ScholarshipsCreate::class)->name('scholarships.create');
-      Route::get('/scholarships/{scholarship}', ScholarshipsShow::class)->name('scholarships.show');
+    // route group for trainers
+    Route::get('/scholarships', ScholarshipsIndex::class)->name('scholarships.index');
+    Route::get('/scholarships/create', ScholarshipsCreate::class)->name('scholarships.create');
+    Route::get('/scholarships/{scholarship}', ScholarshipsShow::class)->name('scholarships.show');
 
 
 
@@ -132,10 +163,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/news/create', Creatnews::class)->name('news.create');
     Route::get('/news/{new}', Shownews::class)->name('news.shownews');
 
-      // route group for events
-      Route::get('/events',EventsIndex::class)->name('events.index');
-      Route::get('/events/create', CreateEvents::class)->name('events.create-events');
-      Route::get('/events/{event}', EventsShow::class)->name('events.show');
+    // route group for events
+    Route::get('/events', EventsIndex::class)->name('events.index');
+    Route::get('/events/create', CreateEvents::class)->name('events.create-events');
+    Route::get('/events/{event}', EventsShow::class)->name('events.show');
     //   Route::get('/events/{edit}', Edit::class)->name('events.edit');
 
 

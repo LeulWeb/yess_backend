@@ -21,41 +21,40 @@ use App\Http\Controllers\Api\VolunteerApplicationController;
 
 
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request)
- {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
 
 
-Route::post('/register', [AuthController::class,'register'])->name('register');
-Route::post('/login', [AuthController::class,'login'])->name('login');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::post('/login', [AuthController::class, 'login'])->name('login');
 // Route::post('/logout', [AuthController::class,'logout'])->name('logout');
 
-Route::post('token-validate',[AuthController::class,'validateToken']);
 
-Route::group(['middleware'=>['auth:sanctum']], function(){
-    Route::post('/logout', [AuthController::class,'logout'])->name('logout');
+
+Route::post('token-validate', [AuthController::class, 'validateToken']);
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::apiResource('/scholarship-request', ScholarshipRequestController::class)->only('store');
     Route::apiResource('/job-requests', JobRequestController::class)->only('store');
-    Route::apiResource('/volunteer-applications', VolunteerApplicationController::class)->only(['index','store','show']);
-    Route::put('/update-profile',[UpdateProfileController::class, 'update']);
-    Route::put('/update-password', [UpdateProfileController::class,'updatePassword']);
-    Route::get('/update-profile',[UpdateProfileController::class, 'showProfile']);
-    Route::put('/update-password', [UpdateProfileController::class,'updatePassword']);
+    Route::apiResource('/volunteer-applications', VolunteerApplicationController::class)->only(['index', 'store', 'show']);
+    Route::put('/update-profile', [UpdateProfileController::class, 'update']);
+    Route::put('/update-password', [UpdateProfileController::class, 'updatePassword']);
+    Route::get('/update-profile', [UpdateProfileController::class, 'showProfile']);
+    Route::put('/update-password', [UpdateProfileController::class, 'updatePassword']);
     Route::get('/education', [EducationController::class, 'showEducation']);
     Route::put('/education', [EducationController::class, 'updateEducation']);
     Route::post('/education', [EducationController::class, 'storeEducation']);
     Route::delete('/education', [EducationController::class, 'deleteEducation']);
-    Route::post('/donate-me', [DonateMeController::class,'donateMe' ] );
-
-
+    Route::post('/donate-me', [DonateMeController::class, 'donateMe']);
 });
 
-Route::apiResource('/scholarships',ScholarshipController::class);
-Route::apiResource('faqs',FaqController::class);
+Route::apiResource('/scholarships', ScholarshipController::class);
+Route::apiResource('faqs', FaqController::class);
 Route::apiResource('jobs', JobController::class);
 Route::apiResource('youths', YouthController::class);
-Route::apiResource('startups', StartupController::class)->only(['index','show']);
-Route::apiResource('volunteers', VolunteerController::class)->only(['index','show']);
-Route::apiResource('trainings', TrainingController::class)->only(['index','show']);
+Route::apiResource('startups', StartupController::class)->only(['index', 'show']);
+Route::apiResource('volunteers', VolunteerController::class)->only(['index', 'show']);
+Route::apiResource('trainings', TrainingController::class)->only(['index', 'show']);

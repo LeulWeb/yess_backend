@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Education extends Model
 {
     use HasFactory;
-    protected $fillable = ['education_level', 'field_of_study', 'award', 'achievement'];
+    protected $fillable = ['education_level', 'field_of_study', 'award', 'achievement', 'user_id'];
 
     public function user(): BelongsTo
     {
