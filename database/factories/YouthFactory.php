@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use League\CommonMark\Node\Block\Paragraph;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Youth>
@@ -23,8 +24,8 @@ class YouthFactory extends Factory
 
         return [
             "user_id"=> $userWithoutYouth->random()->id,
-            "video_link"=>fake()->url(),
-            "image"=>fake()->imageUrl(),
+            "video_link"=>fake()->url(), 
+            "achievment"=>fake()->Paragraph(),           
             "is_published"=>fake()->boolean(),
         ];
     }

@@ -9,6 +9,8 @@ use App\Models\volunteer;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
+#[Title('Volunteer  ')]
 
 class Show extends Component
 {

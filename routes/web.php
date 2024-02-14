@@ -1,9 +1,7 @@
 <?php
 
-
-
 use App\Models\User;
-use App\Livewire\Dashboard;
+
 use Illuminate\Http\Request;
 use App\Livewire\News\Shownews;
 use App\Livewire\Startups\Show;
@@ -14,7 +12,7 @@ use App\Livewire\Startups\Create;
 use Illuminate\Auth\Events\Verified;
 // use App\Livewire\Events\ShowEvents;
 use Illuminate\Support\Facades\Auth;
-use App\Livewire\Events\CreateEvents;
+// use App\Livewire\Events\CreateEvents;
 use App\Livewire\Faq\Show as FaqShow;
 
 
@@ -24,6 +22,14 @@ use App\Livewire\Faq\Index as FaqIndex;
 use App\Livewire\Jobs\Show as JobsShow;
 use App\Livewire\Partners\CreatePartner;
 use App\Livewire\Blogs\Show as BlogsShow;
+use App\Livewire\Dashboard;
+use App\Livewire\DonationRequest\Index as DonationRequestIndex;
+use App\Livewire\DonationRequest\Show as DonationRequestShow;
+use App\Livewire\Events\CreateEvents;
+use App\Livewire\Events\Index as EventsIndex;
+use App\Livewire\Events\Show as EventsShow;
+use App\livewire\profile\Edit as EditProfile;
+
 use App\Livewire\Faq\Create as FaqCreate;
 use App\Livewire\Jobs\Index as JobsIndex;
 use App\Livewire\News\Index as NewsIndex;
@@ -31,11 +37,11 @@ use App\Livewire\Users\Show as UsersShow;
 
 use App\Http\Controllers\ProfileController;
 use App\Livewire\Blogs\Index as BlogsIndex;
-use App\Livewire\Events\Show as EventsShow;
+// use App\Livewire\Events\Show as EventsShow;
 use App\Livewire\Jobs\Create as JobsCreate;
 use App\Livewire\Users\Index as UsersIndex;
 use App\Livewire\Blogs\Create as BlogsCreate;
-use App\Livewire\Events\Index as EventsIndex;
+// use App\Livewire\Events\Index as EventsIndex;
 use App\Livewire\Subscribers\ShowSubscribers;
 use App\Livewire\Users\Create as UsersCreate;
 
@@ -63,6 +69,13 @@ use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use App\Livewire\Scholarships\Index as ScholarshipsIndex;
 use App\Livewire\Scholarships\Create as ScholarshipsCreate;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Livewire\ScholarshipRequest\Index as ScholarshipRequestIndex;
+use App\Livewire\ScholarshipRequest\Show as ScholarshipRequestShow;
+use App\Livewire\VolunteerApplication\Index as VolunteerApplicationIndex;
+use App\Livewire\VolunteerApplication\Show as VolunteerApplicationShow;
+use App\Livewire\Youth\Create as YouthCreate;
+use App\Livewire\Youth\Index as YouthIndex;
+use App\Livewire\Youth\Show as YouthShow;
 
 /*
 |--------------------------------------------------------------------------
@@ -115,17 +128,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-
-
-
-
-
-
-
-
+    Route::get('/changepassword', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/changepassword', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/changepassword', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/profile', EditProfile::class);
     // route group for startups
     Route::get('/startups', Index::class)->name('startups.index');
     Route::get('/startups/create', Create::class)->name('startups.create');
@@ -150,6 +156,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
     Route::get('/volunteers/{volunteer}', VolunteersShow::class)->name('volunteers.show');
 
+    // Volunteer Applicationss route
+    Route::get('/volunteerApplication', VolunteerApplicationIndex::class)->name('volunteer-application.index');
+    Route::get('/volunteerApplication/{volunteerApplication}', VolunteerApplicationShow::class)->name('volunteer-application.show');
+
     // route group for trainers
     Route::get('/trainers', TrainersIndex::class)->name('trainers.index');
     Route::get('/trainers/create', TrainersCreate::class)->name('trainers.create');
@@ -159,6 +169,13 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/scholarships', ScholarshipsIndex::class)->name('scholarships.index');
     Route::get('/scholarships/create', ScholarshipsCreate::class)->name('scholarships.create');
     Route::get('/scholarships/{scholarship}', ScholarshipsShow::class)->name('scholarships.show');
+
+      //Scholarship Requests
+      Route::get('/scholarshiprequest', ScholarshipRequestIndex::class)->name('scholarship-request.index');
+      Route::get('/scholarshiprequest/{scholarshipRequest}', ScholarshipRequestShow::class)->name('scholarship-request.show');
+      //donation Requests
+      Route::get('/donationrequest', DonationRequestIndex::class)->name('donation-request.index');
+      Route::get('/donationrequest/{donationRequest}', DonationRequestShow::class)->name('donation-request.show');
 
 
 
@@ -179,6 +196,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/faqs', FaqIndex::class)->name('faqs.index');
     Route::get('/faqs/create', FaqCreate::class)->name('faqs.create');
     Route::get('/faqs/{faq}', FaqShow::class)->name('faqs.show');
+
+    // routegroup for youth
+    Route::get('/youths', YouthIndex::class)->name('youth.index');
+    Route::get('/youths/create', YouthCreate::class)->name('youth.create');
+    Route::get('/youths/{youth}', YouthShow::class)->name('youth.show');
 
     // routegroup for subscribers
     Route::get('/subscribers', SubscribersIndex::class)->name('subscribers.index');

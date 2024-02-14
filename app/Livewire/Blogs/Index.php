@@ -3,7 +3,9 @@
 namespace App\Livewire\Blogs;
 
 use App\Models\Blog;
+use Livewire\Attributes\Title;
 use Livewire\Component;
+#[Title('blogs')]
 
 class Index extends Component
 {

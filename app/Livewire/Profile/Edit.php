@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Edit Profile')]
 
 class Edit extends Component
 {
@@ -36,8 +38,9 @@ class Edit extends Component
             }
 
             $request->user()->save();
+            return redirect()->route('dashboard');
 
-            return Redirect::route('profile.edit')->with('status', 'profile-updated');
+            // return Redirect::route('profile.edit')->with('status', 'profile-updated');
         }
 
         /**

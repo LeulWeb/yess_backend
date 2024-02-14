@@ -8,6 +8,8 @@ use App\Models\Job;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
+#[Title('Jobs')]
 
 class Show extends Component
 {

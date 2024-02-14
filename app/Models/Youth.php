@@ -13,10 +13,13 @@ class Youth extends Model
     use HasFactory;
     protected $guarded = [];
 
-    
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+    public function scopeSearch($query, $search){
+        return $query->where('video_link','LIKE','%'.$search.'%');
     }
 
 }

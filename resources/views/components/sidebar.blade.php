@@ -32,7 +32,7 @@
             </li>
 
             {{-- scholarship  --}}
-            <li class="mx-3" >
+            <li class="mx-3">
                 <button type="button"
                     class="flex items-center w-full p-2    text-base  transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700"
                     aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-scholarship">
@@ -45,11 +45,15 @@
                     </svg>
                 </button>
                 <ul id="dropdown-example-scholarship" class="hidden py-2 space-y-2">
-                    <li>
+                    <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('scholarships.index'),
+                ])>
                         <a href="/scholarships"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Listings</a>
                     </li>
-                    <li>
+                    <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('scholarship-request.index'),
+                ])>
                         <a href="/scholarshiprequest"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Applications</a>
                     </li>
@@ -72,11 +76,15 @@
                     </svg>
                 </button>
                 <ul id="dropdown-example-job" class="hidden py-2 space-y-2">
-                    <li>
+                    <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('jobs.index'),
+                ])>
                         <a href="/jobs"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Listings</a>
                     </li>
-                    <li>
+                    <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('job-request.index'),
+                ])>
                         <a href="/jobrequest"class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Applications</a>
                     </li>
 
@@ -97,12 +105,16 @@
                     </svg>
                 </button>
                 <ul id="dropdown-example-train" class="hidden py-2 space-y-2">
-                    <li>
+                    <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('trainings.index'),
+                ])>
                         <a href="/trainings"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white   dark:hover:bg-gray-700">Trainings
                         </a>
                     </li>
-                    <li>
+                    <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('trainers.index'),
+                ])>
                         <a href="/trainers"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Trainers</a>
                     </li>
@@ -125,11 +137,15 @@
                     </svg>
                 </button>
                 <ul id="dropdown-example-voluntter" class="hidden py-2 space-y-2   ">
-                    <li>
+                    <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('volunteers.index'),
+                ])>
                         <a href="/volunteers"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700    ">Listing</a>
                     </li>
-                    <li>
+                    <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('volunteer-application.index'),
+                ])>
                         <a href="/volunteerApplication"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700    ">Applications</a>
                     </li>
@@ -138,33 +154,23 @@
             </li>
 
             {{-- Donations --}}
-            <li class="mx-3">
-                <button type="button"
-                    class="flex items-center w-full p-2 text-base  transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700    "
-                    aria-controls="dropdown-example" data-collapse-toggle="dropdown-example-donation">
-                    <iconify-icon icon="streamline:blood-donate-drop" width="26" height="26"></iconify-icon>
-                    <span class="flex-1 ms-3 text-left rtl:text-right     whitespace-nowrap">Donations</span>
-                    <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 10 6">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="m1 1 4 4 4-4" />
-                    </svg>
-                </button>
-                <ul id="dropdown-example-donation" class="hidden py-2 space-y-2">
-                    {{--  <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700   ">Fund
-                            Raising</a>
-                    </li>
-                    <li>
-                        <a href="#"
-                            class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white dark:hover:bg-gray-700 ">Assistance</a>
-                    </li>  --}}
 
-                </ul>
-            </li>
+
+                <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('donation-request.index'),
+                ])>
+                    <a href="/donationrequest"
+                        class="flex items-center p-2 mx-3   rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
+                        <iconify-icon icon="mingcute:user-3-line" width="26" height="26"></iconify-icon>
+                        <span class="flex-1 ms-3 whitespace-nowrap">Donation Request</span>
+
+                    </a>
+                </li>
+
             {{-- Events --}}
-            <li>
+            <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('events.index'),
+                ])>
                 <a href="/events"
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white dark:hover:bg-gray-700 group">
                     <iconify-icon icon="material-symbols:event-outline" width="26" height="26"></iconify-icon>
@@ -173,7 +179,9 @@
                 </a>
             </li>
             {{-- News --}}
-            <li>
+            <li @class([
+                'bg-white dark:bg-black text-blue-500' => request()->routeIs('news.index'),
+            ])>
                 <a href="/news"
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                     <iconify-icon icon="icons8:news" width="26" height="26"></iconify-icon>
@@ -182,7 +190,9 @@
                 </a>
             </li>
             {{-- Blog --}}
-            <li>
+            <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('blogs.index'),
+                ])>
                 <a href="/blogs"
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                     <iconify-icon icon="ri:quill-pen-line" width="26" height="26"></iconify-icon>
@@ -193,7 +203,9 @@
             </li>
 
             {{-- Sponser --}}
-            <li>
+            <li @class([
+                'bg-white dark:bg-black text-blue-500' => request()->routeIs('sponsers.index'),
+            ])>
                 <a href="/sponsers"
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                     <iconify-icon icon="iconoir:hand-cash" width="26" height="26"></iconify-icon>
@@ -204,7 +216,9 @@
             </li>
 
             {{-- partner --}}
-            <li>
+            <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('partners.index'),
+                ])>
                 <a href="/partners"
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                     <iconify-icon icon="fa-regular:handshake" width="26" height="26"></iconify-icon>
@@ -214,7 +228,9 @@
                 </a>
             </li>
             {{--  subscribers  --}}
-            <li>
+            <li @class([
+                'bg-white dark:bg-black text-blue-500' => request()->routeIs('subscribers.index'),
+            ])>
                 <a href="/subscribers"
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white   dark:hover:bg-gray-700 group">
                     <iconify-icon icon="mdi:envelope-outline" width="26" height="26"></iconify-icon>
@@ -224,7 +240,9 @@
                 </a>
             </li>
             {{-- FAQ --}}
-            <li @class(['bg-white text-blue-500' => request()->routeIs('faq   ')])>
+            <li @class([
+                'bg-white dark:bg-black text-blue-500' => request()->routeIs('faqs.index'),
+            ])>
                 <a href="/faqs"
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                     <iconify-icon icon="ri:question-line" width="26" height="26"></iconify-icon>
@@ -233,7 +251,9 @@
                 </a>
             </li>
             {{-- startups --}}
-            <li @class(['bg-white text-blue-500' => request()->routeIs('faq   ')])>
+            <li @class([
+                    'bg-white dark:bg-black text-blue-500' => request()->routeIs('startups.index'),
+                ])>
                 <a href="/startups"
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                     <iconify-icon icon="ri:question-line" width="26" height="26"></iconify-icon>
@@ -241,6 +261,17 @@
 
                 </a>
             </li>
+             {{-- Youths --}}
+             <li @class([
+                'bg-white dark:bg-black text-blue-500' => request()->routeIs('startups.index'),
+            ])>
+            <a href="/youths"
+                class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
+                <iconify-icon icon="ri:question-line" width="26" height="26"></iconify-icon>
+                <span class="flex-1 ms-3 whitespace-nowrap">Youths</span>
+
+            </a>
+        </li>
 
 
             {{-- end --}}

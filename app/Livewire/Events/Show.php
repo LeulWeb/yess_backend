@@ -5,6 +5,8 @@ namespace App\Livewire\Events;
 use App\Models\EventProgram;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
+use Livewire\Attributes\Title;
+#[Title('Events')]
 
 class Show extends Component
 {

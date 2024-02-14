@@ -4,6 +4,8 @@ namespace App\Livewire\Events;
 
 use App\Models\EventProgram;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Events')]
 
 class Index extends Component
 {

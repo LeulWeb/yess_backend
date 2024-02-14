@@ -4,6 +4,8 @@ namespace App\Livewire\Partners;
 
 use App\Models\Partner;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Partners')]
 
 class Index extends Component
 {

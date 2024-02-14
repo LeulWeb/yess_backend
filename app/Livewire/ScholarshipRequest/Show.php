@@ -4,6 +4,8 @@ namespace App\Livewire\ScholarshipRequest;
 
 use App\Models\ScholarshipRequest;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Scholarships Request')]
 
 class Show extends Component
 {

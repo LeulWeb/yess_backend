@@ -82,7 +82,7 @@
         </div>
     </div>
     <div>
-        <h2 class="text-4xl font-extrabold dark:text-white m-5">scholarshipRequest Lists</h2>
+        <h2 class="text-4xl font-extrabold dark:text-white m-5">scholarship Request Lists</h2>
     </div>
 
         {{-- scholarshipRequests info --}}

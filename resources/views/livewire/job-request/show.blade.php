@@ -82,7 +82,7 @@
         </div>
     </div>
     <div>
-        <h2 class="text-4xl font-extrabold dark:text-white m-5">jobRequest Lists</h2>
+        <h2 class="text-4xl font-extrabold dark:text-white m-5">Job Request Lists</h2>
     </div>
 
         {{-- jobRequests info --}}

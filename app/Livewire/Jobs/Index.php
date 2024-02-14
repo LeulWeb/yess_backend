@@ -4,6 +4,8 @@ namespace App\Livewire\Jobs;
 
 use App\Models\Job;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Jobs')]
 
 class Index extends Component
 {

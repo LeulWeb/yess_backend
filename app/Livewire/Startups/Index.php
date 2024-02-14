@@ -3,6 +3,8 @@ namespace App\Livewire\Startups;
 
 use App\Models\Startup;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Startups ')]
 
 class Index extends Component
 {

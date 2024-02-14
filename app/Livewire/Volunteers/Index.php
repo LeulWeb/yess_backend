@@ -3,7 +3,10 @@
 namespace App\Livewire\Volunteers;
 
 use App\Models\Volunteer;
+use Livewire\Attributes\Title;
 use Livewire\Component;
+#[Title('Volunteer')]
+
 
 class Index extends Component
 {
