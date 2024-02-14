@@ -35,6 +35,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
 Route::post('token-validate', [AuthController::class, 'validateToken']);
+Route::apiResource('youths', YouthController::class);
 
 Route::get('/stat', [StatController::class, 'index']);
 
@@ -57,7 +58,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::apiResource('/scholarships', ScholarshipController::class);
 Route::apiResource('faqs', FaqController::class);
 Route::apiResource('jobs', JobController::class);
-Route::apiResource('youths', YouthController::class);
 Route::apiResource('startups', StartupController::class)->only(['index', 'show']);
 Route::apiResource('volunteers', VolunteerController::class)->only(['index', 'show']);
 Route::apiResource('trainings', TrainingController::class)->only(['index', 'show']);
