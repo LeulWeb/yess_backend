@@ -8,6 +8,8 @@ use App\Models\Trainer;
 use App\Models\User;
 use App\Models\Volunteer;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Dashboard  ')]
 
 class Dashboard extends Component
 {

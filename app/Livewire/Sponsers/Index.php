@@ -4,6 +4,8 @@ namespace App\Livewire\Sponsers;
 
 use App\Models\Sponser;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Sponsers ')]
 
 class Index extends Component
 {

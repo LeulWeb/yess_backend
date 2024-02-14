@@ -7,6 +7,8 @@ use Livewire\Component;
 use App\Enums\JobSector;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
+use Livewire\Attributes\Title;
+#[Title('Startups ')]
 
 class Create extends Component
 {

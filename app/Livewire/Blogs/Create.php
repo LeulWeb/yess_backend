@@ -8,6 +8,8 @@ use App\Notifications\NewContentNotification;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
+#[Title('blogs')]
 
 class Create extends Component
 
@@ -40,10 +42,10 @@ class Create extends Component
             $this->image->storeAs('blog', $this->imageName, 'public');
         }
 
-       $news = Blog::create($validated);
+       $blogs = Blog::create($validated);
         $subscribers = subscriber::all();
         foreach ($subscribers as $subscriber) {
-        $subscriber->notify(new NewContentNotification($news));
+        $subscriber->notify(new NewContentNotification($blogs));
     }
         session()->flash('success', 'blog created successfully');
         return redirect()->route('blogs.index');

@@ -7,6 +7,8 @@ use App\Models\Startup;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
+#[Title('Startups ')]
 
 class Show extends Component
 {

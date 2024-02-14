@@ -143,7 +143,7 @@
                             {{ $item->title }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $item->Author }}
+                            {{ $item->author }}
                         </td>
                         <td class="px-6 py-4">
                             {{ $item->links }}

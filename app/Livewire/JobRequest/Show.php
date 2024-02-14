@@ -4,6 +4,8 @@ namespace App\Livewire\JobRequest;
 
 use App\Models\JobRequest;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Job Request')]
 
 class Show extends Component
 

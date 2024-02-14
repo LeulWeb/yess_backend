@@ -6,6 +6,8 @@ use App\Models\News;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
+use Livewire\Attributes\Title;
+#[Title('News')]
 
 class Shownews extends Component
 {

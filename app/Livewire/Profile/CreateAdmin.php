@@ -4,6 +4,8 @@ namespace App\Livewire\Profile;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Create Admin')]
 
 class CreateAdmin extends Component
 {

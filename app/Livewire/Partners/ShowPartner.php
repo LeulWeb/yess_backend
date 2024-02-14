@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
+#[Title('Partners')]
 
 class ShowPartner extends Component
 

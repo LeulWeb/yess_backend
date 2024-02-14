@@ -4,6 +4,8 @@ namespace App\Livewire\News;
 
 use App\Models\News;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('News')]
 
 class Index extends Component
 {

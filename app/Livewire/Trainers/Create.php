@@ -6,6 +6,8 @@ use App\Models\Trainer;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
+#[Title('Trainers ')]
 
 class Create extends Component
 {

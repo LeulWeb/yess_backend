@@ -5,6 +5,8 @@ namespace App\Livewire\Faq;
 use App\Models\Faq;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
+use Livewire\Attributes\Title;
+#[Title('Faqs')]
 
 class Show extends Component
 {

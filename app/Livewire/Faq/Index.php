@@ -4,6 +4,8 @@ namespace App\Livewire\Faq;
 
 use App\Models\Faq;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Faqs')]
 
 class Index extends Component
 {

@@ -4,6 +4,8 @@ namespace App\Livewire\DonationRequest;
 
 use App\Models\DonationRequest;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Donation Request')]
 
 class Show extends Component
 {

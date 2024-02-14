@@ -4,6 +4,8 @@ namespace App\Livewire\Scholarships;
 
 use App\Models\Scholarship;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Scholarships ')]
 
 class Index extends Component
 

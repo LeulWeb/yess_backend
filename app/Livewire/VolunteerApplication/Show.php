@@ -4,6 +4,8 @@ namespace App\Livewire\VolunteerApplication;
 
 use App\Models\VolunteerApplication;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Volunteer Applications ')]
 
 class Show extends Component
 {

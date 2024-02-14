@@ -6,6 +6,8 @@ use App\Models\Blog;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
+#[Title('blogs')]
 
 class Show extends Component
 {

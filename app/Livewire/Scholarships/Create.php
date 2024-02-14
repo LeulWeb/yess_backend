@@ -7,6 +7,8 @@ use App\Models\Scholarship;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
+use Livewire\Attributes\Title;
+#[Title('Scholarships ')]
 
 class Create extends Component
 

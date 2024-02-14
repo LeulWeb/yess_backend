@@ -4,6 +4,8 @@ namespace App\Livewire\Trainings;
 
 use App\Models\Training;
 use Livewire\Component;
+use Livewire\Attributes\Title;
+#[Title('Training ')]
 
 class Index extends Component
 {
