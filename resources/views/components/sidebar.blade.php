@@ -261,6 +261,17 @@
 
                 </a>
             </li>
+             {{-- Youths --}}
+             <li @class([
+                'bg-white dark:bg-black text-blue-500' => request()->routeIs('startups.index'),
+            ])>
+            <a href="/youths"
+                class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
+                <iconify-icon icon="ri:question-line" width="26" height="26"></iconify-icon>
+                <span class="flex-1 ms-3 whitespace-nowrap">Youths</span>
+
+            </a>
+        </li>
 
 
             {{-- end --}}

@@ -198,9 +198,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/faqs/{faq}', FaqShow::class)->name('faqs.show');
 
     // routegroup for youth
-    Route::get('/youths', YouthIndex::class)->name('youths.index');
-    Route::get('/youths/create', YouthCreate::class)->name('youths.create');
-    Route::get('/youths/{youth}', YouthShow::class)->name('youths.show');
+    Route::get('/youths', YouthIndex::class)->name('youth.index');
+    Route::get('/youths/create', YouthCreate::class)->name('youth.create');
+    Route::get('/youths/{youth}', YouthShow::class)->name('youth.show');
 
     // routegroup for subscribers
     Route::get('/subscribers', SubscribersIndex::class)->name('subscribers.index');

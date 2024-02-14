@@ -6,7 +6,7 @@
         </div>
         {{-- button for creating youth list --}}
         <div>
-            <a wire:navigate href="{{ route('youths.create') }}" type="button"
+            <a wire:navigate href="{{ route('youth.create') }}" type="button"
                 class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 <div class="flex space-x-2 items-center">
                     <iconify-icon icon="uil:plus" color="white"></iconify-icon>
@@ -118,10 +118,16 @@
                         User's Email
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        User's Phone
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Vedio Link
                     </th>
                     <th scope="col" class="px-6 py-3">
                         IS Visible
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Action
                     </th>
                 </tr>
             </thead>
@@ -135,6 +141,9 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $item->user->email }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $item->user->phone }}
                         </td>
                         <td class="px-6 py-4">
                             {{ $item->video_link }}

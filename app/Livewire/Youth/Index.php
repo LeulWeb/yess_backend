@@ -23,7 +23,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.youth.index',[
-             'youthList'=>Youth::search($this->search)->latest()->paginate(5),
+              'youthList'=>Youth::search($this->search)->latest()->paginate(5),
 
         ]);
     }

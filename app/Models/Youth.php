@@ -19,7 +19,7 @@ class Youth extends Model
         return $this->belongsTo(User::class);
     }
     public function scopeSearch($query, $search){
-        return $query->where('user->name','LIKE','%'.$search.'%');
+        return $query->where('video_link','LIKE','%'.$search.'%');
     }
 
 }

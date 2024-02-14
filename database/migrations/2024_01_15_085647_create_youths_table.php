@@ -16,6 +16,7 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->string('video_link')->nullable();
+            $table->text('achievment');
             $table->boolean('is_published')->default(true);
             $table->timestamps();
         });
