@@ -22,8 +22,6 @@ class Show extends Component
 
     #[Validate('required|max:50')]
     public $name;
-    #[Validate('required|max:50')]
-    public $username;
     #[Validate('required|min:50|max:65535')]
     public $bio;
     #[Validate('required|min:50|max:65535')]
@@ -81,7 +79,6 @@ class Show extends Component
     {
         $this->bio = $user->bio;
         $this->name = $user->name;
-        $this->username = $user->username;
         $this->status = $user->status;
         $this->role = $user->role;
         $this->email = $user->email;
@@ -119,7 +116,6 @@ class Show extends Component
             'name' => 'required|string|max:255',
             'bio' => 'required|string',
             'story' => 'required|string',
-            'username' => 'required|string',
             'status' => 'required|string',
             'role' => 'required|integer',
 
@@ -133,7 +129,6 @@ class Show extends Component
         $this->user->update([
             'name' => $this->name,
             'bio' => $this->bio,
-            'username' => $this->username,
             'status' => $this->status,
             'role' => $this->role,
             'skill' => $this->skill,

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -24,14 +25,22 @@ class AuthController extends Controller
 
         $user =  User::create($validated);
 
+        // Send email verification notification
+        $user->sendEmailVerificationNotification();
+
+
 
         $token = $user->createToken('authToken')->plainTextToken;
 
+
+
         return response()->json([
-            'user' => $user,
-            'token' => $token
-        ], 201);
+            'success' => true,
+            'message' => "Check your email"
+        ], 200);
     }
+
+
 
 
 
@@ -46,9 +55,15 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
 
 
-        if($user->status == 'inactive'){
+        if ($user->status == 'inactive') {
             throw ValidationException::withMessages([
                 'banned' => ['You are temporarily banned from our community. Contact admin for help'],
+            ]);
+        }
+
+        if($user->email_verified_at == null){
+            throw ValidationException::withMessages([
+                'unverified' => 'Your email is not verified'
             ]);
         }
 
