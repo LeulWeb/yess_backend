@@ -22,6 +22,7 @@ class News extends Model
         'is_visible',
 
     ];
+    
 
     // local scope query
     public function scopeSearch($query, $search){

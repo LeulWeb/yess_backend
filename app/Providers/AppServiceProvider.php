@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Livewire\Livewire;
+use Illuminate\Notifications\Channels\MailChannel;
+use Illuminate\Support\Facades\Notification;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +14,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        Notification::resolved(function ($service) {
+            $service->extend(MailChannel::class, function ($service) {
+                $service->to($this->app['config']['mail.channel']);
+            });
+        });
     }
 
     /**

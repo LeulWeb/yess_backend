@@ -11,6 +11,8 @@ use App\Livewire\Blogs\Create as BlogsCreate;
 use App\Livewire\Blogs\Index as BlogsIndex;
 use App\Livewire\Blogs\Show as BlogsShow;
 use App\Livewire\Dashboard;
+use App\Livewire\DonationRequest\Index as DonationRequestIndex;
+use App\Livewire\DonationRequest\Show as DonationRequestShow;
 use App\Livewire\Events\CreateEvents;
 use App\Livewire\Events\Index as EventsIndex;
 use App\Livewire\Events\Show as EventsShow;
@@ -128,7 +130,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
     Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
     Route::get('/volunteers/{volunteer}', VolunteersShow::class)->name('volunteers.show');
-   
+
     // Volunteer Applicationss route
     Route::get('/volunteerApplication', VolunteerApplicationIndex::class)->name('volunteer-application.index');
     Route::get('/volunteerApplication/{volunteerApplication}', VolunteerApplicationShow::class)->name('volunteer-application.show');
@@ -146,6 +148,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
       //Scholarship Requests
       Route::get('/scholarshiprequest', ScholarshipRequestIndex::class)->name('scholarship-request.index');
       Route::get('/scholarshiprequest/{scholarshipRequest}', ScholarshipRequestShow::class)->name('scholarship-request.show');
+      //donation Requests
+      Route::get('/donationrequest', DonationRequestIndex::class)->name('donation-request.index');
+      Route::get('/donationrequest/{donationRequest}', DonationRequestShow::class)->name('donation-request.show');
 
 
 

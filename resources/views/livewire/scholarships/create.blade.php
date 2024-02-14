@@ -27,7 +27,7 @@
             {{-- Second column --}}
 
 
-               
+
 
                 <div>
                     @error('institution')
@@ -108,7 +108,7 @@
 
 
 
-                        
+
                         <div>
                             <label  for="program_duration"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Program  <span
@@ -134,11 +134,12 @@
 
 
 
-        <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Informations</label>
+
         <div class="grid grid-cols-4 gap-5">
 
             <div>
                 {{-- link --}}
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Link</label>
                 <div class="relative mb-6 flex flex-col">
 
                     <input type="text" id="input-group-1"
@@ -157,6 +158,7 @@
 
             {{-- program --}}
             <div>
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Program</label>
                 <div class="relative mb-6">
 
                     <input type="text" id="input-group-1"
@@ -174,6 +176,7 @@
 
             {{-- aplication process --}}
             <div>
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Application Proccess</label>
                 <div class="relative mb-6">
 
                     <input type="text" id="input-group-1"
@@ -190,6 +193,7 @@
 
             {{-- deadline --}}
             <div>
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Deadline</label>
                 <div class="relative mb-6">
 
                     <input type="date" id="input-group-1"
@@ -258,7 +262,7 @@
                     <x-form.error :$message />
                 @enderror
 
-                
+
                 <label for="institution"
                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Institution</label>
                 <input wire:model.live='institution' type="text" id="institution"
@@ -283,8 +287,8 @@
                     <x-form.error :$message />
                 @enderror
 
-                
-                
+
+
 
 
             </div>

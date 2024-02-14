@@ -17,11 +17,9 @@
 
     {{-- Table for scholarship Requests --}}
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
+        <div class="flex flex-column sm:flex-row flex-wrap space-y-2 sm:space-y-0 items-center justify-between pb-4">
             <div>
-                <button id="dropdownRadioButton" data-dropdown-toggle="dropdownRadio"
-
-                </button>
+                
 
             </div>
             <label for="table-search" class="sr-only">Search</label>
@@ -59,7 +57,7 @@
                     <th scope="col" class="px-6 py-3">
                         job_type
                     </th>
-                    
+
                     <th scope="col" class="px-6 py-3">
                         Education Level
                     </th>
@@ -75,20 +73,20 @@
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="px-6 py-4">
                             {{ $item->user->name }}
-                            
+
                         </td>
                         <td class="px-6 py-4">
-                            
+
                             {{ $item->user->email }}
-                            
+
                         </td>
                         <td class="px-6 py-4">
-                           
+
                             {{ $item->user->phone }}
-                            
+
                         </td>
                         <td class="px-6 py-4">
-                            
+
                             {{ $item->position }}
                         </td>
                         <td class="px-6 py-4">

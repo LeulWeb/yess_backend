@@ -4,29 +4,21 @@
 
     <div class="flex justify-between items-center py-5 mb-8">
         <div>
-            <h2 class="text-4xl font-extrabold dark:text-white">Job Listings</h2>
+            <h2 class="text-4xl font-extrabold dark:text-white">Donation Request Listings</h2>
         </div>
 
-        {{-- button for creating job list --}}
+        {{-- button for creating donation list --}}
         <div>
-            <a wire:navigate href="{{ route('jobs.create') }}" type="button"
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-                <div class="flex space-x-2 items-center">
-                    <iconify-icon icon="uil:plus" color="white"></iconify-icon>
-                    <p> New Job </p>
-                </div>
 
-            </a>
         </div>
     </div>
 
 
 
-    {{-- Table for jobs --}}
+    {{-- Table for donation Requests --}}
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <div class="flex flex-column sm:flex-row flex-wrap space-y-3 sm:space-y-0 items-center justify-between pb-4">
+        <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">
             <div>
-
 
             </div>
             <label for="table-search" class="sr-only">Search</label>
@@ -50,41 +42,37 @@
                 <tr>
 
                     <th scope="col" class="px-6 py-3">
-                        Logo
+                        Donated User's Name
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Title
+                        Donated User's Email
                     </th>
                     <th scope="col" class="px-6 py-3">
-                        Email
+                         Phone
                     </th>
+
                     <th scope="col" class="px-6 py-3">
-                        Phone
-                    </th>
-                    <th scope="col" class="px-6 py-3">
-                        Action
+                        Actions
                     </th>
                 </tr>
             </thead>
             <tbody>
 
-                @forelse ($jobList as $item)
+                @forelse ($donationRequestList as $item)
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="px-6 py-4">
-                            <img src="{{ $item->logo }}" width="50" alt="">
+                            {{ $item->user->name }}
                         </td>
                         <td class="px-6 py-4">
-                            {{ $item->title }}
+                            {{ $item->user->email }}
                         </td>
-                        <td class="px-6 py-4">
-                            {{ $item->contact_email }}
+                        <td class="px-6 py->4">
+                            {{ $item->phone }}
                         </td>
+
                         <td class="px-6 py-4">
-                            {{ $item->contact_phone }}
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="{{ route('jobs.show', ['job' => $item]) }}"
+                            <a href="{{ route('donation-request.show', ['donationRequest' => $item]) }}"
                                 class="font-medium text-green-600 dark:text-green-500 hover:underline">View</a>
                             <button type="button" data-modal-target="{{ $item->id }}"
                                 data-modal-toggle="{{ $item->id }}"
@@ -118,7 +106,7 @@
                                                     d="M10 11V6m0 8h.01M19 10a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                                             </svg>
                                             <h3 class="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">Are
-                                                you sure you want to delete this {{ $item->name }}?</h3>
+                                                you sure you want to delete this {{ $item->user->name }}?</h3>
                                             <button wire:click='delete({{ $item->id }})'
                                                 data-modal-hide="{{ $item->id }}" type="button"
                                                 class="text-white bg-red-600 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm inline-flex items-center px-5 py-2.5 text-center me-2">
@@ -149,9 +137,10 @@
 
         </table>
         <div class="p-3">
-            {{ $jobList->links() }}
+            {{ $donationRequestList->links() }}
         </div>
     </div>
 
 </div>
+
 
