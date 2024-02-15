@@ -177,10 +177,6 @@
                                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
                                         @if ($agreement_file)
                                       {{ $agreement_file  }}
-
-
-
-
                                         @endif
                                            <input id="agreement_file" type="file" wire:model="agreement_file" class="mt-1 block w-full p-2 border rounded shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                                        <div wire:loading wire:target="agreement_file">Uploading...</div>

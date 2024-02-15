@@ -42,6 +42,7 @@
 
                         </div>
                         <input id="dropzone-file" wire:model.live='logo' type="file" class="hidden" />
+                        <div wire:loading wire:target="logo">Uploading...</div>
                     </label>
                 </div>
 

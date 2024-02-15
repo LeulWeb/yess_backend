@@ -42,6 +42,7 @@
 
                         </div>
                         <input id="dropzone-file" wire:model.live='logo' type="file" class="hidden" />
+                        <div wire:loading wire:target="logo">Uploading...</div>
                     </label>
                 </div>
 
@@ -63,7 +64,7 @@
                     <input type="text" wire:model.live='name' id="name"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Acme">
+                        placeholder="Taye Animaw..">
 
                     @error('name')
                         <x-form.error :$message />
@@ -76,7 +77,7 @@
                     <input type="text" wire:model.live='founder' id="founder"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Jhone Doe">
+                        placeholder="founder Name">
 
                     @error('founder')
                         <x-form.error :$message />
@@ -130,7 +131,7 @@
                                     class="hidden md:inline">Number</span></label>
                             <input wire:model.live='employees' type="number" id="empNum" aria-describedby="helper-text-explanation"
                                 class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="30">
+                                placeholder="3087">
 
                             @error('employees')
                                 <x-form.error :$message />
@@ -262,6 +263,7 @@
                         @endif
                     </div>
                     <input wire:model.live='image' id="dropzone-file-one" type="file" class="hidden mb-6" />
+                    <div wire:loading wire:target="image">Uploading...</div>
                 </label>
 
 
@@ -292,7 +294,7 @@
                 <input wire:model.live='location' type="text" id="location"
                     aria-describedby="helper-text-explanation"
                     class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@flowbite.com">
+                    placeholder="area of locations">
 
                 <div>
                     @error('location')
@@ -305,7 +307,7 @@
                 <input wire:model.live='contact_phone' type="phone" id="phone"
                     aria-describedby="helper-text-explanation"
                     class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@flowbite.com">
+                    placeholder="phone number">
 
                 @error('contact_phone')
                     <x-form.error :$message />

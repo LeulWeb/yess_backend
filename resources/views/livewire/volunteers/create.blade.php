@@ -188,6 +188,7 @@
                         @endif
                     </div>
                     <input wire:model.live='image' id="dropzone-file-one" type="file" class="hidden mb-6" />
+                    <div wire:loading wire:target="image">Uploading...</div>
                 </label>
 
 

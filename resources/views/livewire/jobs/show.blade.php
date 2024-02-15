@@ -134,7 +134,7 @@
                             placeholder="title">
 
                         @error('title')
-                            <x-form.error :$message /> 
+                            <x-form.error :$message />
                         @enderror
 
 
@@ -144,7 +144,7 @@
                         <input type="text" wire:model.live='contact_address' id="contact_address"
                             aria-describedby="helper-text-explanation"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="Jhone Doe">
+                            placeholder="your address">
 
                         @error('contact_address')
                             <x-form.error :$message />
@@ -160,7 +160,7 @@
                         <input type="email" wire:model.live='contact_email' id="contact_email"
                             aria-describedby="helper-text-explanation"
                             class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="jhon@email.com">
+                            placeholder="taye@email.com">
 
                         @error('contact_email')
                             <x-form.error :$message />
@@ -263,7 +263,7 @@
                         </label>
                         <input type="numeric" id="input-group-1"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                            placeholder="experiance" wire:model.live.debounce.300ms='experiance'> 
+                            placeholder="experiance" wire:model.live.debounce.300ms='experiance'>
 
                         @error('experiance')
                             <x-form.error :$message />
@@ -415,7 +415,7 @@
                     <div>
                         <img class="w-24 h-24 mb-3 rounded-full justify-start shadow-lg" src="{{ asset($job->logo) }}"
                         alt="" />
-                      
+
                      </div>
 
                         <div>
@@ -463,33 +463,33 @@
             <hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
             <div class="grid grid-cols-2 gap-8 ">
 
-               
-                    <div>
-                        
-                        <h2 class = " dark:text-white text-xl mt-2">About Company</h2>
-                       <p>{{ $job->description }}</p>  
-                       <h1 class = " dark:text-white text-xl mt-2">Responsiblities</h1>
-                        <p>{{ $job->location }}</p> 
-                       <h2 class = " dark:text-white text-xl mt-2">Location</h2>
-                      <p> {{ $job->responsibilities }} </p>                                      
 
-                    </div> 
-                <div class=" dark:text-white  text-center"> 
+                    <div>
+
+                        <h2 class = " dark:text-white text-xl mt-2">About Company</h2>
+                       <p>{{ $job->description }}</p>
+                       <h1 class = " dark:text-white text-xl mt-2">Responsiblities</h1>
+                        <p>{{ $job->location }}</p>
+                       <h2 class = " dark:text-white text-xl mt-2">Location</h2>
+                      <p> {{ $job->responsibilities }} </p>
+
+                    </div>
+                <div class=" dark:text-white  text-center">
                     <h1 class = " dark:text-white text-xl mt-2"> Job Sector</h1>
                        <p>{{ $job->sector }} </p>
                        <h1 class = " dark:text-white text-xl mt-2">Deadline Date </h1>
-                       <p>{{ $job->deadline }}</p> 
+                       <p>{{ $job->deadline }}</p>
                        <h1 class = " dark:text-white text-xl mt-2"> Job Vacancies</h1>
                       <p> {{ $job->vacancies }}</p>
                        <h1 class = " dark:text-white text-xl mt-2"> Job Schedule</h1>
                        <p>{{ $job->schedule }} </p>
                        <h1 class = " dark:text-white text-xl mt-2"> Year of Experiance</h1>
-                       <p>{{ $job->experiance }} </p> 
+                       <p>{{ $job->experiance }} </p>
 
 
                 </div>
-            </div> 
-        </div>       
+            </div>
+        </div>
 
     @endif
 

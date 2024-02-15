@@ -47,7 +47,7 @@
                     <input type="text" wire:model.live='title' id="title"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Title">
+                        placeholder="Title....">
 
                     @error('title')
                         <x-form.error :$message />
@@ -60,7 +60,7 @@
                     <input type="text" wire:model.live='country' id="country"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Jhone Doe">
+                        placeholder="Your Country...">
 
                     @error('country')
                         <x-form.error :$message />
@@ -115,7 +115,7 @@
                                     class="hidden md:inline">Duration</span></label>
                             <input wire:model.live='program_duration' type="number" id="program_duration" aria-describedby="helper-text-explanation"
                                 class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="30">
+                                placeholder="duration in month...">
 
                             @error('program_duration')
                                 <x-form.error :$message />
@@ -237,6 +237,7 @@
                         @endif
                     </div>
                     <input wire:model.live='cover' id="dropzone-file-one" type="file" class="hidden mb-6" />
+                    <div wire:loading wire:target="cover">Uploading...</div>
                 </label>
 
 

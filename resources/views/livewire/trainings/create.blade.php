@@ -41,6 +41,7 @@
                         @endif
                     </div>
                     <input wire:model.live='image' id="dropzone-file-one" type="file" class="hidden mb-6" />
+                    <div wire:loading wire:target="image">Uploading...</div>
                 </label>
     
     
@@ -58,7 +59,7 @@
                  <input type="text" wire:model.live='title' id="title"
                      aria-describedby="helper-text-explanation"
                      class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                     placeholder="Jhone Doe">
+                     placeholder="Title">
         
                  @error('title')
                      <x-form.error :$message />

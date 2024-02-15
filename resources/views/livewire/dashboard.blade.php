@@ -36,11 +36,9 @@
       <div class="max-w-sm p-6 border border-blue-500 rounded-[20px] shadow dark:bg-gray-800 dark:border-gray-700 text-center  ">
 
         <p class="mb-3  text-gray-500 dark:text-white-400 text-5xl text-start">{{ $volunteerCount }}</p>
-        <a href="/volunteers" class ="flex  mt-6 text-blue-500">
-            <svg class="  w-8 h-8 text-blue-500 dark:text-white " aria-hidden="true" icon="mingcute:user-3-line" fill="currentColor" viewBox="0 0 18 20">
-                <path d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
-            </svg>
-            <h5 class=" text-2xl  tracking-tight text-blue-500 dark:text-white"> Volunteer's</h5>
+        <a href="/volunteers" class ="flex  mt-6 text-blue-500 text-2xl">
+            <iconify-icon icon="healthicons:walk-supported" class="text-3xl"></iconify-icon>
+            <h5 class="   tracking-tight text-blue-500 dark:text-white">  Volunteers</h5>
         </a>
     </div>
     {{--  startups  --}}
@@ -48,21 +46,30 @@
 
         <p class="mb-3  text-gray-500 dark:text-white-400 text-5xl text-start" >{{ $startupCount }}</p>
 
-        <a href="/startups" class ="flex  mt-6 text-blue-500">
-            <svg class="  w-8 h-8 text-blue-500 dark:text-white " aria-hidden="true" icon="mingcute:user-3-line" fill="currentColor" viewBox="0 0 18 20">
-                <path d="M16 0H4a2 2 0 0 0-2 2v1H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v2H1a1 1 0 0 0 0 2h1v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2Zm-5.5 4.5a3 3 0 1 1 0 6 3 3 0 0 1 0-6ZM13.929 17H7.071a.5.5 0 0 1-.5-.5 3.935 3.935 0 1 1 7.858 0 .5.5 0 0 1-.5.5Z"/>
-            </svg>
-            <h5 class="ml-2 text-2xl  tracking-tight text-blue-500 dark:text-white">Startups </h5>
+        <a href="/startups" class ="flex  mt-6 text-blue-500 text-2xl">
+            <iconify-icon icon="streamline:startup"></iconify-icon>
+            <h5 class="   tracking-tight text-blue-500 dark:text-white">Startups</h5>
         </a>
     </div>
 
     {{--  users Table list  --}}
 </div>
-<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700">
+<hr class="h-px my-8 bg-gray-200 border-0 dark:bg-gray-700 mt-5 ">
 
-<h1 class="text-4xl font-extrabold dark:text-white mt-7 mb-5"> Users</h1>
+<div class="flex justify-between mb-10 mt-10">
+    <h1 class="text-4xl font-extrabold dark:text-white">Users</h1>
+    <a wire:navigate href="{{ route('users.index') }}" type="button"
+       class="text-gray-500 hover:text-green-800 focus:ring-4  focus:ring-blue-300 rounded-lg text-lg dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+        <div class="flex items-center">
+            
+            <p class="mr-2">View all Users</p>
+            <iconify-icon icon="mdi:table" ></iconify-icon>
+        </div>
+    </a>
+</div>
 
 <div class="relative overflow-x-auto">
+    
     <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
@@ -87,7 +94,7 @@
             </tr>
         </thead>
         <tbody class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-            @forelse ($users as $user )
+            @forelse ($userss as $user )
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
 
                 <td class="px-6 py-4">
@@ -126,6 +133,11 @@
 
         </tbody>
     </table>
+    <div class="flex flex-col justify-between p-2">
+        <div>
+            {{ $userss->links() }}
+        </div>
+    </div>
 </div>
 
 

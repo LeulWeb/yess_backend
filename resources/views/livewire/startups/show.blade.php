@@ -147,7 +147,7 @@
                                 <input type="text" wire:model.live='founder' id="founder"
                                     aria-describedby="helper-text-explanation"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Jhone Doe">
+                                    placeholder="founder name">
 
                                 @error('founder')
                                     <x-form.error :$message />
@@ -201,7 +201,7 @@
                                                 class="hidden md:inline">Number</span></label>
                                         <input wire:model.live='employees' type="number" id="empNum" aria-describedby="helper-text-explanation"
                                             class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            placeholder="30">
+                                            placeholder="3087">
 
                                         @error('employees')
                                             <x-form.error :$message />
@@ -287,7 +287,7 @@
                                 </div>
                                 <input type="text" id="input-group-1"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Website link" wire:model.live.debounce.300ms='website'>
+                                    placeholder="Website " wire:model.live.debounce.300ms='website'>
 
                             </div>
                             <div>
@@ -370,7 +370,7 @@
                             <input wire:model.live='location' type="text" id="location"
                                 aria-describedby="helper-text-explanation"
                                 class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="name@flowbite.com">
+                                placeholder="area of your address">
 
                             <div>
                                 @error('location')
@@ -383,7 +383,7 @@
                             <input wire:model.live='contact_phone' type="phone" id="phone"
                                 aria-describedby="helper-text-explanation"
                                 class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="name@flowbite.com">
+                                placeholder="contact number">
 
                             @error('contact_phone')
                                 <x-form.error :$message />

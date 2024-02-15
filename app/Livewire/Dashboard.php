@@ -6,13 +6,17 @@ use App\Models\Startup;
 use App\Models\subscriber;
 use App\Models\Trainer;
 use App\Models\User;
+use Illuminate\Pagination\Paginator;
 use App\Models\Volunteer;
 use Livewire\Component;
 use Livewire\Attributes\Title;
+use Livewire\WithPagination;
+
 #[Title('Dashboard  ')]
 
 class Dashboard extends Component
 {
+    
     public $users;
     public $userCount;
     public $subscriberCount;
@@ -30,6 +34,9 @@ class Dashboard extends Component
 }
     public function render()
     {
-        return view('livewire.dashboard');
+        {
+            $userss = User::latest()->paginate(5);
+            return view('livewire.dashboard', compact('userss'));
+        }
     }
 }

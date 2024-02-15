@@ -89,6 +89,7 @@
                             @endif
                         </div>
                         <input wire:model.live='profile' id="dropzone-file-one" type="file" class="hidden mb-6" />
+                        <div wire:loading wire:target="profile">Uploading...</div>
                     </label>
 
 

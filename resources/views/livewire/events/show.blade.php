@@ -112,7 +112,7 @@
                                 <input type="text" wire:model.live='target_audience' id="target_audience"
                                     aria-describedby="helper-text-explanation"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Jhone Doe">
+                                    placeholder="Taye Animaw....">
 
                                 @error('target_audience')
                                     <x-form.error :$message />
@@ -139,7 +139,7 @@
                                                 class="hidden md:inline">date</span></label>
                                         <input wire:model.live='date' type="date" id="empNum" aria-describedby="helper-text-explanation"
                                             class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            placeholder="30">
+                                            placeholder="date">
 
                                         @error('date')
                                             <x-form.error :$message />
@@ -168,7 +168,7 @@
                             <input wire:model.live='coord' type="text" id="product"
                                 aria-describedby="helper-text-explanation"
                                 class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="Product or Service">
+                                placeholder="Coords...">
                             @error('coord')
                                 <x-form.error :$message />
                             @enderror
@@ -177,7 +177,7 @@
                             <input wire:model.live='location' type="text" id="location"
                                 aria-describedby="helper-text-explanation"
                                 class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="name@flowbite.com">
+                                placeholder="Enter your location here..">
 
                             <div>
                                 @error('location')

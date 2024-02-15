@@ -118,7 +118,7 @@
                                 <input type="text" wire:model.live='country' id="country"
                                     aria-describedby="helper-text-explanation"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Jhone Doe">
+                                    placeholder="Ethiopia">
 
                                 @error('country')
                                     <x-form.error :$message />
@@ -171,7 +171,7 @@
                                                 class="hidden md:inline">Amount</span></label>
                                         <input wire:model.live='funding_amount' type="number" id="funding_amount" aria-describedby="helper-text-explanation"
                                             class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                            placeholder="30">
+                                            placeholder="30000">
 
                                         @error('funding_amount')
                                             <x-form.error :$message />
@@ -254,7 +254,7 @@
 
                                 <input type="text" id="input-group-1"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="deadline link" wire:model.live.debounce.300ms='deadline'>
+                                    placeholder="deadline " wire:model.live.debounce.300ms='deadline'>
 
                             </div>
                             <div>

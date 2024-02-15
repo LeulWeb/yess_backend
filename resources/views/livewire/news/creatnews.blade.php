@@ -45,7 +45,7 @@
                     <input type="text" wire:model.live='title' id="title"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Acme">
+                        placeholder="Title.....">
 
                     @error('title')
                         <x-form.error :$message />
@@ -58,7 +58,7 @@
                     <input type="text" wire:model.live='author' id="author"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="Jhone Doe">
+                        placeholder="Taye Animaw">
 
                     @error('author')
                         <x-form.error :$message />
@@ -171,7 +171,7 @@
                 <input wire:model.live='tags' type="text" id="tags"
                     aria-describedby="helper-text-explanation"
                     class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@flowbite.com">
+                    placeholder="Tags...">
 
                 <div>
                     @error('tags')
@@ -184,7 +184,7 @@
                 <input wire:model.live='links' type="links" id="links"
                     aria-describedby="helper-text-explanation"
                     class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="name@flowbite.com">
+                    placeholder="valid url link...">
 
                 @error('links')
                     <x-form.error :$message />
