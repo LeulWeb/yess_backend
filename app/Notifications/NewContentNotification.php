@@ -44,7 +44,7 @@ class NewContentNotification extends Notification
              ->from('tayeanimaw@gmail.com', 'Taye Animaw')
             ->subject('New Content Added')
             ->line('New content has been added. Check it out!')
-            ->action('View Newsletter', url('www.yessethiopia.org' . $notifiable->id));
+            ->action('View Newsletter', url('../https://www.yessinternational.org/' . $notifiable->id));
     }
 
     /**

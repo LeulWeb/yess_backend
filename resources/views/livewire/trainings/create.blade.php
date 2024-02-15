@@ -8,7 +8,7 @@
                 width="32"></iconify-icon>
         </a>
         <div id="tooltip-default" role="tooltip"
-            class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+            class="absolute z-10 inpopular inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
             Go Back
             <div class="tooltip-arrow" data-popper-arrow></div>
         </div>
@@ -66,14 +66,12 @@
                  @enderror
                  </div>
                  <div>
-                    <label for="visibile" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">
-                        Visibility</label>
-                    <select id="visible" wire:model.defer="visible"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        <option value="true">true</option>               
-                        <option value="1">1</option>
-                        <option value="0">0</option>
-                    </select>
-                    @error('visible') <span class="text-red-500">{{ $message }}</span> @enderror
+                    <label for="popular" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Popular
+                    </label>
+                    <input id="popular" type="checkbox" wire:model.defer="popular" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                    <label for="popular" class="ml-2 text-sm text-gray-700 dark:text-white">Popular</label>
+                    @error('popular') <span class="text-red-500">{{ $message }}</span> @enderror
                 </div>
                 <div>
                     <div class="relative mb-1">
