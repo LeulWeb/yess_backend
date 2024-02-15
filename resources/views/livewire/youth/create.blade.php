@@ -13,7 +13,7 @@
 
 
     </div>
-    <form wire:submit.prevent='create()' class="w-10/12 mx-auto" method="post" enctype="multipart/form-data">
+    <form wire:submit.prevent='create' class="w-10/12 mx-auto" method="post" enctype="multipart/form-data">
 
 
 
@@ -25,19 +25,20 @@
 
 
             <div class="max-w-sm mx-auto">
+
+
+
                 <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
                     User</label>
                 <select wire:model.live.debounce.200ms='user_id' id="countries"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
 
                     @foreach ($userList as $user)
-                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                        <option value="{{ $user->id }}">{{ $user->id }} {{ $user->name }}</option>
                     @endforeach
 
                 </select>
-                @error('user_id')
-                    <p class="text-sm text-red-500">{{$message}}</p>
-                @enderror
+
 
             </div>
 
@@ -48,12 +49,12 @@
             {{-- text area achivement --}}
             <label for="message" class="block mb-2 my-5 text-sm font-medium text-gray-900 dark:text-white">User
                 Achievement</label>
-            <textarea  wire:model.live.debounce.200ms='achievment' id="message" rows="4"
+            <textarea wire:model.live.debounce.200ms='achievment' id="message" rows="4"
                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 placeholder="Write your thoughts here..."></textarea>
-                @error('achievment')
-                    <p class="text-sm text-red-500">{{$message}}</p>
-                @enderror
+            @error('achievment')
+                <p class="text-sm text-red-500">{{ $message }}</p>
+            @enderror
 
             {{-- end of textarea --}}
 
@@ -70,7 +71,7 @@
                     class="rounded-none rounded-e-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Youtube Link">
                 @error('video_link')
-                    <p class="text-sm text-red-500">{{$message}}</p>
+                    <p class="text-sm text-red-500">{{ $message }}</p>
                 @enderror
             </div>
 
@@ -79,7 +80,7 @@
 
 
 
-            {{--* Modal form --}}
+            {{-- * Modal form --}}
 
 
 
