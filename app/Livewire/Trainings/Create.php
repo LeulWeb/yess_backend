@@ -28,8 +28,8 @@ class Create extends Component
     #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
     public $image;
 
-    #[Validate('required|string')]
-    public $visible;
+    #[Validate('nullable|boolean')]
+    public $popular;
     #[Validate('required_without:playlist_link|url')]
     public $youtube_links;
     #[Validate('required_without:youtube_links|url')]

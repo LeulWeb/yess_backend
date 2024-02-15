@@ -36,8 +36,8 @@ class Show extends Component
     public $playlist_link;
     #[Validate('nullable|url')]
     public $youtube_links;
-    #[Validate('nullable')]
-    public $visible;
+    #[Validate('nullable|boolean')]
+    public $popular;
 
 
     public Training $training;
@@ -61,7 +61,7 @@ class Show extends Component
 
         $this->playlist_link = $training->playlist_link;
         $this->youtube_links = $training->youtube_links;
-        $this->visible = $training->visible;
+        $this->popular = $training->popular;
 
 
         // Initialize $imageName and $logoName properties
@@ -94,7 +94,7 @@ class Show extends Component
 
             'playlist_link' => 'nullable|url',
             'youtube_links' => 'nullable|url',
-            'visible' => 'nullable|boolean',
+            'popular' => 'nullable|boolean',
 
             // Add more validation rules as needed
         ]);
@@ -107,7 +107,7 @@ class Show extends Component
 
             'playlist_link' => $this->playlist_link,
             'youtube_links' => $this->youtube_links,
-            'visible' => $this->visible,
+            'popular' => $this->popular,
 
 
         ]);

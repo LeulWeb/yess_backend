@@ -22,7 +22,7 @@ class Training extends Model
         'image',
         'youtube_links',
         'playlist_link',
-        'visible'
+        'popular'
 
         // Add other fillable attributes here
     ];

@@ -14,13 +14,13 @@ return new class extends Migration
     {
         Schema::create('trainings', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Trainer::class)->constrained()->cascadeOnDelete();
+            $table->foreignIdFor(Trainer::class)->constrained()->cascadeOnDelete()->default(0);
             $table->string('title');
             $table->text('description');
             $table->string('image')->nullable();
             $table->string('youtube_links')->nullable();
             $table->string('playlist_link')->nullable();
-            $table->boolean('visible')->default(true);
+            $table->boolean('popular')->default(true);
             $table->timestamps();
         });
     }

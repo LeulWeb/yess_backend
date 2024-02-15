@@ -10,7 +10,7 @@
                     width="32"></iconify-icon>
             </a>
             <div id="tooltip-default" role="tooltip"
-                class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                class="absolute z-10 inpopular inline-block px-3 py-2 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                 Go Back
                 <div class="tooltip-arrow" data-popper-arrow></div>
             </div>
@@ -202,14 +202,14 @@
 
 
 
-                            <label for="product" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Visibility</label>
-                            <input wire:model.live='visible' type="boolean" id="product"
-                                aria-describedby="helper-text-explanation"
-                                class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="visibleity">
-                            @error('visible')
-                                <x-form.error :$message />
-                            @enderror
+                                   <label for="popular" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Popular</label>
+                                   <input wire:model.live='popular' type="checkbox" id="popular"
+                                       aria-describedby="helper-text-explanation"
+                                       class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                                   <label for="popular" class="ml-2 text-sm text-gray-700 dark:text-white">Popular</label>
+                                   @error('popular')
+                                       <x-form.error :$message />
+                                   @enderror
 
 
                         </div>
@@ -246,8 +246,8 @@
                         <a href = "{{ $training->youtube_links }}">{{ $training->youtube_links }}</a>
                         <h4 class = " dark:text-white">Playlist  Link</h4>
                         <a href = "{{ $training->playlist_link }}">{{ $training->playlist_link }}</a>
-                         <h4 class = " dark:text-white">Visibility</h4>
-                         {{ $training->visible }}
+                         <h4 class = " dark:text-white">Popular</h4>
+                         {{ $training->popular }}
                     
                     
 

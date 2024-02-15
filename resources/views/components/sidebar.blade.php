@@ -256,7 +256,7 @@
                 ])>
                 <a href="/startups"
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
-                    <iconify-icon icon="ri:question-line" width="26" height="26"></iconify-icon>
+                    <iconify-icon icon="streamline:startup" class="w-26 h-26"></iconify-icon>
                     <span class="flex-1 ms-3 whitespace-nowrap">Startups</span>
 
                 </a>
@@ -267,7 +267,7 @@
             ])>
             <a href="/youths"
                 class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
-                <iconify-icon icon="ri:question-line" width="26" height="26"></iconify-icon>
+                <iconify-icon icon="cil:user" width="26" height="26"></iconify-icon>
                 <span class="flex-1 ms-3 whitespace-nowrap">Youths</span>
 
             </a>

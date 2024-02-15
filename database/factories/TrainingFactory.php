@@ -27,11 +27,13 @@ class TrainingFactory extends Factory
             'title' => fake()->sentence(3),
             'description' => fake()->paragraph(2),
             'youtube_links' => $is_playlist ? null : $youtubeUrls,
+
             'trainer_id' => function () {
                 return Trainer::factory()->create()->id;
             },
             'image' => fake()->imageUrl(),
-            'playlist_link' => $is_playlist ? 'https://youtube.com/playlist?list=PL4cUxeGkcC9gC88BEo9czgyS72A3doDeM&si=RNMDrd4o0FO2JK4m' : null,
+            'playlist_link' => $is_playlist ?"https://youtube.com/playlist?list=PL4cUxeGkcC9gC88BEo9czgyS72A3doDeM&si=23Acw_-B1M7x64uY" : null,
+            'popular' => true,
 
         ];
     }
