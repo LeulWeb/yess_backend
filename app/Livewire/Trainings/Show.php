@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Trainings;
 
-use App\Models\Training;
+use App\Models\Trainer;
 use Livewire\Component;
-use Livewire\Attributes\Validate;
+use App\Models\Training;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Title;
+use Livewire\Attributes\Validate;
+
 #[Title('Training ')]
 
 class Show extends Component
@@ -32,9 +34,8 @@ class Show extends Component
 
     #[Validate('required|max:100')]
     public $title;
-    #[Validate('nullable|url')]
-    public $playlist_link;
-    #[Validate('nullable|url')]
+
+    #[Validate('required|url')]
     public $youtube_links;
     #[Validate('nullable|boolean')]
     public $popular;
@@ -46,7 +47,8 @@ class Show extends Component
     public bool $editMode = false;
 
 
-    public function toggleEdit(){
+    public function toggleEdit()
+    {
         $this->editMode = !$this->editMode;
     }
 
@@ -59,7 +61,6 @@ class Show extends Component
         $this->title = $training->title;
 
 
-        $this->playlist_link = $training->playlist_link;
         $this->youtube_links = $training->youtube_links;
         $this->popular = $training->popular;
 
@@ -69,14 +70,13 @@ class Show extends Component
 
 
         $this->imageName = $this->imageName ?: $training->image;
-
     }
 
 
     public function delete()
     {
         $this->training->delete();
-        session()->flash('success', 'training '. $this->training->name  .' deleted successfully');
+        session()->flash('success', 'training ' . $this->training->name  . ' deleted successfully');
         return redirect()->route('trainings.index');
     }
 
@@ -92,7 +92,6 @@ class Show extends Component
 
             'title' => 'required|string|max:255',
 
-            'playlist_link' => 'nullable|url',
             'youtube_links' => 'nullable|url',
             'popular' => 'nullable|boolean',
 
@@ -101,16 +100,16 @@ class Show extends Component
 
         $this->training->update(
             [
-            'description' => $this->description,
+                'description' => $this->description,
 
-            'title' => $this->title,
+                'title' => $this->title,
 
-            'playlist_link' => $this->playlist_link,
-            'youtube_links' => $this->youtube_links,
-            'popular' => $this->popular,
+                'youtube_links' => $this->youtube_links,
+                'popular' => $this->popular,
 
 
-        ]);
+            ]
+        );
 
         if ($this->image) {
             // Handle image upload and update
@@ -123,15 +122,15 @@ class Show extends Component
         return redirect()->route('trainings.index');
     }
     public function cancel()
-     {
-     return redirect()->route('trainings.index');
-     }
+    {
+        return redirect()->route('trainings.index');
+    }
 
 
     public function render()
     {
         return view('livewire.trainings.show', [
-
+            'trainerList' => Trainer::latest()->get()
         ]);
     }
 }

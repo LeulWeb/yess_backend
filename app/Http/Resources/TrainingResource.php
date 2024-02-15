@@ -16,12 +16,11 @@ class TrainingResource extends JsonResource
     {
         return [
             "id"=> $this->id,
-            // "is_popular"=> $this->is_popular,
+            "is_popular"=> $this->popular,
             "title"=> $this->title,
             "image"=> $this->image,
             "description"=> $this->description,
             "youtube_links"=>$this->youtube_links,
-            "playlist_link"=>$this->playlist_link,
             "trainer"=>new TrainerResource($this->whenLoaded('trainer')),
         ];
     }

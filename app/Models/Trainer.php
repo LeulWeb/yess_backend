@@ -10,11 +10,7 @@ class Trainer extends Model
 {
         use HasFactory;
 
-        protected $fillable = [
-            'name',
-            'profile',
-
-             'email',];
+        protected $guarded= [];
 
         // local scope query
         public function scopeSearch($query, $search){

@@ -59,10 +59,7 @@
                     <th scope="col" class="px-6 py-3">
                         Youtube Links
                     </th>
-                    <th scope="col" class="px-6 py-3">
-                        PlayList Link
-                    </th>
-                    
+                   
 
                     <th scope="col" class="px-6 py-3">
                         Action
@@ -75,22 +72,20 @@
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="px-6 py-4">
-                            {{ $item->trainer->name}}>
+                            {{ $item->trainer->name }}>
                         </td>
                         <td class="px-6 py-4">
-                            {{ $item->trainer->email}}>
+                            {{ $item->trainer->email }}>
                         </td>
                         <td class="px-6 py-4">
-                            {{ $item->title}}>
+                            {{ $item->title }}>
                         </td>
                         <td class="px-6 py-4">
-                            <a href="  {{ $item->youtube_links }}" class="hover:text-red-400">  {{ $item->youtube_links }}</a>
+                            @isset($item->youtube_links)
+                                <a href="  {{ $item->youtube_links }}" class="hover:text-red-400"> Watch</a>
+                            @endisset
 
-                        </td>
-                        <td class="px-6 py-4">
-                            <a href="{{ $item->playlist_link }} " class="hover:text-red-400">
-                                {{ $item->playlist_link }}
-                            </a>
+
                         </td>
 
                         <td class="px-6 py-4">
@@ -110,9 +105,8 @@
                                         <button type="button"
                                             class="absolute top-3 end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                                             data-modal-hide="{{ $item->id }}">
-                                            <svg class="w-3 h-3" aria-hidden="true"
-                                                xmlns="http://www.w3.org/2000/svg" fill="none"
-                                                viewBox="0 0 14 14">
+                                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                                fill="none" viewBox="0 0 14 14">
                                                 <path stroke="currentColor" stroke-linecap="round"
                                                     stroke-linejoin="round" stroke-width="2"
                                                     d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
@@ -164,4 +158,3 @@
     </div>
 
 </div>
-

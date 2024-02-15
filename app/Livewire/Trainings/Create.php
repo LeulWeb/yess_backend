@@ -2,11 +2,13 @@
 
 namespace App\Livewire\Trainings;
 
+use App\Models\Trainer;
 use App\Models\Training;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Title;
+
 #[Title('Training ')]
 
 class Create extends Component
@@ -30,10 +32,13 @@ class Create extends Component
 
     #[Validate('nullable|boolean')]
     public $popular;
-    #[Validate('required_without:playlist_link|url')]
+    #[Validate('required')]
     public $youtube_links;
-    #[Validate('required_without:youtube_links|url')]
-    public $playlist_link;
+
+
+
+    #[Validate('required')]
+    public $trainer_id;
 
 
 
@@ -43,28 +48,32 @@ class Create extends Component
         $validated = $this->validate();
 
 
-        if(!empty($this->image)){
-            $this->imageName = time().'.'.$this->image->extension();
+
+        if (!empty($this->image)) {
+            $this->imageName = time() . '.' . $this->image->extension();
             $this->image->storeAs('training', $this->imageName, 'public');
         }
 
 
 
 
-        $validated['image']= 'training/'.$this->imageName;
+        $validated['image'] = 'training/' . $this->imageName;
+
 
         Training::create($validated);
         session()->flash('success', 'training created successfully');
         return redirect()->route('trainings.index');
     }
     public function cancel()
-{
-    return redirect()->route('trainings.index');
-}
+    {
+        return redirect()->route('trainings.index');
+    }
 
 
     public function render()
     {
-        return view('livewire.trainings.create');
+        return view('livewire.trainings.create', [
+            'trainerList' => Trainer::latest()->get()
+        ]);
     }
 }

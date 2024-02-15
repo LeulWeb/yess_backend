@@ -16,16 +16,7 @@ class Training extends Model
     // protected $casts = [
     //     'youtube_links' => 'array',
     // ];
-    protected $fillable = [
-        'description',
-        'title',
-        'image',
-        'youtube_links',
-        'playlist_link',
-        'popular'
-
-        // Add other fillable attributes here
-    ];
+    protected $guarded = [];
 
     // local scope query
        public function scopeSearch($query, $search) {
