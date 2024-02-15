@@ -37,6 +37,8 @@ class Show extends Component
     #[Validate('nulable')]
     public $skill;
 
+    public $achievement;
+
 
     #[Validate('required|max:50')]
     public $role;
@@ -74,6 +76,10 @@ class Show extends Component
         return redirect()->route('users.index');
     }
 
+    public function promoteYouth()
+    {
+    }
+
 
     public function mount(User $user)
     {
@@ -87,7 +93,8 @@ class Show extends Component
         $this->skill = $user->skill;
     }
 
-    public function toggleBan(){
+    public function toggleBan()
+    {
         if ($this->user->status == 'active') {
             $this->user->status = 'inactive';
         } else {
@@ -95,7 +102,7 @@ class Show extends Component
         }
 
         $this->user->save();
-        session()->flash('success', 'User '. $this->user->name.'is now '. $this->user->status);
+        session()->flash('success', 'User ' . $this->user->name . 'is now ' . $this->user->status);
         return redirect()->route('users.index');
     }
 
@@ -150,9 +157,9 @@ class Show extends Component
         return redirect()->route('users.index');
     }
     public function cancel()
-     {
+    {
         return redirect()->route('users.index');
-      }
+    }
 
     public function render()
     {

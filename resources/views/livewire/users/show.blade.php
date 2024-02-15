@@ -21,12 +21,6 @@
 
         <div class="flex space-x-3 items-cetner">
 
-
-
-
-
-            <!-- Modal toggle -->
-
             @if ($user->role == 'user')
                 <button data-modal-target="default-modal" data-modal-toggle="default-modal"
                     class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
@@ -299,8 +293,10 @@
             <div class="flex w-10/12 mx-auto items-center place-content-between ">
                 <div class="flex flex-col items-center  ">
 
+
+
                     @if (isset($user->profile_picture))
-                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="{{ $user->profile_picture }}"
+                        <img class="w-24 h-24 mb-3 rounded-full shadow-lg" src="/{{ $user->profile_picture }}"
                             alt="Bonnie image" />
                     @else
                         <div class="w-24 h-24 rounded-full bg-gray-400 flex items-center justify-center">

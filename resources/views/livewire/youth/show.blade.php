@@ -85,71 +85,145 @@
 
     @if ($editMode)
         <div>
-            <div>
-                <form wire:submit.prevent='update()' class="w-10/12 mx-auto" method="post" enctype="multipart/form-data">
 
-                       {{-- First column --}}
-                            <div >
-                                {{-- video_link--}}
-                                <label for="video_link" class="block mb-2  font-medium text-gray-900 dark:text-white text-xl">
-                                    video_link</label>
-                                <input type="url" wire:model.live='video_link' id="video_link"
-                                    aria-describedby="helper-text-explanation"
-                                    class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="video_link">
-
-                                @error('video_link')
-                                    <x-form.error :$message />
-                                @enderror
-
-                            </div>
-                    <label class="block mb-2  font-medium text-gray-900 dark:text-white text-xl">is_published</label>
-                    <textarea wire:model.live.debounce.1000ms='is_published' rows="4"
-                        class="block  p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 mb-6 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="check wether it is published or not..."></textarea>
-                    @error('is_published')
-                        <x-form.error :$message />
-                    @enderror
+            <form wire:submit.prevent='update' class="w-10/12 mx-auto" method="post" enctype="multipart/form-data">
 
 
 
+                <div class="max-w-sm">
 
-                    <div class="grid md:grid-cols-2 gap-y-5 gap-x-3 mt-7">
-                        <button wire:click = "cancel" type="button"
-                            class="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Cancel</button>
-                        <button  type="submit"
-                            class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Save Changes</button>
+
+
+                    {{-- ? Select user --}}
+
+
+                    <div class="max-w-sm mx-auto">
+                        <label for="countries"
+                            class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+                            User</label>
+                        <select wire:model.live.debounce.200ms='user_id' id="countries"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+
+                            @foreach ($userList as $user)
+                                <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endforeach
+
+                        </select>
+                        @error('video_link')
+                            <p class="text-sm text-red-500">{{ $message }}</p>
+                        @enderror
 
                     </div>
+
+
+                    {{-- end of select user --}}
+
+
+                    {{-- text area achivement --}}
+                    <label for="message" class="block mb-2 my-5 text-sm font-medium text-gray-900 dark:text-white">User
+                        Achievement</label>
+                    <textarea wire:model.live.debounce.200ms='achievment' id="message" rows="4"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Write your thoughts here..."></textarea>
+                    @error('achievment')
+                        <p class="text-sm text-red-500">{{ $message }}</p>
+                    @enderror
+
+                    {{-- end of textarea --}}
+
+
+
+                    <label for="website-admin"
+                        class="block my-2 text-sm font-medium text-gray-900 dark:text-white">Youtube
+                        Link</label>
+                    <div class="flex">
+                        <span
+                            class="inline-flex items-center px-3 text-sm text-gray-900 bg-gray-200 border rounded-e-0 border-gray-300 rounded-s-md dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
+                            <iconify-icon icon="logos:youtube-icon" width="32" height="32"></iconify-icon>
+                        </span>
+                        <input wire:model.live.debounce.200ms='video_link' type="text" id="website-admin"
+                            class="rounded-none rounded-e-lg bg-gray-50 border text-gray-900 focus:ring-blue-500 focus:border-blue-500 block flex-1 min-w-0 w-full text-sm border-gray-300 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="Youtube Link">
+                        @error('video_link')
+                            <p class="text-sm text-red-500">{{ $message }}</p>
+                        @enderror
+                    </div>
+
+                    <button type="submit"
+                        class="text-white my-5 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                 </div>
 
 
+            </form>
 
-
-                </form>
-
-            </div>
-
-
+        </div>
     @else
-        {{--youth info --}}
+        {{-- youth info --}}
 
-            <div class="w-full  p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-5">
-                <h1 class ="  text-xl mb-2">video_links</h1>
-                             {{ $youth->video_link }}
-
-        <h1 class =" mt-5 mb-2 text-2xl">is_published</h1>
+        <div
+            class="w-full  p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 mb-5">
+            <h3 class="text-3xl font-bold dark:text-white">Youth LeaderBoard</h3>
 
 
-                    {{ $youth->is_published }}
 
-                </div>
+
+            <h5 class="text-xl font-bold dark:text-white my-5">User</h5>
+
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-white ">
+
+                <tbody>
+
+                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <td class="px-6 py-4 font-semibold dark:text-whtie">
+                            Full Name
+                        </td>
+
+                        <td class="px-6 py-4">
+                            {{ $youth->user->name }}
+                        </td>
+                    </tr>
+                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <td class="px-6 py-4 font-semibold dark:text-whtie">
+                            Email
+                        </td>
+
+                        <td class="px-6 py-4">
+                            {{ $youth->user->email }}
+                        </td>
+                    </tr>
+
+                    <tr class="border-b border-gray-200 dark:border-gray-700">
+                        <td class="px-6 py-4 font-semibold dark:text-whtie">
+                            Phone
+                        </td>
+
+                        <td class="px-6 py-4">
+                            {{ $youth->user->phone }}
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+            <h5 class="text-xl font-bold dark:text-white my-5">Achivement</h5>
+
+
+
+            <p class="mb-3 text-gray-500 dark:text-gray-400">
+                {{ $youth->achievment }}
+            </p>
+
+            <button type="button"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 flex items-center space-x-3">
+                <iconify-icon icon="logos:youtube-icon" width="32" height="32"></iconify-icon>
+                <p>Watch Here</p>
+            </button>
+
 
         </div>
 
-
-
-    @endif
+</div>
+@endif
 
 
 
@@ -158,4 +232,3 @@
 
 
 </div>
-

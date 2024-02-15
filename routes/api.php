@@ -16,6 +16,7 @@ use App\Http\Controllers\Api\VolunteerController;
 use App\Http\Controllers\Api\JobRequestController;
 use App\Http\Controllers\Api\ScholarshipController;
 use App\Http\Controllers\Api\ScholarshipRequestController;
+use App\Http\Controllers\Api\StatController;
 use App\Http\Controllers\Api\UpdateProfileController;
 use App\Http\Controllers\Api\VolunteerApplicationController;
 
@@ -34,6 +35,9 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 
 Route::post('token-validate', [AuthController::class, 'validateToken']);
+Route::apiResource('youths', YouthController::class);
+
+Route::get('/stat', [StatController::class, 'index']);
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
@@ -54,7 +58,6 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 Route::apiResource('/scholarships', ScholarshipController::class);
 Route::apiResource('faqs', FaqController::class);
 Route::apiResource('jobs', JobController::class);
-Route::apiResource('youths', YouthController::class);
 Route::apiResource('startups', StartupController::class)->only(['index', 'show']);
 Route::apiResource('volunteers', VolunteerController::class)->only(['index', 'show']);
 Route::apiResource('trainings', TrainingController::class)->only(['index', 'show']);

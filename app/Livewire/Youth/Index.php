@@ -12,7 +12,7 @@ class Index extends Component
 
     public function delete(Youth $youth){
         $youth->delete();
-        session()->flash('success','youth ' .'deleted '. ' successfully',) ;
+        session()->flash('success','youth promotion ' .'deleted '. ' successfully',) ;
         return redirect()->route('youth.index');
     }
     public function cancel()
