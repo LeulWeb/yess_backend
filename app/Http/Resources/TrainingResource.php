@@ -16,6 +16,7 @@ class TrainingResource extends JsonResource
     {
         return [
             "id"=> $this->id,
+            // "is_popular"=> $this->is_popular,
             "title"=> $this->title,
             "image"=> $this->image,
             "description"=> $this->description,

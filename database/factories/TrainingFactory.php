@@ -21,7 +21,7 @@ class TrainingFactory extends Factory
 
         $is_playlist = $this->faker->boolean();
 
-        $youtubeUrls = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';        
+        $youtubeUrls = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
 
         return [
             'title' => fake()->sentence(3),
@@ -31,7 +31,7 @@ class TrainingFactory extends Factory
                 return Trainer::factory()->create()->id;
             },
             'image' => fake()->imageUrl(),
-            'playlist_link' => $is_playlist ? fake()->url() : null,
+            'playlist_link' => $is_playlist ? 'https://youtube.com/playlist?list=PL4cUxeGkcC9gC88BEo9czgyS72A3doDeM&si=RNMDrd4o0FO2JK4m' : null,
 
         ];
     }

@@ -25,19 +25,19 @@ class DatabaseSeeder extends Seeder
    */
   public function run(): void
   {
-    $this->call(UserSeeder::class);
-    \App\Models\User::factory(25)->create();
-    \App\Models\Scholarship::factory(5)->create();
-    \App\Models\Faq::factory(5)->create();
-    \App\Models\Job::factory(5)->create();
+    // $this->call(UserSeeder::class);
+    // \App\Models\User::factory(25)->create();
+    // \App\Models\Scholarship::factory(5)->create();
+    // \App\Models\Faq::factory(5)->create();
+    // \App\Models\Job::factory(5)->create();
     Youth::factory(10)->create();
-    Education::factory(10)->create();
-    Startup::factory(10)->create();
-    Volunteer::factory(10)->create();
-    Training::factory(10)->create();
-    ScholarshipRequest::factory(10)->create();
-    DonationRequest::factory(10)->create();
-    JobRequest::factory(10)->create();
-    VolunteerApplication::factory(10)->create();
+    // Education::factory(10)->create();
+    // Startup::factory(10)->create();
+    // Volunteer::factory(10)->create();
+    // Training::factory(10)->create();
+    // ScholarshipRequest::factory(10)->create();
+    // DonationRequest::factory(10)->create();
+    // JobRequest::factory(10)->create();
+    // VolunteerApplication::factory(10)->create();
   }
 }
