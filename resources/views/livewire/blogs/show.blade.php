@@ -230,7 +230,7 @@
             class="w-full  p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
             <div class="grid grid-cols-2  gap-x-3">
-               <img src="{{ asset($blog->image) }}" alt="">
+               <img src="{{ asset($blog->image) }}" alt="Enter Image">
                 <div class="format flex flex-col justify-center space-y-4">
 
 

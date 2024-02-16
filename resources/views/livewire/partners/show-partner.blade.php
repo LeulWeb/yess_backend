@@ -102,7 +102,7 @@
                                         class="flex flex-col items-center justify-center w-32 h-32  border-2 border-gray-300 border-dashed rounded-full cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
                                         <div class="flex flex-col items-center justify-center pt-5 pb-6">
                                             @if ($logo)
-                                            <img class="bg-cover w-32 h-32 bg-center rounded-full" src="{{ $logo->temporaryUrl() }}"
+                                            <img class="bg-cover w-32 h-32 bg-center text-center rounded-full" src="{{ $logo->temporaryUrl() }}"
                                             alt="Bordered avatar">
                                             @elseif($partner->logo)
                                                 <img class="bg-cover w-32 h-32 bg-center rounded-full" src="{{ asset($partner->logo) }}"
@@ -311,12 +311,14 @@
                                     </td>
                                 </tr>
                                 <tr class="border-b border-gray-200 dark:border-gray-700">
-                                    <td class="px-6 py-4 font-semibold text-black dark:text-whtie">
+                                    <td class="px-6 py-4 font-semibold text-black dark:text-white">
                                         <button wire:click="downloadAgreement">Download Agreement File</button>
                                     </td>
 
                                     <td class="px-6 py-4">
-                                        {{ $partner->agreement_file}}
+                                        @if ($partner->agreement_file)
+                                            <a href="{{ route('partners.open-agreement', $partner->id) }}" target="_blank">Open File</a>
+                                        @endif
                                     </td>
                                 </tr>
 

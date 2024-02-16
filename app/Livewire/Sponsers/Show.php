@@ -5,6 +5,7 @@ namespace App\Livewire\Sponsers;
 use App\Enums\Organizations;
 use App\Enums\Status;
 use App\Models\Sponser;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\Attributes\Validate;
 use Livewire\WithFileUploads;
@@ -40,6 +41,10 @@ class Show extends Component
 
 
     public bool $editMode = false;
+    public function __construct()
+    {
+        $this->sponser = new sponser(); // Or however you initialize a sponser object
+    }
 
 
     public function toggleEdit(){
@@ -120,6 +125,34 @@ class Show extends Component
     public function cancel()
     {
        return redirect()->route('sponsers.index');
+     }
+     public function downloadAgreement()
+     {
+         if ($this->sponser->agreement_file) {
+             $filePath = 'path/to/agreement/folder/' . $this->sponser->agreement_file;
+             if (Storage::exists($filePath)) {
+                 return response()->download(storage_path('app/public/' . $filePath));
+             } else {
+                 // Handle the case when the file doesn't exist
+                 // For example, you can display an error message
+                 return back()->with('error', 'The agreement file does not exist.');
+             }
+         }
+     }
+
+     public function openAgreement()
+     {
+         if ($this->sponser->agreement_file) {
+             $filePath = 'path/to/agreement/folder/' . $this->sponser->agreement_file;
+             if (Storage::exists($filePath)) {
+                 $fileUrl = Storage::url($filePath);
+                 return redirect()->away($fileUrl);
+             } else {
+                 // Handle the case when the file doesn't exist
+                 // For example, you can display an error message
+                 return back()->with('error', 'The agreement filedoes not exist.');
+             }
+         }
      }
 
     public function render()

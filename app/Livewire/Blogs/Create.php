@@ -24,7 +24,7 @@ class Create extends Component
 
     #[Validate('required|max:7168')]
     public $author;
-    #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
+    #[Validate('required|image|mimes:jpeg,png,jpg,gif|max:7168')]
 
     public $image;
 
