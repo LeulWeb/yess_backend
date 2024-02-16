@@ -18,6 +18,7 @@ use App\Http\Controllers\Api\ScholarshipController;
 use App\Http\Controllers\Api\ScholarshipRequestController;
 use App\Http\Controllers\Api\StatController;
 use App\Http\Controllers\Api\UpdateProfileController;
+use App\Http\Controllers\Api\VersionController;
 use App\Http\Controllers\Api\VolunteerApplicationController;
 
 
@@ -36,6 +37,7 @@ Route::post('/login', [AuthController::class, 'login'])->name('login');
 
 Route::post('token-validate', [AuthController::class, 'validateToken']);
 Route::apiResource('youths', YouthController::class);
+Route::get('/versions', [VersionController::class, 'getVersion']);
 
 Route::get('/stat', [StatController::class, 'index']);
 
