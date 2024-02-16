@@ -156,7 +156,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     // route group for volunteers
     Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
     Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
-    Route::get('/volunteers/{volunteer}', VolunteersShow::class)->name('volunteers.show');
+    // Route::get('/volunteers/{volunteer}', VolunteersShow::class)->name('volunteers.show');
 
     // Volunteer Applicationss route
     Route::get('/volunteerApplication', VolunteerApplicationIndex::class)->name('volunteer-application.index');
