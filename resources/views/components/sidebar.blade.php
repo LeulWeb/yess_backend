@@ -207,8 +207,7 @@
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                     <iconify-icon icon="ri:quill-pen-line" width="26" height="26"></iconify-icon>
                     <span class="flex-1 ms-3 whitespace-nowrap">Blog</span>
-                    <span
-                        class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+
                 </a>
             </li>
 
@@ -221,8 +220,7 @@
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                     <iconify-icon icon="iconoir:hand-cash" width="26" height="26"></iconify-icon>
                     <span class="flex-1 ms-3 whitespace-nowrap">Sponser</span>
-                    <span
-                        class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+
                 </a>
             </li>
 
@@ -235,8 +233,7 @@
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
                     <iconify-icon icon="fa-regular:handshake" width="26" height="26"></iconify-icon>
                     <span class="flex-1 ms-3 whitespace-nowrap">Partners</span>
-                    <span
-                        class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+
                 </a>
             </li>
             {{--  subscribers  --}}
@@ -248,8 +245,7 @@
                     class="flex items-center p-2 mx-3  rounded-lg dark:text-white   dark:hover:bg-gray-700 group">
                     <iconify-icon icon="mdi:envelope-outline" width="26" height="26"></iconify-icon>
                     <span class="flex-1 ms-3 whitespace-nowrap">Subscribers</span>
-                    <span
-                        class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">3</span>
+
                 </a>
             </li>
             {{-- FAQ --}}
