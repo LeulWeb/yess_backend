@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('thumbnail')->nullable();
             $table->string('description');
             $table->date('date');
-            $table->boolean('is_visible');
+            $table->boolean('is_visible')->default(true);
             $table->string('tags');
             $table->string('featured');
             $table->string('links')->nullable();
