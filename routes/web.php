@@ -210,11 +210,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/partners', PartnersIndex::class)->name('partners.index');
     Route::get('/partners/create', CreatePartner::class)->name('partners.create');
     Route::get('/partners/{partner}', ShowPartner::class)->name('partners.show-partner');
+    Route::get('partners/{partner}/open-agreement', [ShowPartner::class, 'openAgreement'])->name('partners.open-agreement');
 
     // route group for sponsers
     Route::get('/sponsers', SponsersIndex::class)->name('sponsers.index');
     Route::get('/sponsers/create', SponsersCreate::class)->name('sponsers.create');
     Route::get('/sponsers/{sponser}', SponsersShow::class)->name('sponsers.show');
+    Route::get('/sponsor/open-agreement/{id}', [SponsersShow::class, 'openAgreement'])->name('sponser.open-agreement');
+
     // route group for blogs
     Route::get('/blogs', BlogsIndex::class)->name('blogs.index');
     Route::get('/blogs/create', BlogsCreate::class)->name('blogs.create');

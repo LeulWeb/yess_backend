@@ -15,7 +15,7 @@ class Index extends Component
 
     public function delete(Blog $blog){
         $blog->delete();
-        session()->flash('success','blog ' .$blog->author. ' successfully',) ;
+        session()->flash('success','blog ' .$blog->author. 'Deleted successfully',) ;
         return redirect()->route('blogs.index');
     }
     public function cancel()

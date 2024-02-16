@@ -27,5 +27,6 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Livewire::component('profile.create-admin', \App\Livewire\Profile\CreateAdmin::class);
+        
     }
 }

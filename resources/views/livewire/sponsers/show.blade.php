@@ -310,12 +310,14 @@
                                     </td>
                                 </tr>
                                 <tr class="border-b border-gray-200 dark:border-gray-700">
-                                    <td class="px-6 py-4 font-semibold text-black dark:text-whtie">
-                                      Agreement File
+                                    <td class="px-6 py-4 font-semibold text-black dark:text-white">
+                                        <button wire:click="downloadAgreement">Download Agreement File</button>
                                     </td>
 
                                     <td class="px-6 py-4">
-                                        {{ $sponser->agreement_file}}
+                                        @if ($sponser->agreement_file)
+                                            <a href="{{ route('sponser.open-agreement', $sponser->id) }}" target="_blank">Open File</a>
+                                        @endif
                                     </td>
                                 </tr>
 

@@ -82,7 +82,7 @@
         </div>
     </div>
     <div>
-        <h2 class="text-4xl font-extrabold dark:text-white m-5">event Companies</h2>
+        <h2 class="text-4xl font-extrabold dark:text-white m-5">Event Companies</h2>
     </div>
 
     @if ($editMode)
