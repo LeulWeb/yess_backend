@@ -29,11 +29,11 @@
 
 
 
-                <div>
-                    @error('institution')
-                        <x-form.error :$message />
-                    @enderror
-                </div>
+            <div>
+                @error('institution')
+                    <x-form.error :$message />
+                @enderror
+            </div>
 
 
             {{-- First column --}}
@@ -43,7 +43,7 @@
                 <div>
                     {{-- Comapnyt Name --}}
                     <label for="title" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ttitle
-                        </label>
+                    </label>
                     <input type="text" wire:model.live='title' id="title"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -71,8 +71,9 @@
                 {{-- second --}}
 
                 <div>
-                    <label for="Eligibility_criteria" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">Eligibility  Criteria
-                        </label>
+                    <label for="Eligibility_criteria"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">Eligibility Criteria
+                    </label>
                     <input type="text" wire:model.live='Eligibility_criteria' id="Eligibility_criteria"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -110,10 +111,11 @@
 
 
                         <div>
-                            <label  for="program_duration"
-                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Program  <span
+                            <label for="program_duration"
+                                class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Program <span
                                     class="hidden md:inline">Duration</span></label>
-                            <input wire:model.live='program_duration' type="number" id="program_duration" aria-describedby="helper-text-explanation"
+                            <input wire:model.live='program_duration' type="number" id="program_duration"
+                                aria-describedby="helper-text-explanation"
                                 class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="duration in month...">
 
@@ -139,7 +141,8 @@
 
             <div>
                 {{-- link --}}
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Link</label>
+                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Website
+                    Link</label>
                 <div class="relative mb-6 flex flex-col">
 
                     <input type="text" id="input-group-1"
@@ -158,7 +161,8 @@
 
             {{-- program --}}
             <div>
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Program</label>
+                <label for="message"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Program</label>
                 <div class="relative mb-6">
 
                     <input type="text" id="input-group-1"
@@ -176,7 +180,9 @@
 
             {{-- aplication process --}}
             <div>
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Application Proccess</label>
+                <label for="message"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Application
+                    Proccess</label>
                 <div class="relative mb-6">
 
                     <input type="text" id="input-group-1"
@@ -193,7 +199,8 @@
 
             {{-- deadline --}}
             <div>
-                <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Deadline</label>
+                <label for="message"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Deadline</label>
                 <div class="relative mb-6">
 
                     <input type="date" id="input-group-1"
@@ -254,8 +261,9 @@
             {{-- informations --}}
 
             <div>
-                <label for="product" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Funding Sources</label>
-                <input wire:model.live='funding_source' type="text" id="product"
+                <label for="product" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Funding
+                    Sources</label>
+                <input wire:model.live='funding_source' type="number" id="product"
                     aria-describedby="helper-text-explanation"
                     class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                     placeholder="Funding Source">
@@ -277,7 +285,8 @@
                     @enderror
                 </div>
                 {{--  funding_amount --}}
-                <label for="funding_amount" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">funding_amount
+                <label for="funding_amount"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">funding_amount
                     Number</label>
                 <input wire:model.live='funding_amount' type="number" id="funding_amount"
                     aria-describedby="helper-text-explanation"
@@ -296,17 +305,17 @@
         </div>
         <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
         <textarea wire:model.live.debounce.1000ms='description' rows="4"
-          class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 mb-6 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 mb-6 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
             placeholder="Write your thoughts here...">
         </textarea>
         @error('description')
-        <x-form.error :$message />
+            <x-form.error :$message />
         @enderror
 
         <div class="grid md:grid-cols-2 gap-y-5 gap-x-3 mt-5">
             <button wire:click ="cancel" type="button"
                 class="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Cancel</button>
-            <button  type="submit"
+            <button type="submit"
                 class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">New
                 scholarship</button>
 
@@ -318,4 +327,3 @@
     </form>
 
 </div>
-
