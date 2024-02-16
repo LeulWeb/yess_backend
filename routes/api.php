@@ -10,6 +10,7 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\BlogController;
 use App\Http\Controllers\Api\DonateMeController;
 use App\Http\Controllers\Api\EducationController;
+use App\Http\Controllers\Api\EventsController;
 use App\Http\Controllers\Api\YouthController;
 use App\Http\Controllers\Api\StartupController;
 use App\Http\Controllers\Api\TrainingController;
@@ -57,11 +58,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/education', [EducationController::class, 'storeEducation']);
     Route::delete('/education', [EducationController::class, 'deleteEducation']);
     Route::post('/donate-me', [DonateMeController::class, 'donateMe']);
-
 });
 
 Route::apiResource('/blogs', BlogController::class);
 Route::apiResource('/news', NewsController::class);
+Route::apiResource('/events', EventsController::class);
 Route::apiResource('/scholarships', ScholarshipController::class);
 Route::apiResource('faqs', FaqController::class);
 Route::apiResource('jobs', JobController::class);
