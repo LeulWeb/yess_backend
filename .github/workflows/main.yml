@@ -1,0 +1,45 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '7.4'
+        extensions: mbstring, intl, pdo_mysql
+        coverage: none
+
+    - name: Validate composer.json and composer.lock
+      run: composer validate
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Run tests
+      run: vendor/bin/phpunit
+
+    - name: Deploy to cPanel
+      uses: SamKirkland/FTP-Deploy-Action@4.0.0
+      with:
+        server-address: ${{ secrets.CPANEL_FTP_SERVER }}
+        username: ${{ secrets.CPANEL_FTP_USERNAME }}
+        password: ${{ secrets.CPANEL_FTP_PASSWORD }}
+        local-dir: 'public'
+        server-dir: 'public_html'
+        protocol: 'ftp'
+        protocol-mode: 'passive'
+        protocol-security: 'explicit'
+        protocol-security-type: 'ftps'
+        protocol-security-cert-validation: 'false'
+        clean-server-dir: 'true'
