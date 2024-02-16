@@ -263,7 +263,7 @@
             </li>
              {{-- Youths --}}
              <li @class([
-                'bg-white dark:bg-black text-blue-500' => request()->routeIs('startups.index'),
+                'bg-white dark:bg-black text-blue-500' => request()->routeIs('youth.index'),
             ])>
             <a href="/youths"
                 class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">

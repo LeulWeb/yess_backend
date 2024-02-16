@@ -21,20 +21,20 @@ class Creatnews extends Component
     #[Validate('required|max:50')]
     public $title;
 
-    #[Validate('required|min:50')]
+    #[Validate('required')]
     public $description;
 
-    #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
+    #[Validate('required|image|mimes:jpeg,png,jpg,gif|max:7168')]
     public $logo;
 
-    #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
+    #[Validate('required|image|mimes:jpeg,png,jpg,gif|max:7168')]
     public $thumbnail;
 
     #[Validate('required|max:500000')]
     public $featured;
 
     #[Validate('boolean|nullable')]
-    public $is_visible = true;
+    public $is_visible;
 
     #[Validate('required|max:100')]
     public $author;

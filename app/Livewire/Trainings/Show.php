@@ -17,7 +17,7 @@ class Show extends Component
     use WithFileUploads;
 
 
-    public String $imageName;
+    public ?string $imageName;
 
 
     #[Validate('required|min:50|max:65535')]
