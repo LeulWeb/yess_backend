@@ -36,7 +36,7 @@ class Create extends Component
             $this->profile->storeAs('trainer', $this->imageName, 'public');
         }
 
-        $validated['image']= 'trainer/'.$this->imageName;
+        $validated['profile']= 'trainer/'.$this->imageName;
 
         Trainer::create($validated);
         session()->flash('success', 'trainer created successfully');
