@@ -30,20 +30,20 @@
                         {{ auth()->user()->name }}
                     @endauth
                   </p>
-                  <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                  {{-- <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
                     @auth
                         {{auth()->user()->email}}
                     @endauth
-                  </p>
+                  </p> --}}
                 </div>
                 <ul class="py-1" role="none">
                   <li>
-                    <a href="/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Dashboard</a>
+                    <a href="/dashboard" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem"><iconify-icon icon="lucide:layout-dashboard" width="22" height="16" class="mr-1"></iconify-icon>Dashboard</a>
                   </li>
                   <li>
-                    <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem"> Manage Profile</a>
+                    <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem"><iconify-icon icon="et:profile-female" width ="24"height ="20" class="mr-1"></iconify-icon>Profile</a>
                     <li>
-                        <a href="/changepassword" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem"> Change Password</a>
+                        <a href="/changepassword" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem"> <iconify-icon icon="arcticons:nc-passwords" class="mr-1" width ="24"height ="20"></iconify-icon>Change Password</a>
                       </li>
 
                   </li>
@@ -52,7 +52,8 @@
                   <li>
                     <form action="/logout" method="post">
                       @csrf
-                         <button class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">Sign out</button>
+                      
+                         <button class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem"><iconify-icon icon="ri:logout-box-r-line" class="mr-1" width ="24"height ="20"></iconify-icon>Logout</button>
                     </form>
 
                   </li>

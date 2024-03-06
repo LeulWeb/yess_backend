@@ -93,41 +93,41 @@
         <div class="grid grid-cols-2 gap-5">
             <div class="flex flex-col items-center justify-center w-full">
 
+              <div>
                 <label for="dropzone-file-one"
-                    class="flex flex-col items-center justify-center w-full h-70 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
-                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                        @if ($image)
-                        <img src="{{ $image->temporaryUrl() }}" class="bg-cover bg-center" alt="">
+                class="flex flex-col items-center justify-center w-full h-70 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
+                <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                    @if ($image)
+                    <img src="{{ $image->temporaryUrl() }}" class="bg-cover bg-center" alt="">
 
-                        @elseif ($training->image)
-                        <img src="{{ asset($training->image) }}" class="bg-cover bg-center p-8 w-full h-full" alt="">
-
-
-
-                        @else
-                            <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
-                            </svg>
-                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click
-                                    to
-                                    upload</span> or drag and drop</p>
-                            <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)
-                            </p>
-                        @endif
-                    </div>
-                    <input wire:model.live='image' id="dropzone-file-one" type="file" class="hidden mb-6 p-8  w-full " />
-                    <div wire:loading wire:target="image">Uploading...</div>
-                </label>
+                    @elseif ($training->image)
+                    <img src="{{ asset($training->image) }}" class="bg-cover bg-center p-8 w-full h-full" alt="">
 
 
-                <div>
-                    @error('image')
-                        <x-form.error :$message />
-                    @enderror
+
+                    @else
+                        <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
+                        </svg>
+                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click
+                                to
+                                upload</span> or drag and drop</p>
+                        <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)
+                        </p>
+                    @endif
                 </div>
+                <input wire:model.live='image' id="dropzone-file-one" type="file" class="hidden mb-6 p-8  w-full " />
+                <div wire:loading wire:target="image">Uploading...</div>
+            </label>  
+            <div>
+                @error('image')
+                    <x-form.error :$message />
+                @enderror
+            </div>
+              </div>
 
             </div>
             <div>
@@ -175,28 +175,24 @@
 
                 <div>
                     <label for="youtube_links">YouTube Links</label>
-                    <input type="url" id="input-group-1"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                        placeholder="youtube_links " wire:model.live.debounce.300ms='youtube_links'>
+                    <input type="url" id="input-group-1" wire:model.live.debounce.300ms='youtube_links[]'
+                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                     placeholder="youtube_links">
                 </div>
 
 
 
             </div>
+            <div class="mb-3">
+                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                <textarea wire:model.live.debounce.1000ms='description' rows="4"
+                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 mb-6 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Write your thoughts here..."></textarea>
+                @error('description')
+                    <x-form.error :$message />
+                @enderror
+            </div>
 
-        </div>
-
-
-
-
-        <div class="mb-3">
-            <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-            <textarea wire:model.live.debounce.1000ms='description' rows="4"
-                class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 mb-6 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                placeholder="Write your thoughts here..."></textarea>
-            @error('description')
-                <x-form.error :$message />
-            @enderror
         </div>
 
 
@@ -204,16 +200,10 @@
             <button wire:click ="cancel" type="button" wire:click ="cancel"
                 class="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Cancel</button>
             <button type="submit"
-                class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">New
+                class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update
                 Training</button>
 
         </div>
-
-
-
-
-
-
 
     </form>
 
@@ -233,10 +223,18 @@
                         {{ $training->title }}
                         <h4 class = " dark:text-white">About Company</h4>
                           {{ $training->description }}
+                          @php
+                            $youtubeLinks = json_decode($training->youtube_links, true);
+                          @endphp
 
-                          <h4 class = " dark:text-white">Youtube Link</h4>
-                        <a href = "{{ $training->youtube_links }}">{{ $training->youtube_links }}</a>
+                            <h4 class="dark:text-white">Youtube Links</h4>
+                            <ul>
+                                @foreach ($youtubeLinks as $link)
+                              <a href="{{ $link }}" target="_blank">{{ $link }}</a><br>
+                              @endforeach
 
+                            </ul>
+                              
                          <h4 class = " dark:text-white">Popular</h4>
                          {{ $training->popular }}
 

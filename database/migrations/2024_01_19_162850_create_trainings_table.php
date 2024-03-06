@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('image')->nullable();
-            $table->string('youtube_links')->nullable();
+            $table->json('youtube_links')->nullable();
             $table->boolean('popular')->default(true);
             $table->timestamps();
         });

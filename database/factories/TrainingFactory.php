@@ -21,7 +21,12 @@ class TrainingFactory extends Factory
 
         $is_playlist = $this->faker->boolean();
 
-        $youtubeUrls = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+        $youtubeUrls = [
+            'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+            // Add more YouTube links as needed
+        ];
 
         return [
             'title' => fake()->sentence(3),
