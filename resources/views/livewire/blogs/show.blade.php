@@ -86,7 +86,7 @@
 
 
     @if ($editMode)
-        <div>
+            <div>
 
                 <form wire:submit.prevent='update()' class="w-10/12 mx-auto" method="post" enctype="multipart/form-data">
 

@@ -190,6 +190,17 @@
             </li>
             {{-- News --}}
             <li @class([
+                'bg-white dark:bg-black text-blue-500' => request()->routeIs('blogs.index'),
+            ])>
+                <a href="/blogs"
+                    class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
+                    <iconify-icon icon="icons8:news" width="26" height="26"></iconify-icon>
+                    <span class="flex-1 ms-3 whitespace-nowrap">Blogs</span>
+
+                </a>
+            </li>
+            {{-- News --}}
+            <li @class([
                 'bg-white dark:bg-black text-blue-500' => request()->routeIs('news.index'),
             ])>
                 <a href="/news"
@@ -199,17 +210,7 @@
 
                 </a>
             </li>
-            {{-- Blog --}}
-            <li @class([
-                'bg-white dark:bg-black text-blue-500' => request()->routeIs('blogs.index'),
-            ])>
-                <a href="/blogs"
-                    class="flex items-center p-2 mx-3  rounded-lg dark:text-white    dark:hover:bg-gray-700 group">
-                    <iconify-icon icon="ri:quill-pen-line" width="26" height="26"></iconify-icon>
-                    <span class="flex-1 ms-3 whitespace-nowrap">Blog</span>
-
-                </a>
-            </li>
+            
 
             {{-- Sponser --}}
             <li @class([

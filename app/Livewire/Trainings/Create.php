@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Trainings;
 
+use App\Enums\TrainingType;
 use App\Models\Trainer;
 use App\Models\Training;
 use Livewire\Component;
@@ -19,6 +20,8 @@ class Create extends Component
 
     #[Validate('required|max:50')]
     public $title;
+    #[Validate('required')]
+    public $trainingtype;
 
     #[Validate('required|min:50|max:65535')]
     public $description;
@@ -48,7 +51,8 @@ class Create extends Component
         'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:7168',
         'popular' => 'nullable|boolean',
         'youtube_links.*' => 'required',
-        'trainer_id' => 'required',
+        'trainer_id' => 'required',        
+        'trainingtype' =>'required|string',
     ]);
 
     // Upload and store the image
@@ -61,6 +65,7 @@ class Create extends Component
     // Create the training
     $training = Training::create([
         'title' => $validated['title'],
+        'trainingtype'=> $validated['trainingtype'],
         'description' => $validated['description'],
         'image' => 'training/' . $imageName,
         'popular' => $validated['popular'] ?? false,
@@ -75,7 +80,10 @@ class Create extends Component
     public function render()
     {
         return view('livewire.trainings.create', [
-            'trainerList' => Trainer::latest()->get()
+            'trainerList' => Trainer::latest()->get(),            
+            'TrainingType' => TrainingType::getValues(),
+    
+            
         ]);
     }
 }

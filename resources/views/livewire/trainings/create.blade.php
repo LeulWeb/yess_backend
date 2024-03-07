@@ -82,16 +82,31 @@
 
 
 
-                <div>
-                    <label for="popular" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Popular
-                    </label>
+                <div class="mb-3 mt-2">
+                    
                     <input id="popular" type="checkbox" wire:model.defer="popular"
                         class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
                     <label for="popular" class="ml-2 text-sm text-gray-700 dark:text-white">Popular</label>
                     @error('popular')
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
+                </div>
+                <div>
+                    <label for="trainingtype"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><span
+                            class="hidden md:inline">Training</span> Type</label>
+
+                    <select wire:model.live='trainingtype' id="trainingtype"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        @foreach ($TrainingType as $item)
+                            <option>{{ $item }}</option>
+                        @endforeach
+                    </select>
+                    @error('trainingtype')
+                        <x-form.error :$message />
+                    @enderror
+
+
                 </div>
 
                 <div>

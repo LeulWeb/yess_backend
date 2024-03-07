@@ -191,7 +191,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/events', EventsIndex::class)->name('events.index');
     Route::get('/events/create', CreateEvents::class)->name('events.create-events');
     Route::get('/events/{event}', EventsShow::class)->name('events.show');
-    //   Route::get('/events/{edit}', Edit::class)->name('events.edit');
+   
+    //route for blogs
+    Route::get('/blogs', BlogsIndex::class)->name('blogs.index');
+    Route::get('/blogs/create', BlogsCreate::class)->name('blogs.create');
+    Route::get('/blogs/{blog}', BlogsShow::class)->name('blogs.show'); 
 
 
     // routegroup for faqs
@@ -219,12 +223,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/sponsers/create', SponsersCreate::class)->name('sponsers.create');
     Route::get('/sponsers/{sponser}', SponsersShow::class)->name('sponsers.show');
     Route::get('/sponsor/open-agreement/{id}', [SponsersShow::class, 'openAgreement'])->name('sponser.open-agreement');
-
-    // route group for blogs
-    Route::get('/blogs', BlogsIndex::class)->name('blogs.index');
-    Route::get('/blogs/create', BlogsCreate::class)->name('blogs.create');
-    Route::get('/blogs/{blog}', BlogsShow::class)->name('blogs.show');
-    // Route::get('/trainings', TrainingsTable::class)->name('trainings');
+    
+       
+    
 
     // Route for the mobile app version checking
     Route::get('/mobile_version', Version::class)->name('mobile_version');

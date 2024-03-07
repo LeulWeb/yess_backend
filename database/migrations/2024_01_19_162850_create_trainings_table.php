@@ -1,5 +1,6 @@
 <?php
 
+use App\Enums\TrainingType;
 use App\Models\Trainer;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->json('youtube_links')->nullable();
             $table->boolean('popular')->default(true);
+            $table->enum('trainingtype', TrainingType::getValues())->default(TrainingType::OTHER);
             $table->timestamps();
         });
     }

@@ -114,8 +114,6 @@
                                     <option>{{ $item }}</option>
                                 @endforeach
                             </select>
-
-
                             @error('sector')
                                 <x-form.error :$message />
                             @enderror

@@ -47,9 +47,7 @@
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                 <tr>
-                    <th scope="col" class="px-6 py-3">
-                        Trainer's Profile
-                    </th>
+                    
                     <th scope="col" class="px-6 py-3">
                         Trainers Name
                     </th>
@@ -58,6 +56,9 @@
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Trainig Title
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Trainig Type
                     </th>
                     
                    
@@ -70,9 +71,7 @@
             <tbody>
                 @forelse ($trainingList as $item)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                    <td class="px-6 py-4">
-                        <img src="{{ $item->trainer->profile }}" width="50" alt="">
-                    </td>
+                    
                     <td class="px-6 py-4">
                         {{ $item->trainer->name }}
                     </td>
@@ -81,6 +80,9 @@
                     </td>
                     <td class="px-6 py-4">
                         {{ $item->title }}
+                    </td>
+                    <td class="px-6 py-4">
+                        {{ $item->trainingtype }}
                     </td>
                     {{-- <td class="px-6 py-4">
                         @isset($item->youtube_links)
