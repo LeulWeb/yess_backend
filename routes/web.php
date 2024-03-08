@@ -59,7 +59,7 @@ use App\Livewire\Partners\Create as PartnersCreate;
 use App\Livewire\Sponsers\Create as SponsersCreate;
 use App\Livewire\Trainers\Create as TrainersCreate;
 use App\Livewire\Trainings\Index as TrainingsIndex;
-use App\Livewire\volunteers\Show as VolunteersShow;
+
 use App\Livewire\Trainings\Create as TrainingsCreate;
 use App\Livewire\Volunteers\Index as VolunteersIndex;
 use App\Livewire\Scholarships\Show as ScholarshipsShow;
@@ -155,10 +155,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/trainings/create', TrainingsCreate::class)->name('trainings.create');
     Route::get('/trainings/{training}', TrainingsShow::class)->name('trainings.show');
 
-    // // route group for volunteers
-    Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
-    Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
-    Route::get('/volunteers/{volunteer}', VolunteersShow::class)->name('volunteers.show');
+    // // // route group for volunteers
+    // Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
+    // Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
+    // // Route::get('/volunteers/{volunteer}', VolunteersShow::class)->name('volunteers.show');
 
 
     // Volunteer Applicationss route

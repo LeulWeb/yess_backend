@@ -1,18 +1,19 @@
 <?php
 
-namespace App\Livewire\volunteers;
+namespace App\Livewire\Volunteers;
 
 use App\Enums\AgeGroup;
 use App\Enums\Status;
 use App\Enums\VolunteerActivities;
-use App\Models\volunteer;
-use Livewire\Component;
+use App\Models\Volunteer;
 use Livewire\Attributes\Validate;
-use Livewire\WithFileUploads;
-use Livewire\Attributes\Title;
-#[Title('Volunteer  ')]
+use Livewire\Component;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
+use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 
-class Show extends Component
+class ShowVolunteer extends Component
+
+
 {
 
     use WithFileUploads;
@@ -52,7 +53,7 @@ class Show extends Component
 
 
 
-    public volunteer $volunteer;
+    public Volunteer $volunteer;
 
 
     public bool $editMode = false;
@@ -63,7 +64,7 @@ class Show extends Component
     }
 
 
-    public function mount(volunteer $volunteer)
+    public function mount(Volunteer $volunteer)
     {
         $this->description = $volunteer->description;
         $this->title = $volunteer->title;
@@ -145,7 +146,8 @@ class Show extends Component
 
     public function render()
     {
-        return view('livewire.volunteers.show', [
+        return view('livewire.volunteers.show-volunteer'
+        , [
             'Status' => Status::getValues(),
             'AgeGroup' => AgeGroup::getValues(),
             'VolunteerActivities' =>VolunteerActivities::getValues(),
