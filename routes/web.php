@@ -130,7 +130,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
-        // Route::get('/profile', EditProfile::class);
+     Route::get('/profile', EditProfile::class);
     Route::get('/changepassword', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/changepassword', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/changepassword', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -154,10 +154,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/trainings/create', TrainingsCreate::class)->name('trainings.create');
     Route::get('/trainings/{training}', TrainingsShow::class)->name('trainings.show');
 
-    // route group for volunteers
-    Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
-    Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
-    Route::get('/volunteers/{volunteer}', VolunteersShow::class)->name('volunteers.show');
+    // // route group for volunteers
+    // Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
+    // Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
+    // Route::get('/volunteers/{volunteer}', VolunteersShow::class)->name('volunteers.show');
+
 
     // Volunteer Applicationss route
     Route::get('/volunteerApplication', VolunteerApplicationIndex::class)->name('volunteer-application.index');
