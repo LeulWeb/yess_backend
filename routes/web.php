@@ -130,7 +130,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
-     Route::get('/profile', EditProfile::class);
+    //  Route::get('/profile', EditProfile::class);
     Route::get('/changepassword', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/changepassword', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/changepassword', [ProfileController::class, 'destroy'])->name('profile.destroy');
