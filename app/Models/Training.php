@@ -26,5 +26,9 @@ class Training extends Model
     public function trainer()  {
         return $this->belongsTo(Trainer::class);
     }
+    public function chapters()
+    {
+        return $this->hasMany(Chapter::class);
+    }
 
 }

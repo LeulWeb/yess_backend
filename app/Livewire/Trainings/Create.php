@@ -44,7 +44,7 @@ class Create extends Component
     }
 
     public function create()
-{
+    {
     $validated = $this->validate([
         'title' => 'required|max:50',
         'description' => 'required|min:50|max:65535',
@@ -65,17 +65,17 @@ class Create extends Component
     // Create the training
     $training = Training::create([
         'title' => $validated['title'],
-        'trainingtype'=> $validated['trainingtype'],
+        'trainingtype' => $validated['trainingtype'],
         'description' => $validated['description'],
         'image' => 'training/' . $imageName,
         'popular' => $validated['popular'] ?? false,
         'trainer_id' => $validated['trainer_id'],
-        'youtube_links' => json_encode($validated['youtube_links']),
+        'youtube_links' => array_key_exists('youtube_links', $validated) ? json_encode($validated['youtube_links']) : null,
     ]);
 
     session()->flash('success', 'Training created successfully');
     return redirect()->route('trainings.index');
-}
+    }
 
     public function render()
     {

@@ -124,6 +124,13 @@
                         <a href="/trainers"
                             class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700">Trainers</a>
                     </li>
+                    <li @class([
+                        'bg-white dark:bg-black text-blue-500' => request()->routeIs(
+                            'chapters.index'),
+                    ])>
+                        <a href="/chapters"
+                            class="flex items-center w-full p-2  transition duration-75 rounded-lg pl-11 group dark:text-white    dark:hover:bg-gray-700"> Chapters</a>
+                    </li>
 
                 </ul>
             </li>

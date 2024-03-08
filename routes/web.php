@@ -41,8 +41,6 @@ use App\Livewire\Users\Index as UsersIndex;
 use App\Livewire\Youth\Index as YouthIndex;
 use App\Livewire\Blogs\Create as BlogsCreate;
 use App\Livewire\Events\Index as EventsIndex;
-// use App\Livewire\Events\Index as EventsIndex;
-use App\livewire\profile\Edit as EditProfile;
 use App\Livewire\Subscribers\ShowSubscribers;
 
 use App\Livewire\Users\Create as UsersCreate;
@@ -72,6 +70,9 @@ use App\Livewire\Scholarships\Index as ScholarshipsIndex;
 
 use App\Livewire\Scholarships\Create as ScholarshipsCreate;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Livewire\Chapters\Create as ChaptersCreate;
+use App\Livewire\Chapters\Index as ChaptersIndex;
+use App\Livewire\Chapters\Show as ChaptersShow;
 use App\Livewire\DonationRequest\Show as DonationRequestShow;
 use App\Livewire\DonationRequest\Index as DonationRequestIndex;
 use App\Livewire\ScholarshipRequest\Show as ScholarshipRequestShow;
@@ -130,8 +131,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
         ->name('logout');
-    //  Route::get('/profile', EditProfile::class);
-    Route::get('/changepassword', [ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::get('/profile', EditProfile::class);
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');    
     Route::patch('/changepassword', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/changepassword', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
@@ -155,9 +156,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/trainings/{training}', TrainingsShow::class)->name('trainings.show');
 
     // // route group for volunteers
-    // Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
-    // Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
-    // Route::get('/volunteers/{volunteer}', VolunteersShow::class)->name('volunteers.show');
+    Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
+    Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
+    Route::get('/volunteers/{volunteer}', VolunteersShow::class)->name('volunteers.show');
 
 
     // Volunteer Applicationss route
@@ -168,6 +169,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/trainers', TrainersIndex::class)->name('trainers.index');
     Route::get('/trainers/create', TrainersCreate::class)->name('trainers.create');
     Route::get('/trainers/{trainer}', TrainersShow::class)->name('trainers.show');
+    // route group for chapters
+    // Route::get('/chapters', ChaptersIndex::class)->name('chapters.index');
+    // Route::get('/chapters/create', ChaptersCreate::class)->name('chapters.create');
+    // Route::get('/chapters/{chapter}',ChaptersShow::class)->name('chapters.show');
 
     // route group for trainers
     Route::get('/scholarships', ScholarshipsIndex::class)->name('scholarships.index');

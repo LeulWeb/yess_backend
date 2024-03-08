@@ -42,9 +42,7 @@
                   </li>
                   <li>
                     <a href="/profile" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem"><iconify-icon icon="et:profile-female" width ="24"height ="20" class="mr-1"></iconify-icon>Profile</a>
-                    <li>
-                        <a href="/changepassword" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem"> <iconify-icon icon="arcticons:nc-passwords" class="mr-1" width ="24"height ="20"></iconify-icon>Change Password</a>
-                      </li>
+                    
 
                   </li>
 
