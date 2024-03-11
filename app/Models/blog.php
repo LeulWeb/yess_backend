@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
     use HasFactory;
-    protected $Guarded =[];
+    protected $fillable = ['title', 'content', 'author', 'imageName','category', 'tag'];
     public function scopeSearch($query, $search)
     {
         return $query->where('title','LIKE','%'.$search.'%')->orWhere('author', 'LIKE','%'.$search.'%');

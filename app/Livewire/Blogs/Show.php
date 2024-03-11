@@ -3,10 +3,10 @@
 namespace App\Livewire\Blogs;
 
 use App\Models\Blog;
-use Livewire\Component;
-use Livewire\Attributes\Validate;
-use Livewire\WithFileUploads;
 use Livewire\Attributes\Title;
+use Livewire\Attributes\Validate;
+use Livewire\Component;
+use Livewire\Features\SupportFileUploads\WithFileUploads;
 #[Title('blogs')]
 
 class Show extends Component

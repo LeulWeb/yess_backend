@@ -69,6 +69,7 @@ use App\Livewire\Scholarships\Index as ScholarshipsIndex;
 use App\Livewire\Scholarships\Create as ScholarshipsCreate;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Livewire\Blogs\Create as BlogsCreate;
+use App\Livewire\Blogs\Index as BlogsIndex;
 use App\Livewire\Blogs\Show as BlogsShow;
 use App\Livewire\Chapters\Create as ChaptersCreate;
 use App\Livewire\Chapters\Index as ChaptersIndex;
@@ -201,7 +202,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/events/{event}', EventsShow::class)->name('events.show');
    
     // //route for blogs
-    Route::get('/blogs', Index::class)->name('blogs.index');
+    Route::get('/blogs',BlogsIndex::class)->name('blogs.index');
     Route::get('/blogs/create', BlogsCreate::class)->name('blogs.create');
     Route::get('/blogs/{blog}', BlogsShow::class)->name('blogs.show'); 
 
