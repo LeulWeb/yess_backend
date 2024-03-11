@@ -24,7 +24,6 @@ use App\Livewire\Partners\ShowPartner;
 use App\Livewire\Faq\Index as FaqIndex;
 use App\Livewire\Jobs\Show as JobsShow;
 use App\Livewire\Partners\CreatePartner;
-use App\Livewire\Blogs\Show as BlogsShow;
 use App\Livewire\Faq\Create as FaqCreate;
 use App\Livewire\Jobs\Index as JobsIndex;
 use App\Livewire\News\Index as NewsIndex;
@@ -32,14 +31,13 @@ use App\Livewire\Users\Show as UsersShow;
 
 use App\Livewire\Youth\Show as YouthShow;
 use App\Http\Controllers\ProfileController;
-use App\Livewire\Blogs\Index as BlogsIndex;
+
 use App\Livewire\Events\Show as EventsShow;
 
 use App\Livewire\Jobs\Create as JobsCreate;
 use App\Livewire\Users\Index as UsersIndex;
 // use App\Livewire\Events\Show as EventsShow;
 use App\Livewire\Youth\Index as YouthIndex;
-use App\Livewire\Blogs\Create as BlogsCreate;
 use App\Livewire\Events\Index as EventsIndex;
 use App\Livewire\Subscribers\ShowSubscribers;
 
@@ -70,6 +68,8 @@ use App\Livewire\Scholarships\Index as ScholarshipsIndex;
 
 use App\Livewire\Scholarships\Create as ScholarshipsCreate;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Livewire\Blogs\Create as BlogsCreate;
+use App\Livewire\Blogs\Show as BlogsShow;
 use App\Livewire\Chapters\Create as ChaptersCreate;
 use App\Livewire\Chapters\Index as ChaptersIndex;
 use App\Livewire\Chapters\Show as ChaptersShow;
@@ -200,8 +200,8 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/events/create', CreateEvents::class)->name('events.create-events');
     Route::get('/events/{event}', EventsShow::class)->name('events.show');
    
-    //route for blogs
-    Route::get('/blogs', BlogsIndex::class)->name('blogs.index');
+    // //route for blogs
+    Route::get('/blogs', Index::class)->name('blogs.index');
     Route::get('/blogs/create', BlogsCreate::class)->name('blogs.create');
     Route::get('/blogs/{blog}', BlogsShow::class)->name('blogs.show'); 
 
