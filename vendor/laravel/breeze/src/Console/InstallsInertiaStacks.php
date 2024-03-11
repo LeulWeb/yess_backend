@@ -15,7 +15,7 @@ trait InstallsInertiaStacks
     protected function installInertiaVueStack()
     {
         // Install Inertia...
-        if (! $this->requireComposerPackages(['inertiajs/inertia-laravel:^0.6.8', 'laravel/sanctum:^3.2', 'tightenco/ziggy:^1.0'])) {
+        if (! $this->requireComposerPackages(['inertiajs/inertia-laravel:^0.6.8', 'laravel/sanctum:^3.2', 'tightenco/ziggy:^2.0'])) {
             return 1;
         }
 
@@ -24,11 +24,11 @@ trait InstallsInertiaStacks
             return [
                 '@inertiajs/vue3' => '^1.0.0',
                 '@tailwindcss/forms' => '^0.5.3',
-                '@vitejs/plugin-vue' => '^4.5.0',
+                '@vitejs/plugin-vue' => '^5.0.0',
                 'autoprefixer' => '^10.4.12',
                 'postcss' => '^8.4.31',
                 'tailwindcss' => '^3.2.1',
-                'vue' => '^3.2.41',
+                'vue' => '^3.4.0',
             ] + $packages;
         });
 
@@ -36,7 +36,7 @@ trait InstallsInertiaStacks
             $this->updateNodePackages(function ($packages) {
                 return [
                     'typescript' => '^5.0.2',
-                    'vue-tsc' => '^1.2.0',
+                    'vue-tsc' => '^1.8.27',
                 ] + $packages;
             });
         }
@@ -153,7 +153,7 @@ trait InstallsInertiaStacks
     {
         $this->updateNodePackages(function ($packages) {
             return [
-                '@vue/server-renderer' => '^3.2.31',
+                '@vue/server-renderer' => '^3.4.0',
             ] + $packages;
         });
 
@@ -179,7 +179,7 @@ trait InstallsInertiaStacks
     protected function installInertiaReactStack()
     {
         // Install Inertia...
-        if (! $this->requireComposerPackages(['inertiajs/inertia-laravel:^0.6.3', 'laravel/sanctum:^3.2', 'tightenco/ziggy:^1.0'])) {
+        if (! $this->requireComposerPackages(['inertiajs/inertia-laravel:^0.6.3', 'laravel/sanctum:^3.2', 'tightenco/ziggy:^2.0'])) {
             return 1;
         }
 
@@ -349,7 +349,7 @@ trait InstallsInertiaStacks
             EOT,
             <<<'EOT'
             use Inertia\Middleware;
-            use Tightenco\Ziggy\Ziggy;
+            use Tighten\Ziggy\Ziggy;
             EOT,
             app_path('Http/Middleware/HandleInertiaRequests.php')
         );

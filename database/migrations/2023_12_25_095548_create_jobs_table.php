@@ -23,7 +23,7 @@ return new class extends Migration
             $table->enum('sector', JobSector::getValues())->default(JobSector::OTHER);
             $table->string('location');
             $table->string('experience');
-            $table->date('deadline');
+            $table->timestamp('deadline')->useCurrent();
             $table->text('responsibilities');
             $table->string('requirements');
             $table->string('note');
