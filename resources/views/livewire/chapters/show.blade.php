@@ -88,66 +88,72 @@
     @if ($editMode)
         <div>
             <div>
-                <form wire:submit.prevent="update">
-                    <div class="grid grid-cols-2 gap-5">
-                       
-                        <div>
-                            <div class="mb-3">
-                                {{-- title name --}}
-                                <label for="title"
-                                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">Title</label>
-                                <input type="text" wire:model.live='title' id="title"
-                                    aria-describedby="helper-text-explanation"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Title">
+
+    <form wire:submit.prevent="update">
+        
             
-                                @error('title')
-                                    <x-form.error :$message />
-                                @enderror
-                            </div> 
-                                <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
-                                    a Training</label>
-                                <select  wire:model.live.debounce.200ms="training_id"  id="countries"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    @foreach ($trainingList as $item)
-                                         <option value="{{$item->id}}">{{$item->id}} {{$item->title}}</option>
-                                    @endforeach
-                                </select>
-                            
-            
-                            <div>
-                                <label for="youtube_links">YouTube Links</label>
-                                <input type="url" id="input-group-1" wire:model.live.debounce.300ms='youtube_links[]'
-                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                 placeholder="youtube_links">
-                            </div>
-                            <div class="mb-3">
-                                <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                                <textarea wire:model.live.debounce.1000ms='description' rows="4"
-                                    class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 mb-6 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                    placeholder="Write your thoughts here..."></textarea>
-                                @error('description')
-                                    <x-form.error :$message />
-                                @enderror
-                            </div>
-            
-                        </div>
-                        
-            
-                    </div>
-            
-            
-                    <div class="grid grid-cols-2 gap-y-5 gap-x-3 mt-5">
-                        <button wire:click ="cancel" type="button" wire:click ="cancel"
-                            class="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Cancel</button>
-                        <button type="submit"
-                            class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update
-                            chapter
-                        </button>
-            
-                    </div>
-            
-                </form>   
+            <div>
+                <div class="mb-3">
+                    {{-- title name --}}
+                    <label for="title"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white ">Title</label>
+                    <input type="text" wire:model.live='title' id="title"
+                        aria-describedby="helper-text-explanation"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Title">
+
+                    @error('title')
+                        <x-form.error :$message />
+                    @enderror
+                </div>
+                               {{-- traininer --}}
+
+
+                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+                        a Training</label>
+                    <select  wire:model.live.debounce.200ms="training_id"  id="countries"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        @foreach ($trainingList as $item)
+                             <option value="{{$item->id}}">{{$item->id}} {{$item->title}}</option>
+                        @endforeach
+                    </select>
+               
+
+                <div>
+                    <label for="youtube_links">YouTube Links</label>
+                    <input type="url" id="input-group-1"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="youtube_links " wire:model.live.debounce.300ms='youtube_links'>
+                </div>
+                <div class="mb-3">
+                    <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
+                    <textarea wire:model.live.debounce.1000ms='description' rows="4"
+                        class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 mb-6 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Write your thoughts here..."></textarea>
+                    @error('description')
+                        <x-form.error :$message />
+                    @enderror
+                </div>
+
+
+
+            </div>
+        <div class="grid grid-cols-2 gap-y-5 gap-x-3 mt-5">
+            <button wire:click ="cancel" type="button" wire:click ="cancel"
+                class="text-white w-full bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 focus:outline-none dark:focus:ring-red-800">Cancel</button>
+            <button type="submit"
+                class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-4 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update
+                chapter</button>
+
+        </div>
+
+
+
+
+
+
+
+    </form>
 
             </div>
 
@@ -157,30 +163,17 @@
         <div
             class="w-full  p-5 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
 
-            <div class="grid grid-cols-2  gap-5">
+            
 
-                <img src="{{ asset($chapter->image) }}" alt="" class ="flex flex-col items-center w-full h-full  p-6">
                 <div class="format flex flex-col mt-5  dark:text-white">
                         <h4 class = " dark:text-white">Title</h4>
                         {{ $chapter->title }}
-                        <h4 class = " dark:text-white">About chapter</h4>
+                        <h4 class = " dark:text-white">About </h4>
                           {{ $chapter->description }}
-                          <h4 class = " dark:text-white">chapter Type</h4>
-                          {{ $chapter->chaptertype }}
-                          @php
-                            $youtubeLinks = json_decode($chapter->youtube_links, true);
-                          @endphp
 
-                            <h4 class="dark:text-white">Youtube Links</h4>
-                            <ul>
-                                @foreach ($youtubeLinks as $link)
-                              <a href="{{ $link }}" target="_blank">{{ $link }}</a><br>
-                              @endforeach
+                          <h4 class = " dark:text-white">Youtube Link</h4>
+                        <a href = "{{ $chapter->youtube_links }}">{{ $chapter->youtube_links }}</a>
 
-                            </ul>
-                              
-                         <h4 class = " dark:text-white">Popular</h4>
-                         {{ $chapter->popular }}
 
 
 
@@ -188,8 +181,7 @@
 
                 </div>
 
-                {{-- table data --}}
-            </div>
+            
 
         </div>
     @endif

@@ -82,8 +82,10 @@
 
 
 
-                <div class="mb-3 mt-2">
-                    
+                <div>
+                    <label for="popular" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Popular
+                    </label>
                     <input id="popular" type="checkbox" wire:model.defer="popular"
                         class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
                     <label for="popular" class="ml-2 text-sm text-gray-700 dark:text-white">Popular</label>
@@ -91,40 +93,12 @@
                         <span class="text-red-500">{{ $message }}</span>
                     @enderror
                 </div>
-                <div>
-                    <label for="trainingtype"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"><span
-                            class="hidden md:inline">Training</span> Type</label>
-
-                    <select wire:model.live='trainingtype' id="trainingtype"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        @foreach ($TrainingType as $item)
-                            <option>{{ $item }}</option>
-                        @endforeach
-                    </select>
-                    @error('trainingtype')
-                        <x-form.error :$message />
-                    @enderror
-
-
-                </div>
 
                 <div>
                     <label for="youtube_links">YouTube Links</label>
-                    @foreach ($youtube_links as $index => $link)
-                        <div>
-                            <input type="url" id="input-group-1"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="YouTube Link" wire:model.lazy="youtube_links.{{ $index }}">
-                            {{-- <button wire:click.prevent="removeYoutubeLink({{ $index }})"
-                                class="text-red-500 hover:text-red-600 focus:outline-none">Remove</button> --}}
-                        </div>
-                    @endforeach
-                    <button wire:click.prevent="addYoutubeLink"
-                        class="text-blue-500 hover:text-blue-600 focus:outline-none">Add Link</button>
-                    @error('youtube_links.*')
-                        <span class="text-red-500">{{ $message }}</span>
-                    @enderror
+                    <input type="url" id="input-group-1"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="youtube_links " wire:model.live.debounce.300ms='youtube_links'>
                 </div>
 
 

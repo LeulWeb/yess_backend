@@ -2,16 +2,19 @@
 
 namespace App\Livewire\Chapters;
 
-use App\Models\Chapter;
+
+use App\Models\chapter;
 use App\Models\Training;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
 
 class Show extends Component
 {
-   #[Validate('required|min:50|max:65535')]
-    public $description;
 
+
+    #[Validate('required|min:50|max:65535')]
+    public $description;
+    
     #[Validate('required|max:100')]
     public $title;
 
@@ -36,45 +39,50 @@ class Show extends Component
         $this->description = $chapter->description;
         $this->title = $chapter->title;
         $this->youtube_links = $chapter->youtube_links;
-        
+       
+
     }
 
 
     public function delete()
     {
         $this->chapter->delete();
-        session()->flash('success', 'chapter ' . $this->chapter->name  . ' deleted successfully');
+        session()->flash('success', 'chapter ' . $this->chapter->title  . ' deleted successfully');
         return redirect()->route('chapters.index');
     }
-    
+
+
+
     public function update()
     {
         $this->validate([
             // Add validation rules for your fields here
-            'description' => 'required|string',
-            
+
+            'description' => 'required|string',            
+
             'title' => 'required|string|max:255',
-            'youtube_links' => 'nullable|array',
-            'youtube_links.*' => 'nullable|url',
-            
+
+            'youtube_links' => 'nullable|url',
+           
+
             // Add more validation rules as needed
         ]);
-    
-        $this->chapter->update([
-            'description' => $this->description,
-            'title' => $this->title,
-            'youtube_links' =>$this->youtube_links,
-            
-        ]);
-    
-        // Update youtube_links separately
-        foreach ($this->youtube_links as $index => $link) {
-            $this->chapter->youtube_links[$index] = $link;
-        }   
-        
-    
-        $this->chapter->save();
-    
+
+        $this->chapter->update(
+            [
+                'description' => $this->description,
+
+                'title' => $this->title,
+                'youtube_links' => $this->youtube_links,
+               
+
+
+            ]
+        );
+
+       
+
+
         session()->flash('success', 'chapter updated successfully');
         return redirect()->route('chapters.index');
     }

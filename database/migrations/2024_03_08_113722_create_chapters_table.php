@@ -16,9 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Training::class)->constrained()->cascadeOnDelete();
             $table->string('title');
-            $table->text('description');
-            
-            $table->json('youtube_links')->nullable();
+            $table->text('description');            
+            $table->string('youtube_links')->nullable();
             $table->timestamps();
         });
     }

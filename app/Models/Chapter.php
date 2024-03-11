@@ -13,7 +13,7 @@ class Chapter extends Model
         return $query->where('title','LIKE','%'.$search.'%');
     }
     
-    public function trainings(){
+    public function training(){
         return $this->belongsTo(Training::class);
     }
 }

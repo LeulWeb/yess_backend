@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Training;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,7 +20,10 @@ class ChapterFactory extends Factory
         return [
             'title'=>fake()->name,
             'description'=>fake()->paragraph(),            
-            'links'=>fake()->url(),
+            'youtube_links'=>fake()->url(),
+            'training_id' => function () {
+                return Training::factory()->create()->id;
+            },
             
             
             //

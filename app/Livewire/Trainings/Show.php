@@ -28,6 +28,10 @@ class Show extends Component
     #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
     public $image;
 
+
+
+
+
     #[Validate('required|max:100')]
     public $title;
 
@@ -75,39 +79,46 @@ class Show extends Component
         session()->flash('success', 'training ' . $this->training->name  . ' deleted successfully');
         return redirect()->route('trainings.index');
     }
-    
+
+
+
     public function update()
     {
         $this->validate([
             // Add validation rules for your fields here
+
             'description' => 'required|string',
             'image' => 'nullable|file',
+
             'title' => 'required|string|max:255',
-            'youtube_links' => 'nullable|array',
-            'youtube_links.*' => 'nullable|url',
+
+            'youtube_links' => 'nullable|url',
             'popular' => 'nullable|boolean',
+
             // Add more validation rules as needed
         ]);
-    
-        $this->training->update([
-            'description' => $this->description,
-            'title' => $this->title,
-            'popular' => $this->popular,
-        ]);
-    
-        // Update youtube_links separately
-        foreach ($this->youtube_links as $index => $link) {
-            $this->training->youtube_links[$index] = $link;
-        }
-    
+
+        $this->training->update(
+            [
+                'description' => $this->description,
+
+                'title' => $this->title,
+
+                'youtube_links' => $this->youtube_links,
+                'popular' => $this->popular,
+
+
+            ]
+        );
+
         if ($this->image) {
             // Handle image upload and update
             $this->training->update(['image' => $this->image->store('path/to/image/folder', 'public')]);
         }
-    
-        $this->training->save();
-    
-        session()->flash('success', 'Training updated successfully');
+
+
+
+        session()->flash('success', 'training updated successfully');
         return redirect()->route('trainings.index');
     }
     public function cancel()

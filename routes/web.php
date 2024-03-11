@@ -79,6 +79,7 @@ use App\Livewire\ScholarshipRequest\Show as ScholarshipRequestShow;
 use App\Livewire\ScholarshipRequest\Index as ScholarshipRequestIndex;
 use App\Livewire\VolunteerApplication\Show as VolunteerApplicationShow;
 use App\Livewire\VolunteerApplication\Index as VolunteerApplicationIndex;
+use App\Livewire\Volunteers\ShowVolunteer;
 
 /*
 |--------------------------------------------------------------------------
@@ -156,9 +157,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/trainings/{training}', TrainingsShow::class)->name('trainings.show');
 
     // // // route group for volunteers
-    // Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
-    // Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
-    // // Route::get('/volunteers/{volunteer}', VolunteersShow::class)->name('volunteers.show');
+    Route::get('/volunteers', VolunteersIndex::class)->name('volunteers.index');
+    Route::get('/volunteers/create', VolunteersCreate::class)->name('volunteers.create');
+    Route::get('/volunteers/{volunteer}', ShowVolunteer::class)->name('volunteers.show');
 
 
     // Volunteer Applicationss route
@@ -170,9 +171,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::get('/trainers/create', TrainersCreate::class)->name('trainers.create');
     Route::get('/trainers/{trainer}', TrainersShow::class)->name('trainers.show');
     // route group for chapters
-    // Route::get('/chapters', ChaptersIndex::class)->name('chapters.index');
-    // Route::get('/chapters/create', ChaptersCreate::class)->name('chapters.create');
-    // Route::get('/chapters/{chapter}',ChaptersShow::class)->name('chapters.show');
+    Route::get('/chapters', ChaptersIndex::class)->name('chapters.index');
+    Route::get('/chapters/create', ChaptersCreate::class)->name('chapters.create');
+    Route::get('/chapters/{chapter}',ChaptersShow::class)->name('chapters.show');
 
     // route group for trainers
     Route::get('/scholarships', ScholarshipsIndex::class)->name('scholarships.index');

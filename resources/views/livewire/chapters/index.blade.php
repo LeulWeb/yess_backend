@@ -77,7 +77,7 @@
                         {{ $item->title }}
                     </td>
                     <td class="px-6 py-4">
-                        <a href="{{ $item->tiyoutube_linkstle }}">Wath</a>
+                        <a href="{{ $item->youtube_links }}">Wath</a>
                     </td>
                     {{-- <td class="px-6 py-4">
                         @isset($item->youtube_links)

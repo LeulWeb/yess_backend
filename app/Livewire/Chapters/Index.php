@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class Index extends Component
 {
-
     public string $search = '';
 
 

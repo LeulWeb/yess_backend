@@ -13,13 +13,13 @@
         </div>
     </div>
     <article class="format lg:format-lg dark:format-invert mt-4  ml-6 mb-7">
-        <h2>Create chapters </h2>
+        <h2>Create Chapters </h2>
     </article>
 
     <form wire:submit.prevent="create">
         
             
-            
+            <div>
                 <div class="mb-3">
                     {{-- title name --}}
                     <label for="title"
@@ -33,33 +33,32 @@
                         <x-form.error :$message />
                     @enderror
                 </div>
-                    <label for="training_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+
+
+
+                {{-- traininer --}}
+
+
+                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
                         a Training</label>
-                    <select  wire:model.live.debounce.200ms="training_id"  id="training_id"
+                    <select  wire:model.live.debounce.200ms="training_id"  id="countries"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                         @foreach ($trainingList as $item)
                              <option value="{{$item->id}}">{{$item->id}} {{$item->title}}</option>
                         @endforeach
-                    </select>               
+                    </select>
+
 
                 <div>
                     <label for="youtube_links">YouTube Links</label>
-                    @foreach ($youtube_links as $index => $link)
-                        <div>
-                            <input type="url" id="input-group-1"
-                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                                placeholder="YouTube Link" wire:model.lazy="youtube_links.{{ $index }}">
-                            {{-- <button wire:click.prevent="removeYoutubeLink({{ $index }})"
-                                class="text-red-500 hover:text-red-600 focus:outline-none">Remove</button> --}}
-                        </div>
-                    @endforeach
-                    <button wire:click.prevent="addYoutubeLink"
-                        class="text-blue-500 hover:text-blue-600 focus:outline-none">Add Link</button>
-                    @error('youtube_links.*')
-                        <span class="text-red-500">{{ $message }}</span>
-                    @enderror
+                    <input type="url" id="input-group-1"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="youtube_links " wire:model.live.debounce.300ms='youtube_links'>
                 </div>
-                
+
+
+
+            </div>  
         <div class="mb-3">
             <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
             <textarea wire:model.live.debounce.1000ms='description' rows="4"
@@ -69,14 +68,6 @@
                 <x-form.error :$message />
             @enderror
         </div>
-
-
-
-                 
-
-
-
-
 
 
         <div class="grid grid-cols-2 gap-y-5 gap-x-3 mt-5">

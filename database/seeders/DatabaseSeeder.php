@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 //  use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\Chapter;
 use App\Models\DonationRequest;
 use App\Models\Education;
 use App\Models\JobRequest;
@@ -34,7 +35,8 @@ class DatabaseSeeder extends Seeder
     Education::factory(10)->create();
     Startup::factory(10)->create();
     Volunteer::factory(10)->create();
-    //Training::factory(10)->create();
+    Training::factory(10)->create();
+    Chapter::factory(10)->create();
     ScholarshipRequest::factory(10)->create();
     DonationRequest::factory(10)->create();
     JobRequest::factory(10)->create();
