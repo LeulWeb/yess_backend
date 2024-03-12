@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Trainings;
 
+use App\Models\Chapter;
 use App\Models\Trainer;
 use Livewire\Component;
 use App\Models\Training;
@@ -130,7 +131,8 @@ class Show extends Component
     public function render()
     {
         return view('livewire.trainings.show', [
-            'trainerList' => Trainer::latest()->get()
+            'trainerList' => Trainer::latest()->get(),
+            'chapterList' => Chapter::latest()->get()
         ]);
     }
 }

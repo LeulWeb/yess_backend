@@ -55,10 +55,10 @@
                     </th>
                     <th scope="col" class="px-6 py-3">
                         Trainig Title
-                    </th>
+                    </th>                    
                     <th scope="col" class="px-6 py-3">
-                        Youtube Links
-                    </th>
+                        Chapters Title
+                    </th>                  
                    
 
                     <th scope="col" class="px-6 py-3">
@@ -77,16 +77,21 @@
                         <td class="px-6 py-4">
                             {{ $item->trainer->email }}>
                         </td>
+
                         <td class="px-6 py-4">
                             {{ $item->title }}>
                         </td>
+                        
                         <td class="px-6 py-4">
-                            @isset($item->youtube_links)
-                                <a href="  {{ $item->youtube_links }}" class="hover:text-red-400"> Watch</a>
-                            @endisset
-
+                            @foreach ($item->chapters as $chapter)                            
+                             {{ $chapter->title }}
+                          @endforeach
 
                         </td>
+
+                        
+                        
+                        
 
                         <td class="px-6 py-4">
                             <a href="{{ route('trainings.show', ['training' => $item]) }}"

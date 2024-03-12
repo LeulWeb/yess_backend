@@ -13,13 +13,14 @@ class TrainingController extends Controller
     {
         $query = $request->query('query');
 
-        $trainings = Training::search($query)->latest()->with('trainer')->get();
+        $trainings = Training::search($query)->latest()->with('trainer','chapters')->get();
         return TrainingResource::collection($trainings);
     }
 
     public function show(Training $training)
     {
-        $training = $training->load('trainer');
-        return new TrainingResource($training);
+        $training = $training->load(['trainer', 'chapters']);
+         return new TrainingResource($training);
+       
     }
 }

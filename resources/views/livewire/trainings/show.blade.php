@@ -155,6 +155,14 @@
                              <option value="{{$item->id}}">{{$item->id}} {{$item->name}}</option>
                         @endforeach
                     </select>
+                    <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+                        a Chapter</label>
+                    <select  wire:model.live.debounce.200ms="trainer_id"  id="countries"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        @foreach ($chapterList as $item)
+                             <option value="{{$item->id}}">{{$item->id}} {{$item->title}}</option>
+                        @endforeach
+                    </select>
 
                 <div>
                     <label for="popular" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
@@ -225,16 +233,30 @@
 
                 <img src="{{ asset($training->image) }}" alt="" class ="flex flex-col items-center w-full h-full  p-6">
                 <div class="format flex flex-col mt-5  dark:text-white">
-                        <h4 class = " dark:text-white">Title</h4>
-                        {{ $training->title }}
-                        <h4 class = " dark:text-white">About Company</h4>
-                          {{ $training->description }}
+                    <h4 class = " dark:text-white">Title</h4>
+                    {{ $training->title }}
+                    <h4 class = " dark:text-white">About Training</h4>
+                      {{ $training->description }}
 
-                          <h4 class = " dark:text-white">Youtube Link</h4>
-                        <a href = "{{ $training->youtube_links }}">{{ $training->youtube_links }}</a>
+                      <h4 class = " dark:text-white">Youtube Link</h4>
+                    <a href = "{{ $training->youtube_links }}">{{ $training->youtube_links }}</a>
 
-                         <h4 class = " dark:text-white">Popular</h4>
-                         {{ $training->popular }}
+                     <h4 class = " dark:text-white">Popular</h4>
+                     {{ $training->popular }}
+                     
+                     <hr>
+                     <h2> Chapters List</h2>
+                    @foreach ($training->chapters as $chapter)
+                        <h4 class="dark:text-white">Chapter's Title</h4>
+                         {{ $chapter->title }}
+                        <h4 class="dark:text-white">About Chapters</h4>
+                          {{ $chapter->description }}
+                        <h4 class="dark:text-white">Chapters Link</h4>
+                        <a href="{{ $chapter->youtube_links }}">{{ $chapter->youtube_links }}</a>
+                    @endforeach
+
+
+                         
 
 
 

@@ -22,6 +22,7 @@ class TrainingResource extends JsonResource
             "description"=> $this->description,
             "youtube_links"=>$this->youtube_links,
             "trainer"=>new TrainerResource($this->whenLoaded('trainer')),
+            "chapters" => ChapterResource::collection($this->whenLoaded('chapters')),
         ];
     }
 }

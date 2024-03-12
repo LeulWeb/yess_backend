@@ -22,7 +22,7 @@ class Index extends Component
     public function render()
     {
         return view('livewire.trainings.index',[
-            'trainingList'=>Training::search($this->search)->latest()->paginate(5),
+            'trainingList' => Training::with('chapters')->search($this->search)->latest()->paginate(5),
         ]);
     }
 }

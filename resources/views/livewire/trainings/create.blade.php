@@ -78,6 +78,14 @@
                         @foreach ($trainerList as $item)
                              <option value="{{$item->id}}">{{$item->id}} {{$item->name}}</option>
                         @endforeach
+                    </select>                    
+
+                    <label for="chapters" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Chapters</label>
+                    <select  wire:model.live.debounce.200ms="chapterIds"  id="chapters"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        @foreach ($chapters as $item)
+                             <option value="{{$item->id}}">{{$item->id}} {{$item->title}}</option>
+                        @endforeach
                     </select>
 
 
