@@ -78,21 +78,27 @@
                         @foreach ($trainerList as $item)
                              <option value="{{$item->id}}">{{$item->id}} {{$item->name}}</option>
                         @endforeach
-                    </select>                    
-
-                    <label for="chapters" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Chapters</label>
-                    <select  wire:model.live.debounce.200ms="chapterIds"  id="chapters"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                        @foreach ($chapters as $item)
-                             <option value="{{$item->id}}">{{$item->id}} {{$item->title}}</option>
+                        
+                    </select> 
+                    @error('trainer_id')
+                            <x-form.error :message="$message" />
+                        @enderror
+                        <label for="chapters" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Chapters</label>
+                        <select wire:model="chapterIds" id="chapters" multiple
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            @foreach ($chapterTitles as $chapterId => $chapterTitle)
+                            <option value="{{ $chapterId }}"> {{ $chapterId }} {{ $chapterTitle }}</option>
                         @endforeach
-                    </select>
+                        </select>
+                        @error('chapterIds')
+                            <x-form.error :message="$message" />
+                        @enderror
+                    
 
 
 
-                <div>
-                    <label for="popular" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                        Popular
+                <div class="mt-5">
+                    
                     </label>
                     <input id="popular" type="checkbox" wire:model.defer="popular"
                         class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
@@ -107,6 +113,9 @@
                     <input type="url" id="input-group-1"
                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="youtube_links " wire:model.live.debounce.300ms='youtube_links'>
+                        @error('youtube_links')
+                            <x-form.error :message="$message" />
+                        @enderror
                 </div>
 
 

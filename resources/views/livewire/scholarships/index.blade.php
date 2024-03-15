@@ -63,6 +63,9 @@
                         Link
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Deadline
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Action
                     </th>
                 </tr>
@@ -83,6 +86,10 @@
                         </td>
                         <td class="px-6 py-4">
                             <a href="{{ $item->link }}">{{ $item->link }}</a>
+
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $item->deadline }}                           
 
                         </td>
                         <td class="px-6 py-4">

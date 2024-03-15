@@ -17,6 +17,7 @@ class JobController extends Controller
 
         $query = $request->query('query');
         $filterBySector = $request->query('sector');
+        $filterByGender = $request->query('gender');
         $job_type = $request->query('type');
         $experience = $request->query('years');
 

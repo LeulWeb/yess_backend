@@ -68,7 +68,7 @@ class Shownews extends Component
         $this->links = $new->links;
         $this->date = $new->date;
         $this->logoName = $new->logo;
-        $this->imageName =$new->thumbnail;
+        $this->imageName = $new->thumbnail ?? '';
     }
 
 

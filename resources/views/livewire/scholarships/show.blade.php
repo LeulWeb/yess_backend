@@ -195,7 +195,7 @@
                             {{-- Links --}}
                             <div class="relative mb-6 flex flex-col">
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Link                              </label>
-                                <input type="text" id="input-group-1"
+                                <input type="url" id="input-group-1"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="Link" wire:model.live.debounce.300ms='link'>
 
@@ -252,7 +252,7 @@
                                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white my-3">Deadline
                                 </label>
 
-                                <input type="text" id="input-group-1"
+                                <input type="date" id="input-group-1"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="deadline " wire:model.live.debounce.300ms='deadline'>
 
@@ -395,6 +395,7 @@
                     <a href="{{ $scholarship->link }}" class = "text-blue-600 hover:text-red-400 text-center ml-2 pl-2"> Click here to see Details </a>
 
                     <img src="{{ asset($scholarship->cover) }}" alt="" class ="flex flex-col items-center w-full h-full  p-6">
+                    <h6>Deadline:  {{ $scholarship->deadline }}</h6>
 
                 </div>
 
@@ -414,6 +415,7 @@
                     {{ $scholarship->eligibility_criteria }}
                     <h4 class = " dark:text-white">  Application Process</h4>
                     {{ $scholarship->application_process }}
+                    
 
 
                     <h4 class = " dark:text-white">Funding Source for The scholarship</h4>
@@ -444,6 +446,7 @@
                                 </td>
                                 <td class="px-6 py-4">
                                     {{ $scholarship->institution }}
+                                    
                                 </td>
                             </tr>
 
@@ -453,21 +456,11 @@
                                     Program
                                 </td>
                                 <td class="px-6 py-4 font-semibold dark:text-whtie">
-                                    Deadline
-                                </td>
-
-                            </tr>
-                            <tr class="border-b border-gray-200 dark:border-gray-700">
-
-
-                                <td class="px-6 py-4">
                                     {{ $scholarship->program }}
+                                </td>
 
-                                </td>
-                                <td class="px-6 py-4">
-                                    {{ $scholarship->deadline }}
-                                </td>
                             </tr>
+                            
 
 
 

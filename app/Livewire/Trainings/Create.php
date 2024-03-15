@@ -20,8 +20,8 @@ class Create extends Component
     use WithFileUploads;
     
      public String $imageName = '';
-     
-     public $chapterIds;
+         
+     public $chapterIds =[];
     #[Validate('required|max:50')]
     public $title;
     #[Validate('required|min:50|max:65535')]
@@ -33,13 +33,19 @@ class Create extends Component
 
     #[Validate('nullable|boolean')]
     public $popular;
-    #[Validate('required')]
+    #[Validate('required|url')]
     public $youtube_links;
 
 
 
     #[Validate('required')]
     public $trainer_id;
+    public $chapterTitles = [];
+
+    public function mount()
+    {
+        $this->chapterTitles = Chapter::pluck('title', 'id')->toArray();
+    }
 
     public function create()
     {
@@ -55,24 +61,18 @@ class Create extends Component
         $training = Training::create($validated);
     
         // Ensure $this->chapterIds is an array
-        if (!is_array($this->chapterIds)) {
-            // If it's a JSON string, convert it to an array
-            if (is_string($this->chapterIds) && is_array(json_decode($this->chapterIds, true))) {
-                $this->chapterIds = json_decode($this->chapterIds, true);
-            } else {
-                // Handle the case where $this->chapterIds is not an array
-                // For example, you might want to set it to an empty array or throw an exception
-                $this->chapterIds = [];
+        foreach ($this->chapterIds as $chapterId) {
+            $chapter = Chapter::find($chapterId);
+            if ($chapter) {
+                // Use save() instead of attach() for one-to-many relationships
+                $training->chapters()->save($chapter);
             }
-        }
-    
-        foreach ($this->chapterIds as $chapterData) {
-            $training->chapters()->create($chapterData);
-        }
+       
     
         session()->flash('success', 'Training with Chapters created successfully');
         return redirect()->route('trainings.index');
     }
+}
     
     public function cancel()
     {

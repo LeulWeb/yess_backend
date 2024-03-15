@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Jobs;
 
+use App\Enums\Gender;
 use App\Enums\JobSchedule;
 use App\Enums\JobSector;
 use App\Models\Job;
@@ -26,17 +27,21 @@ class Create extends Component
 
     #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
     public $logo;
-    #[Validate('required')]
+    #[Validate('nullable')]
     public $sector;
-    #[Validate('required')]
+    #[Validate('nullable')]
     public $requirements;
-    #[Validate('required')]
+    #[Validate('nullable')]
     public $schedule;
+    #[Validate('nullable|boolean')]
+      public $is_remote;
 
-    #[Validate('numeric|between:1,1000000')]
+    #[Validate('nullable|numeric|between:1,1000000')]
     public $vacancies;
     #[Validate('nullable')]
     public $note;
+    #[Validate('required')]
+    public $gender;
     #[Validate('required|date')]
     public $deadline;
     #[Validate('nullable')]
@@ -49,7 +54,7 @@ class Create extends Component
     #[Validate('nullable')]
     public $opportunities;
 
-    #[Validate('required|email|unique:jobs,contact_email')]
+    #[Validate('required|email')]
     public $contact_email;
 
     #[Validate('required|regex:/^\+(?:[0-9] ?){6,14}[0-9]$/')]
@@ -93,6 +98,7 @@ class Create extends Component
         return view('livewire.jobs.create', [
             'JobSectors' => JobSector::getValues(),
             'JobSchedule' =>JobSchedule::getValues(),
+            'Gender' =>Gender::getValues(),
 
         ]);
     }

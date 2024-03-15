@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Gender;
 use App\Enums\JobSchedule;
 use App\Enums\JobSector;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -21,6 +22,7 @@ class JobFactory extends Factory
 
         $randomSchedule =  JobSchedule::getValues();
         $randomSector = JobSector::getValues();
+        $randomGender = Gender::getValues();
 
         return [
             'title' => fake()->sentence,
@@ -28,6 +30,7 @@ class JobFactory extends Factory
             'schedule' => fake()->randomElement($randomSchedule),
             'is_remote' => fake()->boolean,
             'sector' => fake()->randomElement($randomSector),
+            'gender' => fake()->randomElement($randomGender),
             'location' => fake()->address(),
             'experience' => fake()->randomDigitNotNull,
             'deadline' => fake()->date,

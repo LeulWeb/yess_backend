@@ -261,7 +261,7 @@
                     <div class="relative mb-6">
                         <label for="input-group-1" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Experiances
                         </label>
-                        <input type="numeric" id="input-group-1"
+                        <input type="text" id="input-group-1"
                             class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                             placeholder="experiance" wire:model.live.debounce.300ms='experiance'>
 
@@ -321,7 +321,7 @@
                     {{--  deadline  --}}
                     <label for="deadline" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">deadline
                         </label>
-                    <input wire:model.live='deadline' type="text" id="deadline"
+                    <input wire:model.live='deadline' type="date" id="deadline"
                         aria-describedby="helper-text-explanation"
                         class="bg-gray-50 border mb-5 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                         placeholder="deadline">
@@ -374,6 +374,32 @@
                     @enderror
 
             </div>
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label for="gender" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        Gender
+                    </label>
+                    <select wire:model.live='gender' id="gender" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        @foreach ($Gender as $item)
+                            <option>{{ $item }}</option>
+                        @endforeach
+                    </select>
+                    @error('gender')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div>
+                    <label for="is_remote" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                        is_remote
+                    </label>
+                    <input id="is_remote" type="checkbox" wire:model.defer="is_remote" class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
+                    <label for="is_remote" class="ml-2 text-sm text-gray-700 dark:text-white">is</label>
+                    @error('is_remote')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
+                </div>
+            </div>
+            
             <div>
                 <label class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
                   <textarea wire:model.live.debounce.1000ms='description' rows="4"
@@ -423,6 +449,8 @@
                             <h5 class="mb-1  font-medium text-gray-900 dark:text-white">{{ $job->title }}</h5>
                             <h2 class = " dark:text-white text-xl">Contact Address </h2>
                             <p> {{ $job->contact_address }} </p>
+                            <h2 class = " dark:text-white text-xl">Isremote </h2>
+                            <p> {{ $job->is_remote }} </p>
 
                         </div>
                 </div>
@@ -449,6 +477,14 @@
                             <div class="flex space-x-1 items-center">
                                 <iconify-icon icon="solar:phone-outline"></iconify-icon>
                                 <p>{{ $job->contact_phone }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="my-2">
+                        <p>Gender</p>
+                        <div>
+                            <div class="flex space-x-1 items-center">                                
+                                <p>{{ $job->gender }}</p>
                             </div>
                         </div>
                     </div>

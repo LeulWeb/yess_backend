@@ -51,8 +51,7 @@ class Show extends Component
         $this->category = $blog->category;
         $this->tag = $blog->tag;
 
-        $this->imageName = '';
-         $this->imageName = $this->imageName ?: $blog->image;
+        $this->imageName = $blog->image ?? '';
 
 
     }

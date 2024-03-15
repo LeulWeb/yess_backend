@@ -94,7 +94,7 @@
             <div class="flex flex-col items-center justify-center w-full">
 
                 <label for="dropzone-file-one"
-                    class="flex flex-col items-center justify-center w-full h-70 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
+                    class="flex flex-col items-center justify-center w-full h-full border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600 overflow-hidden">
                     <div class="flex flex-col items-center justify-center pt-5 pb-6">
                         @if ($image)
                         <img src="{{ $image->temporaryUrl() }}" class="bg-cover bg-center" alt="">
@@ -118,7 +118,7 @@
                             </p>
                         @endif
                     </div>
-                    <input wire:model.live='image' id="dropzone-file-one" type="file" class="hidden mb-6 p-8  w-full " />
+                    <input wire:model.live='image' id="dropzone-file-one" type="file" class="hidden mb-6 p-8  w-full h-full" />
                     <div wire:loading wire:target="image">Uploading...</div>
                 </label>
 

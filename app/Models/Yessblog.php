@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Blog extends Model
+class Yessblog extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'content', 'author', 'imageName','category', 'tag'];
@@ -13,6 +13,4 @@ class Blog extends Model
     {
         return $query->where('title','LIKE','%'.$search.'%')->orWhere('author', 'LIKE','%'.$search.'%');
     }
-    
-    
 }

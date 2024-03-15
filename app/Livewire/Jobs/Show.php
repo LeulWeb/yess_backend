@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Jobs;
 
+use App\Enums\Gender;
 use App\Enums\JobSchedule;
 use App\Enums\JobSector;
 use App\Models\Job;
@@ -16,6 +17,8 @@ class Show extends Component
     use WithFileUploads;
 
     public string $logoName = '';
+    #[Validate('nullable|boolean')]
+    public $is_remote;
 
     #[Validate('required|max:50')]
     public $title;
@@ -27,15 +30,17 @@ class Show extends Component
     #[Validate('required')]
     public $sector;
     #[Validate('required')]
+    public $gender;
+    #[Validate('nullable')]
     public $requirements;
-    #[Validate('required')]
+    #[Validate('nullable')]
     public $schedule;
 
     #[Validate('numeric|between:1,1000000')]
     public $vacancies;
     #[Validate('nullable')]
     public $note;
-    #[Validate('required|date')]
+    #[Validate('nullable')]
     public $deadline;
     #[Validate('nullable')]
     public $responsibilities;
@@ -47,7 +52,7 @@ class Show extends Component
     #[Validate('nullable')]
     public $opportunities;
 
-    #[Validate('required|email|unique:jobs,contact_email')]
+    #[Validate('required|email|')]
     public $contact_email;
 
     #[Validate('required|regex:/^\+(?:[0-9] ?){6,14}[0-9]$/')]
@@ -73,7 +78,9 @@ class Show extends Component
     {
         $this->description = $job->description;
         $this->title = $job->title;
+        $this->is_remote=$job->is_remote;
         $this->sector = $job->sector;
+        $this->gender = $job->gender;
         $this->schedule = $job->schedule;
         $this->experience = $job->experience;
         $this->deadline = $job->deadline;
@@ -112,12 +119,14 @@ class Show extends Component
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'sector' => 'required|string',
-            'schedule' => 'required|string',
-            'experience' => 'required|integer',
-            'deadline' => 'required|date|',
+            'is_remote' =>'nullable|boolean',
+            'gender' => 'required|string',
+            'schedule' => 'nullable|string',
+            'experience' => 'nullable|string',
+            'deadline' => 'nullable|date',
             'contact_email' => 'required|email',
             'contact_phone' => 'required|string',
-            'location' => 'required|string',
+            'location' => 'nullable|string',
             'responsibilities' => 'nullable|string',
             'requirements' => 'nullable|string',
             'note' => 'nullable|string',
@@ -129,8 +138,10 @@ class Show extends Component
 
         $this->job->update([
             'title' => $this->title,
+            'is_remote' => $this->is_remote,
             'description' => $this->description,
             'sector' => $this->sector,
+            'gender' => $this->gender,
             'schedule' => $this->schedule,
             'experience' => $this->experience,
             'deadline' => $this->deadline,
@@ -167,6 +178,7 @@ class Show extends Component
         return view('livewire.jobs.show', [
             'JobSectors'=>JobSector::getValues(),
             'JobSchedule' =>JobSchedule::getValues(),
+            'Gender' =>Gender::getValues(),
         ]);
     }
 }

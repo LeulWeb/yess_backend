@@ -21,6 +21,7 @@ class JobResource extends JsonResource
             'schedule' =>$this->schedule,
             'is_remote' => $this->is_remote == 0 ? false: true,
             'sector' =>$this->sector,
+            'gender' =>$this->gender,
             'location' => $this->location,
             'experience' => $this->experience,
             'deadline' => $this->deadline,

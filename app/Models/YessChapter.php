@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Training;
 
-class Chapter extends Model
+class YessChapter extends Model
 {
     use HasFactory;
     protected $guarded =[];

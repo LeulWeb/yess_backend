@@ -25,6 +25,14 @@ class Job extends Model
 
         return $query;
     }
+    public function scopeFilterByGender($query, $gender)
+    {
+        if (isset($gender)) {
+            return $query->where('sector', $gender);
+        }
+
+        return $query;
+    }
 
     // filter by job type
     public function scopeFilterByJobType($query, $filters)

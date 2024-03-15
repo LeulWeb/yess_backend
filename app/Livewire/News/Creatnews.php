@@ -24,10 +24,10 @@ class Creatnews extends Component
     #[Validate('required')]
     public $description;
 
-    #[Validate('required|image|mimes:jpeg,png,jpg,gif|max:7168')]
+    #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
     public $logo;
 
-    #[Validate('required|image|mimes:jpeg,png,jpg,gif|max:7168')]
+    #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
     public $thumbnail;
 
     #[Validate('required|max:500000')]

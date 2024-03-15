@@ -1,10 +1,12 @@
 <?php
 
+use App\Enums\Gender;
 use App\Enums\JobSchedule;
 use App\Enums\JobSector;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use phpDocumentor\Reflection\Types\Nullable;
 
 return new class extends Migration
 {
@@ -21,12 +23,13 @@ return new class extends Migration
             $table->enum('schedule', JobSchedule::getValues())->default(JobSchedule::FULLTIME);
             $table->boolean('is_remote')->default(false);
             $table->enum('sector', JobSector::getValues())->default(JobSector::OTHER);
+            $table->enum('gender', Gender::getValues())->default(Gender::Both);
             $table->string('location');
-            $table->string('experience');
-            $table->timestamp('deadline')->useCurrent();
-            $table->text('responsibilities');
+            $table->string('experience')->nullable();
+            $table->timestamp('deadline')->Nullable();
+            $table->text('responsibilities')->nullable();
             $table->string('requirements');
-            $table->string('note');
+            $table->string('note')->nullable();
             $table->string('salary_compensation');
             $table->text('opportunities')->nullable();
             $table->unsignedSmallInteger('vacancies')->nullable();
