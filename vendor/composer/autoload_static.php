@@ -753,6 +753,7 @@ class ComposerStaticInitf7b409a7f36ef25b24bd0fcf26eda8b0
         'App\\Livewire\\Youth\\Create' => __DIR__ . '/../..' . '/app/Livewire/Youth/Create.php',
         'App\\Livewire\\Youth\\Index' => __DIR__ . '/../..' . '/app/Livewire/Youth/Index.php',
         'App\\Livewire\\Youth\\Show' => __DIR__ . '/../..' . '/app/Livewire/Youth/Show.php',
+        'App\\Models\\Blog' => __DIR__ . '/../..' . '/app/Models/Blog.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Chapter' => __DIR__ . '/../..' . '/app/Models/Chapter.php',
         'App\\Models\\Donation' => __DIR__ . '/../..' . '/app/Models/Donation.php',
