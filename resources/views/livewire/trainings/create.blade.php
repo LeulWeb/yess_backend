@@ -90,9 +90,9 @@
                             <option value="{{ $chapterId }}"> {{ $chapterId }} {{ $chapterTitle }}</option>
                         @endforeach
                         </select>
-                        @error('chapterIds')
+                        {{-- @error('chapterIds')
                             <x-form.error :message="$message" />
-                        @enderror
+                        @enderror --}}
                     
 
 
@@ -103,9 +103,9 @@
                     <input id="popular" type="checkbox" wire:model.defer="popular"
                         class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out">
                     <label for="popular" class="ml-2 text-sm text-gray-700 dark:text-white">Popular</label>
-                    @error('popular')
+                    {{-- @error('popular')
                         <span class="text-red-500">{{ $message }}</span>
-                    @enderror
+                    @enderror --}}
                 </div>
 
                 <div>

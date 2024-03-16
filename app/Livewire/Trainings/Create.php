@@ -31,9 +31,9 @@ class Create extends Component
     #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
     public $image;
 
-    #[Validate('nullable|boolean')]
+    #[Validate('nullable')]
     public $popular;
-    #[Validate('required|url')]
+    #[Validate('nullable|url')]
     public $youtube_links;
 
 

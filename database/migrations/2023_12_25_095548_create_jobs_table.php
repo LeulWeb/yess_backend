@@ -26,7 +26,7 @@ return new class extends Migration
             $table->enum('gender', Gender::getValues())->default(Gender::Both);
             $table->string('location');
             $table->string('experience')->nullable();
-            $table->timestamp('deadline')->Nullable();
+            $table->timestamp('deadline')->nullable();
             $table->text('responsibilities')->nullable();
             $table->string('requirements');
             $table->string('note')->nullable();

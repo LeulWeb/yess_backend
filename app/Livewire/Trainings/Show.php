@@ -36,7 +36,7 @@ class Show extends Component
     #[Validate('required|max:100')]
     public $title;
 
-    #[Validate('required|url')]
+    #[Validate('nullable|url')]
     public $youtube_links;
     #[Validate('nullable|boolean')]
     public $popular;

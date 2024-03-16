@@ -132,6 +132,7 @@ return array(
     'App\\Livewire\\Youth\\Create' => $baseDir . '/app/Livewire/Youth/Create.php',
     'App\\Livewire\\Youth\\Index' => $baseDir . '/app/Livewire/Youth/Index.php',
     'App\\Livewire\\Youth\\Show' => $baseDir . '/app/Livewire/Youth/Show.php',
+    'App\\Models\\Blog' => $baseDir . '/app/Models/Blog.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Chapter' => $baseDir . '/app/Models/Chapter.php',
     'App\\Models\\Donation' => $baseDir . '/app/Models/Donation.php',

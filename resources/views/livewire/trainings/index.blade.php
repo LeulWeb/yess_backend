@@ -79,7 +79,7 @@
                         </td>
 
                         <td class="px-6 py-4">
-                            {{ $item->title }}>
+                            {{ $item->title }}
                         </td>
                         
                         <td class="px-6 py-4">

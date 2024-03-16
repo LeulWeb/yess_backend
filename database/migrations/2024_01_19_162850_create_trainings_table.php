@@ -21,7 +21,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image')->nullable();
             $table->string('youtube_links')->nullable();
-            $table->boolean('popular')->default(true);
+            $table->boolean('popular')->nullable();
             $table->timestamps();
         });
     }
