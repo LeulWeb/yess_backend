@@ -3,7 +3,7 @@
 namespace App\Livewire\Chapters;
 
 
-use App\Models\chapter;
+use App\Models\Chapter;
 use App\Models\Training;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
