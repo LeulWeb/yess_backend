@@ -15,6 +15,9 @@
                 <div class="flex space-x-2 items-center">
                     <iconify-icon icon="uil:plus" color="white"></iconify-icon>
                     <p> Add Blogs </p>
+
+
+                    <p class ="bg-blue-500"> Add Blogs> </p>
                 </div>
 
             </a>

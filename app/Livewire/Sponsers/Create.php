@@ -24,18 +24,18 @@ class Create extends Component
     public $logo;
     #[Validate('required')]
     public $organization_type;
-    #[Validate('required')]
+    #[Validate('nullable')]
     public $status;
     #[Validate('nullable')]
     public $sponsorship_level;
-    #[Validate('required|max:50')]
+    #[Validate('nullable|max:50')]
     public $area_of_collaboration;
 
     #[Validate('required|email|unique:sponsers,email')]
     public $email;
     #[Validate('required|regex:/^\+(?:[0-9] ?){6,14}[0-9]$/')]
     public $phone;
-    #[Validate('required|sometimes|file|mimes:doc,docx,pdf,txt|max:20480')]
+    #[Validate('nullable|sometimes|file|mimes:doc,docx,pdf,txt|max:20480')]
     public $agreement_file;
 
     public function create()

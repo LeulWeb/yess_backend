@@ -21,20 +21,20 @@ class Show extends Component
     public $organization;
     #[Validate('nullable|image|mimes:jpeg,png,jpg,gif|max:7168')]
     public $logo;
-    #[Validate('required')]
+    #[Validate('nullable')]
     public $organization_type;
-    #[Validate('required')]
+    #[Validate('nullable')]
     public $status;
     #[Validate('nullable')]
     public $sponsorship_level;
-    #[Validate('required|max:50')]
+    #[Validate('nullable|max:550')]
     public $area_of_collaboration;
 
-    #[Validate('required|email|unique:sponsers,email')]
+    #[Validate('required|email')]
     public $email;
     #[Validate('required|regex:/^\+(?:[0-9] ?){6,14}[0-9]$/')]
     public $phone;
-    #[Validate('required|file|mimes:doc,docx,pdf,txt|max:20480')]
+    #[Validate('nullable|file|mimes:doc,docx,pdf,txt|max:20480')]
     public $agreement_file;
 
     public Sponser $sponser;
